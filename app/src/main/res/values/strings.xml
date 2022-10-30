@@ -6,4 +6,18 @@
     <string name="sujud">sujud</string>
     <string name="salah">salah</string>
 
+    <string name="os_s1_title">slide 1</string>
+    <string name="os_s2_title">slide 2</string>
+    <string name="os_s3_title">slide 3</string>
+    <string name="os_s4_title">slide 4</string>
+
+    <string name="os_s1_desc">slide 1 desc</string>
+    <string name="os_s2_desc">slide 2 desc</string>
+    <string name="os_s3_desc">slide 3 desc</string>
+    <string name="os_s4_desc">slide 4 desc</string>
+
+    <string name="os_skip_btn">skip</string>
+    <string name="os_next_btn">next</string>
+    <string name="os_start_btn">start</string>
+
 </resources>
