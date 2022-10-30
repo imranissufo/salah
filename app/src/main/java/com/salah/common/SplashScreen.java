@@ -16,7 +16,7 @@ import com.salah.user.UserDashboard;
 
 public class SplashScreen extends AppCompatActivity {
 
-    private static int SPLASH_TIMER = 1000;
+    private static int SPLASH_TIMER = 4000;
     private ImageView imageView;
     private TextView textView;
 
@@ -42,7 +42,7 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 Intent intent = new Intent(getApplicationContext(), UserDashboard.class);
                 startActivity(intent);
-                //finish();
+                finish();
             }
         }, SPLASH_TIMER);
     }
