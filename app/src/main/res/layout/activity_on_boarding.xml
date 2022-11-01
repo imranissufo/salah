@@ -7,17 +7,23 @@
     android:padding="20dp"
     tools:context=".common.OnBoarding">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/ob_vp"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/os_vp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/ob_rl"
+        app:layout_constraintBottom_toTopOf="@+id/os_rl"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></androidx.viewpager2.widget.ViewPager2>
+        app:layout_constraintTop_toTopOf="parent">
+        <Button
+            android:id="@+id/os_skip_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/os_skip_btn"/>
+    </androidx.viewpager.widget.ViewPager>
 
     <RelativeLayout
-        android:id="@+id/ob_rl"
+        android:id="@+id/os_rl"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         app:layout_constraintBaseline_toBottomOf="parent"
@@ -30,13 +36,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            android:text="@string/os_start_btn" />
+            android:text="@string/os_start_btn"
+            android:visibility="invisible"/>
 
         <LinearLayout
+            android:id="@+id/os_dots"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:paddingBottom="20dp" />
+            android:paddingBottom="20dp"
+            android:orientation="horizontal"/>
 
         <Button
             android:id="@+id/os_next_btn"
