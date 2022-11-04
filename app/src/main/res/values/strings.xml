@@ -26,6 +26,7 @@
     <string name="restaurants">rests</string>
     <string name="shops">shops</string>
     <string name="banks">banks</string>
+    <string name="airports">airports</string>
 
     <!-- titles and desc -->
     <string name="featured_locations">All Featured Locations</string>
