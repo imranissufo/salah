@@ -21,4 +21,19 @@
     <string name="os_next_btn">next</string>
     <string name="os_start_btn">start</string>
 
+    <!-- dashboard -->
+    <string name="hotels">hotels</string>
+    <string name="restaurants">rests</string>
+    <string name="shops">shops</string>
+    <string name="banks">banks</string>
+
+    <!-- titles and desc -->
+    <string name="featured_locations">All Featured Locations</string>
+    <string name="featured_locations_desc">All Featured Locations desc</string>
+    <string name="most_viewed_locations">Most Viewed</string>
+    <string name="categories">categories</string>
+    <string name="view_all">View All</string>
+    <string name="search_text">Search...</string>
+
+
 </resources>
