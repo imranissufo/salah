@@ -14,24 +14,24 @@ import com.salah.model.Location;
 
 import java.util.ArrayList;
 
-public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.FeaturedViewHolder> {
+public class MostViewedAdapter extends RecyclerView.Adapter<MostViewedAdapter.MostViewedViewHolder> {
 
     ArrayList<Location> locations;
 
-    public FeaturedAdapter(ArrayList<Location> locations) {
+    public MostViewedAdapter(ArrayList<Location> locations) {
         this.locations = locations;
     }
 
     @NonNull
     @Override
-    public FeaturedViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view  = LayoutInflater.from(parent.getContext()).inflate(R.layout.featured_card_design, parent,false);
-        FeaturedViewHolder viewHolder = new FeaturedViewHolder(view);
+    public MostViewedAdapter.MostViewedViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view  = LayoutInflater.from(parent.getContext()).inflate(R.layout.most_viewed_card_design, parent,false);
+        MostViewedAdapter.MostViewedViewHolder viewHolder = new MostViewedAdapter.MostViewedViewHolder(view);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull FeaturedViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MostViewedAdapter.MostViewedViewHolder holder, int position) {
         Location location = locations.get(position);
         holder.image.setImageResource(location.getImage());
         holder.title.setText(location.getTitle());
@@ -43,19 +43,20 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.Featur
         return locations.size();
     }
 
-    public static class FeaturedViewHolder extends RecyclerView.ViewHolder{
+    public static class MostViewedViewHolder extends RecyclerView.ViewHolder{
 
         ImageView image;
         TextView title;
         TextView desc;
 
-        public FeaturedViewHolder(@NonNull View itemView) {
+        public MostViewedViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            image = itemView.findViewById(R.id.featured_image);
-            title = itemView.findViewById(R.id.featured_title);
-            desc = itemView.findViewById(R.id.featured_desc);
+            image = itemView.findViewById(R.id.mv_image);
+            title = itemView.findViewById(R.id.mv_title);
+            desc = itemView.findViewById(R.id.mv_desc);
 
         }
     }
+
 }

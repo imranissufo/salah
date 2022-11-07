@@ -219,9 +219,12 @@
 
                 <LinearLayout
                     android:id="@+id/ud_featured_back"
-                    android:layout_width="170dp"
+                    android:layout_width="140dp"
                     android:layout_height="280dp"
-                    android:layout_margin="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="10dp"
                     android:background="@color/banner_background"
                     android:orientation="vertical">
 
@@ -233,7 +236,7 @@
                         android:text="@string/featured_locations"
                         android:textAllCaps="true"
                         android:textColor="@color/colorAccent"
-                        android:textSize="25dp" />
+                        android:textSize="20dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -247,6 +250,8 @@
                     android:id="@+id/ud_featured_recycler"
                     android:layout_width="match_parent"
                     android:layout_height="280dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_toRightOf="@id/ud_featured_back"
                     android:background="@color/home_background" />
 
@@ -284,6 +289,7 @@
                 </RelativeLayout>
 
                 <view class="androidx.appcompat.app.AlertController$RecycleListView"
+                    android:id="@+id/ud_most_recycler"
                     android:layout_width="match_parent"
                     android:layout_height="100dp">
 
@@ -322,6 +328,7 @@
                 </RelativeLayout>
 
                 <view class="androidx.appcompat.app.AlertController$RecycleListView"
+                    android:id="@+id/ud_category_recycler"
                     android:layout_width="match_parent"
                     android:layout_height="100dp">
 
