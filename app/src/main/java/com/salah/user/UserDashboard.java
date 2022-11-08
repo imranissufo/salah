@@ -1,5 +1,6 @@
 package com.salah.user;
 
+import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -79,6 +80,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         //Add any color or remove it to use the default one!
         //To make it transparent use Color.Transparent in side setScrimColor();
         //drawerLayout.setScrimColor(Color.TRANSPARENT);
+        //drawerLayout.setScrimColor(getResources().getColor(R.color.colorPrimary));
         drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
@@ -156,6 +158,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         return true;
     }
 
+    @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerVisible(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
