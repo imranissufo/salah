@@ -45,6 +45,8 @@
     <string name="logout">Logout</string>
     <string name="share">Share</string>
     <string name="rate_us">Rate Us</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="how_we_work">How we work?</string>
 
 
 </resources>

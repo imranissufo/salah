@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -19,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.salah.R;
+import com.salah.common.RetailerStartUpScreen;
 import com.salah.model.Location;
 import com.salah.util.CategoryAdapter;
 import com.salah.util.FeaturedAdapter;
@@ -34,7 +36,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     RecyclerView.Adapter adapter;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    ImageView menuIcon;
+    ImageView menuIcon, addIcon;
     LinearLayout contentView;
     private GradientDrawable gradient1, gradient2, gradient3, gradient4;
 
@@ -53,12 +55,16 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         navigationView = findViewById(R.id.navigation_view);
         menuIcon = findViewById(R.id.ud_menu);
         contentView = findViewById(R.id.content);
+        addIcon = findViewById(R.id.ud_add);
 
         naviagtionDrawer();
+        retailerScreens();
 
         featuredRecycler();
         mostViewedRecycler();
         categoriesRecycler();
+
+
     }
 
     private void naviagtionDrawer() {
@@ -172,5 +178,15 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         } else {
             super.onBackPressed();
         }
+    }
+
+    //Call the retailer Startup screen on it's OnClick
+    public void retailerScreens() {
+        addIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), RetailerStartUpScreen.class));
+            }
+        });
     }
 }
