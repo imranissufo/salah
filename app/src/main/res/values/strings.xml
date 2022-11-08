@@ -22,11 +22,11 @@
     <string name="os_start_btn">start</string>
 
     <!-- dashboard -->
-    <string name="hotels">hotels</string>
-    <string name="restaurants">rests</string>
-    <string name="shops">shops</string>
-    <string name="banks">banks</string>
-    <string name="airports">airports</string>
+    <string name="hotels">Hotels</string>
+    <string name="restaurants">Restaurants</string>
+    <string name="shops">Shops</string>
+    <string name="banks">Banks</string>
+    <string name="airports">Airports</string>
 
     <!-- titles and desc -->
     <string name="featured_locations">All Featured Locations</string>
