@@ -1,5 +1,6 @@
 package com.salah.user;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
@@ -155,6 +156,12 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.nav_all_categories:{
+                Intent intent = new Intent(getApplicationContext(), Categories.class);
+                startActivity(intent);
+            }break;
+        }
         return true;
     }
 
