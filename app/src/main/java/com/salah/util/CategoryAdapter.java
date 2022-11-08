@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -35,6 +36,7 @@ public class CategoryAdapter  extends RecyclerView.Adapter<CategoryAdapter.Categ
         Location location = locations.get(position);
         holder.image.setImageResource(location.getImage());
         holder.title.setText(location.getTitle());
+        holder.layout.setBackground(location.getGradient());
     }
 
     @Override
@@ -46,13 +48,14 @@ public class CategoryAdapter  extends RecyclerView.Adapter<CategoryAdapter.Categ
 
         ImageView image;
         TextView title;
+        RelativeLayout layout;
 
         public CategoryViewHolder(@NonNull View itemView) {
             super(itemView);
 
             image = itemView.findViewById(R.id.ct_image);
             title = itemView.findViewById(R.id.ct_title);
-
+            layout = itemView.findViewById(R.id.ct_background);
         }
     }
 }
