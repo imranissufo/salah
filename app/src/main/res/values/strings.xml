@@ -47,6 +47,10 @@
     <string name="rate_us">Rate Us</string>
     <string name="sign_up">Sign Up</string>
     <string name="how_we_work">How we work?</string>
+    <string name="enter_phone_number">Enter phone number</string>
+    <string name="enter_password">Enter password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="forget_password">Forgot password</string>
 
 
 </resources>

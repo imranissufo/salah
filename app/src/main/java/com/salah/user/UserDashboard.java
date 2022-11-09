@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.salah.R;
+import com.salah.common.Login;
 import com.salah.common.RetailerStartUpScreen;
 import com.salah.model.Location;
 import com.salah.util.CategoryAdapter;
@@ -165,6 +166,10 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         switch (item.getItemId()){
             case R.id.nav_all_categories:{
                 Intent intent = new Intent(getApplicationContext(), Categories.class);
+                startActivity(intent);
+            }break;
+            case R.id.nav_login:{
+                Intent intent = new Intent(getApplicationContext(), Login.class);
                 startActivity(intent);
             }break;
         }

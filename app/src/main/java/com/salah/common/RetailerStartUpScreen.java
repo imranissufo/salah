@@ -47,4 +47,5 @@ public class RetailerStartUpScreen extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
 }
