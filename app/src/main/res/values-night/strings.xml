@@ -3,4 +3,7 @@
     <string name="login">Login</string>
     <string name="profile">Profile</string>
     <string name="logout">Logout</string>
+    <string name="enter_username">Enter username</string>
+    <string name="enter_email">Enter email</string>
+    <string name="next_btn">Next</string>
 </resources>

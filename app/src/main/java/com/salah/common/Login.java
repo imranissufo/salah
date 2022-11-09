@@ -2,6 +2,7 @@ package com.salah.common;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 
 import com.salah.R;
 import com.salah.user.Categories;
+import com.salah.user.UserDashboard;
 
 public class Login extends AppCompatActivity {
 
@@ -35,4 +37,16 @@ public class Login extends AppCompatActivity {
     public void callForgetPassword(View view){
         Login.super.onBackPressed();
     }
+
+    public void letTheUserLoggedIn(View view){
+        Login.super.onBackPressed();
+    }
+
+    public void callSignUpFromLogin(View view){
+        Intent intent = new Intent(getApplicationContext(), SignUp.class);
+        startActivity(intent);
+        finish();
+    }
+
+
 }
