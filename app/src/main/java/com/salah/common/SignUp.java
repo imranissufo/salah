@@ -31,7 +31,7 @@ public class SignUp extends AppCompatActivity {
         });
     }
 
-    public void callNextSigupScreen(View view){
+    public void callNextSignupScreen(View view){
         SignUp.super.onBackPressed();
     }
 

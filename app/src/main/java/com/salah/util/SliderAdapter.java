@@ -19,10 +19,10 @@ public class SliderAdapter extends PagerAdapter {
     LayoutInflater inflater;
 
     int images[] = {
-            R.drawable.ic_salah_s1,
-            R.drawable.ic_salah_s2,
-            R.drawable.ic_salah_s3,
-            R.drawable.ic_salah_s4
+            R.drawable.dua,
+            R.drawable.ruku,
+            R.drawable.sujud,
+            R.drawable.hands
     };
     int titles[] = {
             R.string.os_s1_title,

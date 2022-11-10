@@ -6,4 +6,5 @@
     <string name="enter_username">Enter username</string>
     <string name="enter_email">Enter email</string>
     <string name="next_btn">Next</string>
+    <string name="back">back</string>
 </resources>
