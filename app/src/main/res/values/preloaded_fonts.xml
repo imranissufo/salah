@@ -2,6 +2,7 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/advent_pro</item>
+        <item>@font/advent_pro_bold</item>
         <item>@font/almarai_light</item>
     </array>
 </resources>
