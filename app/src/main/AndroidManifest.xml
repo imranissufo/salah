@@ -13,6 +13,27 @@
         android:theme="@style/Theme.Salah"
         tools:targetApi="31">
         <activity
+            android:name=".common.VerifyOTP"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".common.SignUpStep3"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".common.SignUpStep2"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".common.SignUp"
             android:exported="false">
             <meta-data
