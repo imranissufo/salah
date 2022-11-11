@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "419030844671",
+    "project_id": "salah-c19d9",
+    "storage_bucket": "salah-c19d9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:419030844671:android:c061bf6d4577c24645f8ca",
+        "android_client_info": {
+          "package_name": "com.salah"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "419030844671-dkq376310495ls8fctmd748a3jt9suan.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDM56g4ymUn2sE5Bd5lam_bKp5oMMZmArs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "419030844671-dkq376310495ls8fctmd748a3jt9suan.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

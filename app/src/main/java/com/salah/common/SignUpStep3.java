@@ -48,7 +48,8 @@ public class SignUpStep3 extends AppCompatActivity {
         String _date = getIntent().getStringExtra("date");
 
         String _getUserPhoneNumber = phoneNumber.getEditText().getText().toString().trim();
-        String _phoneNo = "+" + countryCodePicker.getFullNumber() + _getUserPhoneNumber;
+        //String _phoneNo = "+" + countryCodePicker.getFullNumber() + _getUserPhoneNumber;
+        String _phoneNo = "+" + countryCodePicker.getDefaultCountryCode() + _getUserPhoneNumber;
 
         intent.putExtra("fullName", _fullName);
         intent.putExtra("username", _username);
@@ -57,6 +58,7 @@ public class SignUpStep3 extends AppCompatActivity {
         intent.putExtra("date", _date);
         intent.putExtra("gender", _gender);
         intent.putExtra("phoneNo", _phoneNo);
+        intent.putExtra("whatToDO", "createNewUser"); // This is to identify that which action should OTP perform after verification.
 
         //Add Transition
         Pair[] pairs = new Pair[1];
@@ -76,9 +78,9 @@ public class SignUpStep3 extends AppCompatActivity {
         if (val.isEmpty()) {
             phoneNumber.setError("Enter valid Phone Number!");
             return false;
-        } else if (!val.matches(checkNo)) {
-            phoneNumber.setError("Enter valid Phone Number!");
-            return false;
+//        } else if (!val.matches(checkNo)) {
+//            phoneNumber.setError("Enter valid Phone Number!");
+//            return false;
         } else {
             phoneNumber.setError(null);
             phoneNumber.setErrorEnabled(false);
