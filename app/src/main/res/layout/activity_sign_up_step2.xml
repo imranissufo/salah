@@ -42,7 +42,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/advent_pro"
+                android:fontFamily="@font/ds_digib"
                 android:text="2/3"
                 android:layout_alignParentRight="true"
                 android:textColor="@color/black"

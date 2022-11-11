@@ -49,7 +49,7 @@ tools:context=".common.SignUpStep3">
             android:layout_centerVertical="true"
             android:layout_marginTop="20dp"
             android:background="@drawable/circle_black_border"
-            android:fontFamily="@font/advent_pro"
+            android:fontFamily="@font/ds_digib"
             android:gravity="center"
             android:padding="10dp"
             android:text="3/3"
@@ -90,7 +90,7 @@ tools:context=".common.SignUpStep3">
             app:endIconMode="clear_text"
             app:endIconTint="@color/black"
             app:hintTextColor="@color/black"
-            app:startIconDrawable="@drawable/field_phone_number_icon"
+            app:startIconDrawable="@drawable/ic_phone"
             app:startIconTint="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText

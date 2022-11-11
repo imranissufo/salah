@@ -48,7 +48,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/circle_black_border"
-                android:fontFamily="@font/advent_pro"
+                android:fontFamily="@font/ds_digib"
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="@string/step1_3"

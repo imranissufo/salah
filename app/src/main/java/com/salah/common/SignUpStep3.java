@@ -2,10 +2,13 @@ package com.salah.common;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ScrollView;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.hbb20.CountryCodePicker;
@@ -15,6 +18,7 @@ public class SignUpStep3 extends AppCompatActivity {
 
     TextInputLayout phoneNumber;
     CountryCodePicker countryCodePicker;
+    ScrollView scrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +29,7 @@ public class SignUpStep3 extends AppCompatActivity {
         //Hooks
         countryCodePicker = findViewById(R.id.country_code_picker);
         phoneNumber = findViewById(R.id.signup_phone_number);
+        scrollView = findViewById(R.id.signup_3rd_screen_scroll_view);
     }
 
     public void callVerifyOTPScreen(View view) {
@@ -53,7 +58,15 @@ public class SignUpStep3 extends AppCompatActivity {
         intent.putExtra("gender", _gender);
         intent.putExtra("phoneNo", _phoneNo);
 
-        startActivity(intent);
+        //Add Transition
+        Pair[] pairs = new Pair[1];
+        pairs[0] = new Pair<View, String>(scrollView, "transition_OTP_screen");
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignUpStep3.this, pairs);
+            startActivity(intent, options.toBundle());
+        } else {
+            startActivity(intent);
+        }
     }
 
     private boolean validatePhoneNumber() {

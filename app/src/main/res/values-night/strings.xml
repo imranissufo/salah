@@ -7,4 +7,9 @@
     <string name="enter_email">Enter email</string>
     <string name="next_btn">Next</string>
     <string name="back">back</string>
+    <string name="todo">TODO</string>
+    <string name="otp_code_text">Code</string>
+    <string name="otp_verification_text">Verification</string>
+    <string name="otp_description_text">Enter one time password sent on\n+92333</string>
+    <string name="verify_code">Verify Code</string>
 </resources>
