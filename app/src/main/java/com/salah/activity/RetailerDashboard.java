@@ -10,7 +10,7 @@ import com.salah.R;
 
 public class RetailerDashboard extends AppCompatActivity {
 
-    ChipNavigationBar chipNavigationBar;
+//    ChipNavigationBar chipNavigationBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,14 +18,16 @@ public class RetailerDashboard extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_retailer_dashboard);
 
-
+/*
         chipNavigationBar = findViewById(R.id.bottom_nav_menu);
         chipNavigationBar.setItemSelected(R.id.bottom_nav_dashboard,true);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new RetailerDashboardFragment()).commit();
         bottomMenu();
+
+ */
     }
 
-
+/*
     private void bottomMenu() {
 
 
@@ -51,5 +53,6 @@ public class RetailerDashboard extends AppCompatActivity {
 
     }
 
+ */
 
 }

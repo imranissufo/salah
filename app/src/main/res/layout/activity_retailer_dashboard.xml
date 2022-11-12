@@ -9,16 +9,13 @@
     tools:context=".activity.RetailerDashboard"
     android:id="@+id/fragment_container">
 
-    <com.ismaeldivita.chipnavigation.ChipNavigationBar
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cnb_menuResource="@menu/bottom_nav_menu"
+        app:menu="@menu/bottom_navigation_menu"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/round_corners"
-        app:cnb_unselectedColor="@color/black"
-        app:cnb_radius="8dp"
-        app:cnb_orientationMode="horizontal"
+        android:background="@color/black"
         android:layout_margin="30dp"
         android:elevation="8dp"
         />
