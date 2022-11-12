@@ -20,6 +20,7 @@ tools:context=".common.SignUpStep3">
         android:id="@+id/signup_back_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onBackBtnClick"
         android:padding="5dp"
         android:src="@drawable/ic_arrow_back"
         android:transitionName="transition_back_arrow_btn" />

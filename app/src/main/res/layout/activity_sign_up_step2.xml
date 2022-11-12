@@ -17,6 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
+            android:onClick="onBackBtnClick"
             android:src="@drawable/ic_arrow_back"
             android:transitionName="transition_back_arrow_btn" />
 

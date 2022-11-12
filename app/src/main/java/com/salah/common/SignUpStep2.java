@@ -75,7 +75,7 @@ public class SignUpStep2 extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), SignUpStep3.class);
 
 
-        String _fullName = getIntent().getStringExtra("fullname");
+        String _fullName = getIntent().getStringExtra("fullName");
         String _username = getIntent().getStringExtra("username");
         String _email = getIntent().getStringExtra("email");
         String _password = getIntent().getStringExtra("password");
@@ -106,4 +106,9 @@ public class SignUpStep2 extends AppCompatActivity {
         }
 
     }
+
+    public void onBackBtnClick(View view){
+        SignUpStep2.super.onBackPressed();
+    }
+
 }

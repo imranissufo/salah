@@ -3,6 +3,7 @@ package com.salah.common;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -19,7 +20,11 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.salah.R;
+import com.salah.activity.RetailerDashboard;
+import com.salah.model.User;
 
 import java.util.concurrent.TimeUnit;
 
@@ -51,7 +56,7 @@ public class VerifyOTP extends AppCompatActivity {
         gender = getIntent().getStringExtra("gender");
         phoneNo = getIntent().getStringExtra("phoneNo");
         whatToDO = getIntent().getStringExtra("whatToDO");
-        otpDescriptionText.setText("Enter One Time Password Sent Onn" + phoneNo);
+        otpDescriptionText.setText("Enter One Time Password Sent On\n" + phoneNo);
         sendVerificationCodeToUser(phoneNo);
     }
 
@@ -105,13 +110,11 @@ public class VerifyOTP extends AppCompatActivity {
                             Toast.makeText(VerifyOTP.this, "Verification Completed!", Toast.LENGTH_LONG).show();
                             //Verification completed successfully here Either
                             // store the data or do whatever desire
-                            /*
                             if (whatToDO.equals("updateData")) {
                                 updateOldUsersData();
                             } else if (whatToDO.equals("createNewUser")) {
                                 storeNewUsersData();
                             }
-                             */
                         } else {
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                                 Toast.makeText(VerifyOTP.this, "Verification Not Completed! Try again.", Toast.LENGTH_LONG).show();
@@ -122,7 +125,14 @@ public class VerifyOTP extends AppCompatActivity {
     }
 
     private void storeNewUsersData() {
-
+        FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
+        DatabaseReference reference = rootNode.getReference("Users");
+        //Create helperclass reference and store data using firebase
+        User user = new User(fullName, username, email, phoneNo, password, date, gender);
+        reference.child(phoneNo).setValue(user);
+        //We will also create a Session here in next videos to keep the user logged In
+        startActivity(new Intent(getApplicationContext(), RetailerDashboard.class));
+        finish();
     }
 
     private void updateOldUsersData() {

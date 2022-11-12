@@ -129,7 +129,7 @@ public class SignUp extends AppCompatActivity {
 
         //Pass all fields to the next activity
         intent.putExtra("fullName", _fullName);
-        intent.putExtra("userName", _userName);
+        intent.putExtra("username", _userName);
         intent.putExtra("email", _email);
         intent.putExtra("password", _password);
 
@@ -152,6 +152,10 @@ public class SignUp extends AppCompatActivity {
     public void callLoginFromSignUp(View view) {
         startActivity(new Intent(getApplicationContext(), Login.class));
         finish();
+    }
+
+    public void onBackBtnClick(View view){
+        SignUp.super.onBackPressed();
     }
 
 }

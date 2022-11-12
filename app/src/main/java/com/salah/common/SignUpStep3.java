@@ -40,7 +40,7 @@ public class SignUpStep3 extends AppCompatActivity {
 
         Intent intent = new Intent(getApplicationContext(), VerifyOTP.class);
 
-        String _fullName = getIntent().getStringExtra("fullname");
+        String _fullName = getIntent().getStringExtra("fullName");
         String _username = getIntent().getStringExtra("username");
         String _email = getIntent().getStringExtra("email");
         String _password = getIntent().getStringExtra("password");
@@ -49,7 +49,7 @@ public class SignUpStep3 extends AppCompatActivity {
 
         String _getUserPhoneNumber = phoneNumber.getEditText().getText().toString().trim();
         //String _phoneNo = "+" + countryCodePicker.getFullNumber() + _getUserPhoneNumber;
-        String _phoneNo = "+" + countryCodePicker.getDefaultCountryCode() + _getUserPhoneNumber;
+        String _phoneNo = countryCodePicker.getSelectedCountryCodeWithPlus() + _getUserPhoneNumber;
 
         intent.putExtra("fullName", _fullName);
         intent.putExtra("username", _username);
@@ -87,4 +87,9 @@ public class SignUpStep3 extends AppCompatActivity {
             return true;
         }
     }
+
+    public void onBackBtnClick(View view){
+        SignUpStep3.super.onBackPressed();
+    }
+
 }
