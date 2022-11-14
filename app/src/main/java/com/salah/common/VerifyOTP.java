@@ -33,7 +33,7 @@ public class VerifyOTP extends AppCompatActivity {
     PinView pinFromUser;
     String codeBySystem;
     TextView otpDescriptionText;
-    String fullName, phoneNo, email, username, password, date, gender, whatToDo,selection;
+    String _fullName, _phoneNo, _email, _username, _password, _date, _gender, _action,selection;
 
     FirebaseAuth mAuth;
 
@@ -48,17 +48,17 @@ public class VerifyOTP extends AppCompatActivity {
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         //Get all the data from Intent
-        fullName = getIntent().getStringExtra("fullName");
-        email = getIntent().getStringExtra("email");
-        username = getIntent().getStringExtra("username");
-        password = getIntent().getStringExtra("password");
-        date = getIntent().getStringExtra("date");
-        gender = getIntent().getStringExtra("gender");
-        phoneNo = getIntent().getStringExtra("phoneNo");
-        whatToDo = getIntent().getStringExtra("whatToDo");
+        _fullName = getIntent().getStringExtra("fullName");
+        _email = getIntent().getStringExtra("email");
+        _username = getIntent().getStringExtra("username");
+        _password = getIntent().getStringExtra("password");
+        _date = getIntent().getStringExtra("date");
+        _gender = getIntent().getStringExtra("gender");
+        _phoneNo = getIntent().getStringExtra("phoneNo");
+        _action = getIntent().getStringExtra("action");
         selection = getIntent().getStringExtra("selection");
-        otpDescriptionText.setText("Enter One Time Password Sent On\n" + phoneNo);
-        sendVerificationCodeToUser(phoneNo);
+        otpDescriptionText.setText("Enter One Time Password Sent On\n" + _phoneNo);
+        sendVerificationCodeToUser(_phoneNo);
     }
 
     private void sendVerificationCodeToUser(String phoneNo) {
@@ -84,6 +84,7 @@ public class VerifyOTP extends AppCompatActivity {
 
                 @Override
                 public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+                    Toast.makeText(VerifyOTP.this, "onVerificationCompleted", Toast.LENGTH_LONG).show();
                     String code = phoneAuthCredential.getSmsCode();
                     if (code != null) {
                         pinFromUser.setText(code);
@@ -93,7 +94,7 @@ public class VerifyOTP extends AppCompatActivity {
 
                 @Override
                 public void onVerificationFailed(@NonNull FirebaseException e) {
-                    Toast.makeText(VerifyOTP.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(VerifyOTP.this, e.getMessage(), Toast.LENGTH_LONG).show();
                 }
             };
 
@@ -112,10 +113,10 @@ public class VerifyOTP extends AppCompatActivity {
                             Toast.makeText(VerifyOTP.this, "Verification Completed!", Toast.LENGTH_LONG).show();
                             //Verification completed successfully here Either
                             // store the data or do whatever desire
-                            if (whatToDo.equals("updateData")) {
-                                updateOldUsersData();
-                            } else if (whatToDo.equals("createNewUser")) {
-                                storeNewUsersData();
+                            if (_action.equals("update")) {
+                                updateUser();
+                            } else if (_action.equals("create")) {
+                                createUser();
                             }
                         } else {
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
@@ -126,21 +127,22 @@ public class VerifyOTP extends AppCompatActivity {
                 });
     }
 
-    private void storeNewUsersData() {
+    private void createUser() {
         FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
         DatabaseReference reference = rootNode.getReference("Users");
         //Create helperclass reference and store data using firebase
-        User user = new User(fullName, username, email, phoneNo, password, date, gender);
-        reference.child(phoneNo).setValue(user);
+        User user = new User(_fullName, _username, _email, _phoneNo, _password, _date, _gender);
+        reference.child(_phoneNo).setValue(user);
         //We will also create a Session here in next videos to keep the user logged In
         startActivity(new Intent(getApplicationContext(), RetailerDashboard.class));
         finish();
     }
 
-    private void updateOldUsersData() {
+    private void updateUser() {
         Intent intent = new Intent(getApplicationContext(), SetNewPassword.class);
-        intent.putExtra("phoneNo", phoneNo);
+        intent.putExtra("phoneNo", _phoneNo);
         startActivity(intent);
+        finish();
     }
 
     public void callNextScreenFromOTP(View view) {
@@ -149,4 +151,11 @@ public class VerifyOTP extends AppCompatActivity {
             verifyCode(code);
         }
     }
+
+    public void goToHomeFromOTP(View view) {
+        Intent intent = new Intent(getApplicationContext(), RetailerStartUpScreen.class);
+        startActivity(intent);
+        finish();
+    }
+
 }

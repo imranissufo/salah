@@ -72,6 +72,7 @@
     <string name="new_credentials_detail">Your identity has been verified!\nSet your new password</string>
     <string name="password_updated">Password Updated</string>
     <string name="password_updated_success_message">Your password has been updated!</string>
+    <string name="user_profile">User\nProfile</string>
 
 
 </resources>

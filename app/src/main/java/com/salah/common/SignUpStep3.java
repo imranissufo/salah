@@ -58,7 +58,7 @@ public class SignUpStep3 extends AppCompatActivity {
         intent.putExtra("date", _date);
         intent.putExtra("gender", _gender);
         intent.putExtra("phoneNo", _phoneNo);
-        intent.putExtra("whatToDo", "createNewUser"); // This is to identify that which action should OTP perform after verification.
+        intent.putExtra("action", "create"); // This is to identify that which action should OTP perform after verification.
 
         //Add Transition
         Pair[] pairs = new Pair[1];

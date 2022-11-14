@@ -75,13 +75,27 @@ public class ForgetPassword extends AppCompatActivity {
                 if(snapshot.exists()){
                     phoneNumber.setError(null);
                     phoneNumber.setErrorEnabled(false);
-                    String fullName = snapshot.child(_phoneNo).child("fullName").getValue(String.class);
-                    Toast.makeText(ForgetPassword.this, _phoneNo+" logged in as "+fullName, Toast.LENGTH_LONG).show();
+                    String _fullName = snapshot.child(_phoneNo).child("fullName").getValue(String.class);
+                    String _username = snapshot.child(_phoneNo).child("username").getValue(String.class);
+                    String _email = snapshot.child(_phoneNo).child("email").getValue(String.class);
+                    String _password = snapshot.child(_phoneNo).child("password").getValue(String.class);
+                    String _date = snapshot.child(_phoneNo).child("date").getValue(String.class);
+                    String _gender = snapshot.child(_phoneNo).child("gender").getValue(String.class);
+
+                    Toast.makeText(ForgetPassword.this, _phoneNo+" logged in as "+_fullName, Toast.LENGTH_LONG).show();
 
                     Intent intent = new Intent(getApplicationContext(), MakeSelection.class);
+
+                    intent.putExtra("fullName", _fullName);
+                    intent.putExtra("username", _username);
+                    intent.putExtra("email", _email);
+                    intent.putExtra("password", _password);
+                    intent.putExtra("date", _date);
+                    intent.putExtra("gender", _gender);
                     intent.putExtra("phoneNo", _phoneNo);
-                    intent.putExtra("whatToDO", "updateData");
+                    intent.putExtra("action", "update");
                     startActivity(intent);
+                    finish();
                 }else{
                     Toast.makeText(ForgetPassword.this, _phoneNo+" does not exists!", Toast.LENGTH_LONG).show();
                 }

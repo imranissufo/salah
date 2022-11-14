@@ -28,6 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.hbb20.CountryCodePicker;
 import com.salah.R;
 import com.salah.activity.RetailerDashboard;
+import com.salah.util.SharedPreferencesManager;
 
 public class Login extends AppCompatActivity {
 
@@ -105,6 +106,17 @@ public class Login extends AppCompatActivity {
                     if(systemPassword.equals(_password)){
                         String fullName = snapshot.child(_phoneNo).child("fullName").getValue(String.class);
                         Toast.makeText(Login.this, _phoneNo+" logged in as "+fullName, Toast.LENGTH_LONG).show();
+
+                        String _fullName = snapshot.child(_phoneNo).child("fullName").getValue(String.class);
+                        String _username = snapshot.child(_phoneNo).child("username").getValue(String.class);
+                        String _email = snapshot.child(_phoneNo).child("email").getValue(String.class);
+                        String _password = snapshot.child(_phoneNo).child("password").getValue(String.class);
+                        String _date = snapshot.child(_phoneNo).child("date").getValue(String.class);
+                        String _gender = snapshot.child(_phoneNo).child("gender").getValue(String.class);
+
+                        SharedPreferencesManager manager = new SharedPreferencesManager(Login.this);
+                        manager.createSession(_fullName,_username,_email,_phoneNo,_password,_date,_gender);
+
                         //We will also create a Session here in next videos to keep the user logged In
                         startActivity(new Intent(getApplicationContext(), RetailerDashboard.class));
                         finish();
