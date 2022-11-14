@@ -114,6 +114,7 @@ public class SignUp extends AppCompatActivity {
             return true;
         }
     }
+
     public void callNextSignupScreen(View view) {
 
         if (!validateFullName() | !validateUsername() | !validateEmail() | !validatePassword()) {

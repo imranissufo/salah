@@ -33,7 +33,7 @@ public class VerifyOTP extends AppCompatActivity {
     PinView pinFromUser;
     String codeBySystem;
     TextView otpDescriptionText;
-    String fullName, phoneNo, email, username, password, date, gender, whatToDO;
+    String fullName, phoneNo, email, username, password, date, gender, whatToDo,selection;
 
     FirebaseAuth mAuth;
 
@@ -55,7 +55,8 @@ public class VerifyOTP extends AppCompatActivity {
         date = getIntent().getStringExtra("date");
         gender = getIntent().getStringExtra("gender");
         phoneNo = getIntent().getStringExtra("phoneNo");
-        whatToDO = getIntent().getStringExtra("whatToDO");
+        whatToDo = getIntent().getStringExtra("whatToDo");
+        selection = getIntent().getStringExtra("selection");
         otpDescriptionText.setText("Enter One Time Password Sent On\n" + phoneNo);
         sendVerificationCodeToUser(phoneNo);
     }
@@ -70,6 +71,7 @@ public class VerifyOTP extends AppCompatActivity {
                 .build();
         PhoneAuthProvider.verifyPhoneNumber(options);
         // [END start_phone_auth]
+
     }
 
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks =
@@ -110,9 +112,9 @@ public class VerifyOTP extends AppCompatActivity {
                             Toast.makeText(VerifyOTP.this, "Verification Completed!", Toast.LENGTH_LONG).show();
                             //Verification completed successfully here Either
                             // store the data or do whatever desire
-                            if (whatToDO.equals("updateData")) {
+                            if (whatToDo.equals("updateData")) {
                                 updateOldUsersData();
-                            } else if (whatToDO.equals("createNewUser")) {
+                            } else if (whatToDo.equals("createNewUser")) {
                                 storeNewUsersData();
                             }
                         } else {
@@ -136,7 +138,9 @@ public class VerifyOTP extends AppCompatActivity {
     }
 
     private void updateOldUsersData() {
-        
+        Intent intent = new Intent(getApplicationContext(), SetNewPassword.class);
+        intent.putExtra("phoneNo", phoneNo);
+        startActivity(intent);
     }
 
     public void callNextScreenFromOTP(View view) {
