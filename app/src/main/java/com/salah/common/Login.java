@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -30,12 +31,15 @@ import com.salah.R;
 import com.salah.activity.RetailerDashboard;
 import com.salah.util.SharedPreferencesManager;
 
+import java.util.HashMap;
+
 public class Login extends AppCompatActivity {
 
     ImageView backBtn;
     TextInputLayout phoneNumber, password;
     CountryCodePicker countryCodePicker;
     RelativeLayout progressBar;
+    CheckBox rememberMe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +52,7 @@ public class Login extends AppCompatActivity {
         phoneNumber = findViewById(R.id.login_phone_number);
         password = findViewById(R.id.login_password);
         progressBar = findViewById(R.id.login_progress_bar);
+        rememberMe = findViewById(R.id.remember_me);
 
 
         backBtn.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +65,14 @@ public class Login extends AppCompatActivity {
         if(!isConnected(this)){
             showCustomDialog();
         }
+
+        SharedPreferencesManager manager = new SharedPreferencesManager(Login.this, SharedPreferencesManager.REMEMBER_ME);
+        if(manager.isRememberMe()){
+            HashMap<String, String> rememberMe = manager.getRememberMe();
+            phoneNumber.getEditText().setText(rememberMe.get(SharedPreferencesManager.RM_PHONE));
+            password.getEditText().setText(rememberMe.get(SharedPreferencesManager.RM_PASS));
+        }
+
     }
 
     public void callForgetPassword(View view){
@@ -79,7 +92,6 @@ public class Login extends AppCompatActivity {
         }
 
         progressBar.setVisibility(View.VISIBLE);
-        //Login.super.onBackPressed();
 
         String _phoneNumber = phoneNumber.getEditText().getText().toString().trim();
         String _password = password.getEditText().getText().toString().trim();
@@ -89,6 +101,11 @@ public class Login extends AppCompatActivity {
         }
 
         String _phoneNo = countryCodePicker.getSelectedCountryCodeWithPlus() + _phoneNumber;
+
+        if(rememberMe.isChecked()){
+            SharedPreferencesManager manager = new SharedPreferencesManager(Login.this, SharedPreferencesManager.REMEMBER_ME);
+            manager.setRememberMe(_phoneNumber,_password);
+        }
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference("Users");
@@ -114,7 +131,7 @@ public class Login extends AppCompatActivity {
                         String _date = snapshot.child(_phoneNo).child("date").getValue(String.class);
                         String _gender = snapshot.child(_phoneNo).child("gender").getValue(String.class);
 
-                        SharedPreferencesManager manager = new SharedPreferencesManager(Login.this);
+                        SharedPreferencesManager manager = new SharedPreferencesManager(Login.this, SharedPreferencesManager.SESSION);
                         manager.createSession(_fullName,_username,_email,_phoneNo,_password,_date,_gender);
 
                         //We will also create a Session here in next videos to keep the user logged In

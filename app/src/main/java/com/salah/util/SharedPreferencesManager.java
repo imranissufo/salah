@@ -8,6 +8,12 @@ import com.salah.model.User;
 import java.util.HashMap;
 
 public class SharedPreferencesManager {
+    private static final String IS_REMEMBER_ME = "_isRememberMe";
+    public static final String SESSION = "session";
+    public static final String REMEMBER_ME = "rememberMe";
+    public static final String RM_PASS = "rm_password";
+    public static final String RM_PHONE = "rm_phoneNo";
+
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     Context context;
@@ -21,9 +27,9 @@ public class SharedPreferencesManager {
     public static final String GENDER = "_gender";
     public static final String PHONE = "_phoneNo";
 
-    public SharedPreferencesManager(Context context) {
+    public SharedPreferencesManager(Context context, String sessionName) {
         this.context = context;
-        sharedPreferences = context.getSharedPreferences("session", Context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences(sessionName, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
     }
 
@@ -38,6 +44,22 @@ public class SharedPreferencesManager {
         editor.putString(PHONE, phoneNo);
 
         editor.commit();
+    }
+
+    public void setRememberMe(String phoneNo, String password) {
+        editor.putBoolean(IS_REMEMBER_ME, true);
+        editor.putString(RM_PASS, password);
+        editor.putString(RM_PHONE, phoneNo);
+
+        editor.commit();
+    }
+
+    public HashMap<String, String> getRememberMe() {
+        HashMap<String, String> rememberMe = new HashMap<>();
+        rememberMe.put(RM_PASS, sharedPreferences.getString(PASS, null));
+        rememberMe.put(RM_PHONE, sharedPreferences.getString(PHONE, null));
+
+        return rememberMe;
     }
 
     public HashMap<String, String> getUserDetails() {
@@ -68,6 +90,14 @@ public class SharedPreferencesManager {
 
     public boolean isLoggedIn() {
         if (sharedPreferences.getBoolean(IS_LOGGED_IN, false)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isRememberMe() {
+        if (sharedPreferences.getBoolean(IS_REMEMBER_ME, false)) {
             return true;
         } else {
             return false;

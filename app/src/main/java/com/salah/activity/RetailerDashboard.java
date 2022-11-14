@@ -29,7 +29,7 @@ public class RetailerDashboard extends AppCompatActivity {
         email = findViewById(R.id.rd_email);
         phone = findViewById(R.id.rd_phone);
 
-        SharedPreferencesManager manager = new SharedPreferencesManager(this);
+        SharedPreferencesManager manager = new SharedPreferencesManager(RetailerDashboard.this, SharedPreferencesManager.SESSION);
         User user = manager.getUser();
 
         fullname.getEditText().setText(user.getFullName());
