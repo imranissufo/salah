@@ -1,12 +1,20 @@
 package com.salah.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
-import android.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.textfield.TextInputLayout;
 import com.salah.R;
 import com.salah.common.SignUp;
@@ -15,8 +23,8 @@ import com.salah.util.SharedPreferencesManager;
 
 public class RetailerDashboard extends AppCompatActivity {
 
-//    ChipNavigationBar chipNavigationBar;
-    TextInputLayout fullname, username, email, phone;
+    //ChipNavigationBar chipNavigationBar;
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,18 +32,29 @@ public class RetailerDashboard extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_retailer_dashboard);
 
-        fullname = findViewById(R.id.rd_fullname);
-        username = findViewById(R.id.rd_username);
-        email = findViewById(R.id.rd_email);
-        phone = findViewById(R.id.rd_phone);
+        bottomNavigationView = findViewById(R.id.bottom_nav_menu);
+        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
 
-        SharedPreferencesManager manager = new SharedPreferencesManager(RetailerDashboard.this, SharedPreferencesManager.SESSION);
-        User user = manager.getUser();
-
-        fullname.getEditText().setText(user.getFullName());
-        username.getEditText().setText(user.getUsername());
-        email.getEditText().setText(user.getEmail());
-        phone.getEditText().setText(user.getPhoneNo());
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigation_home:
+                        openFragment(RetailerHomeFragment.newInstance("",""));
+                        return true;
+                    case R.id.navigation_featured:
+                        openFragment(RetailerFeaturedFragment.newInstance("",""));
+                        return true;
+                    case R.id.navigation_location:
+                        openFragment(RetailerLocationFragment.newInstance("",""));
+                        return true;
+                    case R.id.navigation_settings:
+                        openFragment(RetailerSettingsFragment.newInstance("",""));
+                        return true;
+                }
+                return false;
+            }
+        });
 
 /*
         chipNavigationBar = findViewById(R.id.bottom_nav_menu);
@@ -44,6 +63,18 @@ public class RetailerDashboard extends AppCompatActivity {
         bottomMenu();
 
  */
+        //set initial fragment
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new RetailerHomeFragment()).commit();
+
+    }
+
+    private void openFragment(Fragment fragment) {
+        Log.d(TAG, "openFragment: ");
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        //this is a helper class that replaces the container with the fragment. You can replace or add fragments.
+        transaction.replace(R.id.fragment_container, fragment);
+        //transaction.addToBackStack(null); //if you add fragments it will be added to the backStack. If you replace the fragment it will add only the last fragment
+        transaction.commit(); // commit() performs the action
     }
 
     public void onBackBtnClick(View view){

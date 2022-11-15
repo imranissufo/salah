@@ -8,9 +8,9 @@ import com.salah.model.User;
 import java.util.HashMap;
 
 public class SharedPreferencesManager {
-    private static final String IS_REMEMBER_ME = "_isRememberMe";
     public static final String SESSION = "session";
-    public static final String REMEMBER_ME = "rememberMe";
+
+    private static final String IS_REMEMBER_ME = "_isRememberMe";
     public static final String RM_PASS = "rm_password";
     public static final String RM_PHONE = "rm_phoneNo";
 
@@ -27,9 +27,9 @@ public class SharedPreferencesManager {
     public static final String GENDER = "_gender";
     public static final String PHONE = "_phoneNo";
 
-    public SharedPreferencesManager(Context context, String sessionName) {
+    public SharedPreferencesManager(Context context) {
         this.context = context;
-        sharedPreferences = context.getSharedPreferences(sessionName, Context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences(SESSION, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
     }
 

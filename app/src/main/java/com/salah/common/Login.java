@@ -66,7 +66,7 @@ public class Login extends AppCompatActivity {
             showCustomDialog();
         }
 
-        SharedPreferencesManager manager = new SharedPreferencesManager(Login.this, SharedPreferencesManager.REMEMBER_ME);
+        SharedPreferencesManager manager = new SharedPreferencesManager(Login.this);
         if(manager.isRememberMe()){
             HashMap<String, String> rememberMe = manager.getRememberMe();
             phoneNumber.getEditText().setText(rememberMe.get(SharedPreferencesManager.RM_PHONE));
@@ -103,7 +103,7 @@ public class Login extends AppCompatActivity {
         String _phoneNo = countryCodePicker.getSelectedCountryCodeWithPlus() + _phoneNumber;
 
         if(rememberMe.isChecked()){
-            SharedPreferencesManager manager = new SharedPreferencesManager(Login.this, SharedPreferencesManager.REMEMBER_ME);
+            SharedPreferencesManager manager = new SharedPreferencesManager(Login.this);
             manager.setRememberMe(_phoneNumber,_password);
         }
 
@@ -131,7 +131,7 @@ public class Login extends AppCompatActivity {
                         String _date = snapshot.child(_phoneNo).child("date").getValue(String.class);
                         String _gender = snapshot.child(_phoneNo).child("gender").getValue(String.class);
 
-                        SharedPreferencesManager manager = new SharedPreferencesManager(Login.this, SharedPreferencesManager.SESSION);
+                        SharedPreferencesManager manager = new SharedPreferencesManager(Login.this);
                         manager.createSession(_fullName,_username,_email,_phoneNo,_password,_date,_gender);
 
                         //We will also create a Session here in next videos to keep the user logged In

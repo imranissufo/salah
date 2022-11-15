@@ -1,21 +1,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/home"
+        android:id="@+id/navigation_home"
         android:icon="@drawable/ic_outline_home"
         android:title="Home"
         android:enabled="true"/>
     <item
-        android:id="@+id/activity"
+        android:id="@+id/navigation_featured"
         android:icon="@drawable/ic_monitor_heart"
-        android:title="Activity"
+        android:title="Featured"
         android:enabled="true"/>
     <item
-        android:id="@+id/favorites"
+        android:id="@+id/navigation_location"
         android:icon="@drawable/ic_favorite"
-        android:title="Favorites"
+        android:title="Locations"
         android:enabled="true"/>
     <item
-        android:id="@+id/settings"
+        android:id="@+id/navigation_settings"
         android:icon="@drawable/ic_settings"
         android:title="Settings"
         android:enabled="true"/>

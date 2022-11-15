@@ -22,4 +22,6 @@
     <string name="password_updated">Password Updated</string>
     <string name="password_updated_success_message">Your password has been updated!</string>
     <string name="user_profile">User\nProfile</string>
+    <string name="locker">locker</string>
+    <string name="forgot_password">Forget\nPassword</string>
 </resources>
