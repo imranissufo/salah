@@ -31,6 +31,7 @@ import com.salah.model.Timings;
 import com.salah.user.Categories;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -102,9 +103,45 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
 //                .child("timings")
 //                .limitToLast(60);
 
+        Calendar calendar;
+        calendar = Calendar.getInstance();
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int month = calendar.get(Calendar.MONTH);
+        String d = String.valueOf(day);
+        String m = String.valueOf(month);
+        if(day <10){
+            d= "0"+d;
+        }
+        if(month <10){
+            m= "0"+m;
+        }
+        String code = m+d;
+        int limit = day;
+        switch (month){
+            case 1: case 3: case 5: case 7: case 8: case 10: case12:{
+                limit = 31 - day+1;
+            }break;
+            case 4: case 6: case 9: case 11: {
+                limit = 30 - day+1;
+            }break;
+            case 2:{
+                limit = 29 - day+1;
+            }break;
+            default:break;
+        }
+
+        //code LIKE month
+//        Query query = FirebaseDatabase.getInstance()
+//                .getReference()
+//                .child("timings").orderByChild("code")
+//                .startAt(m).endAt(m+"\uf8ff");
+
+
+        //fetch data from current day until the last day of the month
         Query query = FirebaseDatabase.getInstance()
                 .getReference()
-                .child("timings");
+                .child("timings").orderByChild("month")
+                .equalTo(m).limitToLast(limit);
 
         FirebaseRecyclerOptions<Timings> options =
                 new FirebaseRecyclerOptions.Builder<Timings>()
