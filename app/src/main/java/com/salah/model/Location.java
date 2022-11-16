@@ -8,6 +8,16 @@ public class Location {
     private String desc;
     private GradientDrawable gradient;
 
+    private String latitude;
+    private String longitude;
+    private String elevation;
+    private String city;
+    private String country;
+    private String countryCode;
+    private String timezone;
+    private String localOffset;
+
+
     public Location(int image, String title, String desc) {
         this.image = image;
         this.title = title;

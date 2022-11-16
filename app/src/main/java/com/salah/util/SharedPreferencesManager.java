@@ -19,7 +19,7 @@ public class SharedPreferencesManager {
     Context context;
 
     private static final String IS_LOGGED_IN = "_isLoggedIn";
-    public static final String FULLNAME = "_fullName";
+    public static final String FULL_NAME = "_fullName";
     public static final String USERNAME = "_username";
     public static final String EMAIL = "_email";
     public static final String PASS = "_password";
@@ -35,7 +35,7 @@ public class SharedPreferencesManager {
 
     public void createSession(String fullName, String username, String email, String phoneNo, String password, String date, String gender) {
         editor.putBoolean(IS_LOGGED_IN, true);
-        editor.putString(FULLNAME, fullName);
+        editor.putString(FULL_NAME, fullName);
         editor.putString(USERNAME, username);
         editor.putString(EMAIL, email);
         editor.putString(PASS, password);
@@ -56,15 +56,15 @@ public class SharedPreferencesManager {
 
     public HashMap<String, String> getRememberMe() {
         HashMap<String, String> rememberMe = new HashMap<>();
-        rememberMe.put(RM_PASS, sharedPreferences.getString(PASS, null));
-        rememberMe.put(RM_PHONE, sharedPreferences.getString(PHONE, null));
+        rememberMe.put(RM_PASS, sharedPreferences.getString(RM_PASS, null));
+        rememberMe.put(RM_PHONE, sharedPreferences.getString(RM_PHONE, null));
 
         return rememberMe;
     }
 
     public HashMap<String, String> getUserDetails() {
         HashMap<String, String> userDetails = new HashMap<>();
-        userDetails.put(FULLNAME, sharedPreferences.getString(FULLNAME, null));
+        userDetails.put(FULL_NAME, sharedPreferences.getString(FULL_NAME, null));
         userDetails.put(USERNAME, sharedPreferences.getString(USERNAME, null));
         userDetails.put(EMAIL, sharedPreferences.getString(EMAIL, null));
         userDetails.put(PASS, sharedPreferences.getString(PASS, null));
@@ -76,7 +76,7 @@ public class SharedPreferencesManager {
     }
 
     public User getUser() {
-        String fullName = sharedPreferences.getString(FULLNAME, null);
+        String fullName = sharedPreferences.getString(FULL_NAME, null);
         String username = sharedPreferences.getString(USERNAME, null);
         String email = sharedPreferences.getString(EMAIL, null);
         String password = sharedPreferences.getString(PASS, null);
