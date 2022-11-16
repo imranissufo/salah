@@ -1,14 +1,6 @@
 package com.salah.activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.MenuItem;
@@ -17,6 +9,13 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.navigation.NavigationView;
@@ -30,9 +29,6 @@ import com.salah.common.RetailerStartUpScreen;
 import com.salah.model.Location;
 import com.salah.model.Timings;
 import com.salah.user.Categories;
-import com.salah.util.CategoryAdapter;
-import com.salah.util.FeaturedAdapter;
-import com.salah.util.MostViewedAdapter;
 
 import java.util.ArrayList;
 
@@ -41,7 +37,6 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     RecyclerView timingsRecycler, masjidRecycler;
     TimingsAdapter timingsAdapter;
     MasjidAdapter masjidAdapter;
-    RecyclerView.Adapter adapter;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ImageView menuIcon, addIcon;
@@ -97,15 +92,10 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     }
 
     private void featuredRecycler() {
-        /*
-        ArrayList<Location> locations = new ArrayList<>();
-        locations.add(new Location(R.drawable.dua, "dua", "dua desc"));
-        locations.add(new Location(R.drawable.hands, "hands", "hands desc"));
-        locations.add(new Location(R.drawable.sujud, "sujud", "sujud desc"));
-         */
 
         //timingsRecycler.setHasFixedSize(true);
         timingsRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        timingsRecycler.setItemAnimator(null);
 
 //        Query query = FirebaseDatabase.getInstance()
 //                .getReference()
@@ -133,8 +123,8 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         mostViewedLocations.add(new Location(R.drawable.sujud, "Sujud", "Sajdah"));
         mostViewedLocations.add(new Location(R.drawable.dua, "Salah", "Salah"));
 
-        adapter = new MasjidAdapter(mostViewedLocations);
-        masjidRecycler.setAdapter(adapter);
+        masjidAdapter = new MasjidAdapter(mostViewedLocations);
+        masjidRecycler.setAdapter(masjidAdapter);
     }
 
     @Override
@@ -175,6 +165,10 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     protected void onStart() {
         super.onStart();
         timingsAdapter.startListening();
+
+        //Remove crash on press back
+        timingsRecycler.getRecycledViewPool().clear();
+        timingsAdapter.notifyDataSetChanged();
     }
 
     @Override
