@@ -3,7 +3,6 @@ package com.salah.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,7 +13,7 @@ import com.salah.model.Location;
 
 import java.util.ArrayList;
 
-public class MasjidAdapter extends RecyclerView.Adapter<MasjidAdapter.MostViewedViewHolder> {
+public class MasjidAdapter extends RecyclerView.Adapter<MasjidAdapter.MasjidViewHolder> {
 
     ArrayList<Location> locations;
 
@@ -24,18 +23,16 @@ public class MasjidAdapter extends RecyclerView.Adapter<MasjidAdapter.MostViewed
 
     @NonNull
     @Override
-    public MasjidAdapter.MostViewedViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MasjidViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view  = LayoutInflater.from(parent.getContext()).inflate(R.layout.masjid_card, parent,false);
-        MasjidAdapter.MostViewedViewHolder viewHolder = new MasjidAdapter.MostViewedViewHolder(view);
+        MasjidViewHolder viewHolder = new MasjidViewHolder(view);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MasjidAdapter.MostViewedViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MasjidViewHolder holder, int position) {
         Location location = locations.get(position);
-        holder.image.setImageResource(location.getImage());
-        holder.title.setText(location.getTitle());
-        holder.desc.setText(location.getDesc());
+        holder.name.setText(location.getTitle());
     }
 
     @Override
@@ -43,18 +40,14 @@ public class MasjidAdapter extends RecyclerView.Adapter<MasjidAdapter.MostViewed
         return locations.size();
     }
 
-    public static class MostViewedViewHolder extends RecyclerView.ViewHolder{
+    public static class MasjidViewHolder extends RecyclerView.ViewHolder{
 
-        ImageView image;
-        TextView title;
-        TextView desc;
+        TextView name;
 
-        public MostViewedViewHolder(@NonNull View itemView) {
+        public MasjidViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            image = itemView.findViewById(R.id.mv_image);
-            title = itemView.findViewById(R.id.mv_title);
-            desc = itemView.findViewById(R.id.mv_desc);
+            name = itemView.findViewById(R.id.mj_name);
 
         }
     }

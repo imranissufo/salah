@@ -9,18 +9,31 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.salah.R;
 import com.salah.model.Location;
+import com.salah.model.Timings;
 
 import java.util.ArrayList;
 
-public class TimingsAdapter extends RecyclerView.Adapter<TimingsAdapter.TimingsViewHolder> {
+public class TimingsAdapter extends FirebaseRecyclerAdapter<Timings, TimingsAdapter.TimingsViewHolder> {
 
-    ArrayList<Location> locations;
+    /**
+     * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
+     * {@link FirebaseRecyclerOptions} for configuration options.
+     *
+     * @param options
+     */
+    public TimingsAdapter(@NonNull FirebaseRecyclerOptions<Timings> options) {
+        super(options);
+    }
 
+    /*
     public TimingsAdapter(ArrayList<Location> locations) {
         this.locations = locations;
     }
+    */
 
     @NonNull
     @Override
@@ -31,15 +44,8 @@ public class TimingsAdapter extends RecyclerView.Adapter<TimingsAdapter.TimingsV
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TimingsViewHolder holder, int position) {
-        Location location = locations.get(position);
-        holder.title.setText(location.getTitle());
-        holder.desc.setText(location.getDesc());
-    }
-
-    @Override
-    public int getItemCount() {
-        return locations.size();
+    protected void onBindViewHolder(@NonNull TimingsViewHolder holder, int position, @NonNull Timings model) {
+        holder.desc.setText(model.getCode());
     }
 
     public static class TimingsViewHolder extends RecyclerView.ViewHolder{

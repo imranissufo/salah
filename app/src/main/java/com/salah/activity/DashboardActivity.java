@@ -18,13 +18,17 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.salah.R;
 import com.salah.adapter.MasjidAdapter;
 import com.salah.adapter.TimingsAdapter;
 import com.salah.common.Login;
 import com.salah.common.RetailerStartUpScreen;
 import com.salah.model.Location;
+import com.salah.model.Timings;
 import com.salah.user.Categories;
 import com.salah.util.CategoryAdapter;
 import com.salah.util.FeaturedAdapter;
@@ -35,6 +39,8 @@ import java.util.ArrayList;
 public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     RecyclerView timingsRecycler, masjidRecycler;
+    TimingsAdapter timingsAdapter;
+    MasjidAdapter masjidAdapter;
     RecyclerView.Adapter adapter;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -91,16 +97,32 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     }
 
     private void featuredRecycler() {
+        /*
         ArrayList<Location> locations = new ArrayList<>();
         locations.add(new Location(R.drawable.dua, "dua", "dua desc"));
         locations.add(new Location(R.drawable.hands, "hands", "hands desc"));
         locations.add(new Location(R.drawable.sujud, "sujud", "sujud desc"));
+         */
 
-        timingsRecycler.setHasFixedSize(true);
+        //timingsRecycler.setHasFixedSize(true);
         timingsRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        adapter = new TimingsAdapter(locations);
-        timingsRecycler.setAdapter(adapter);
+//        Query query = FirebaseDatabase.getInstance()
+//                .getReference()
+//                .child("timings")
+//                .limitToLast(60);
+
+        Query query = FirebaseDatabase.getInstance()
+                .getReference()
+                .child("timings");
+
+        FirebaseRecyclerOptions<Timings> options =
+                new FirebaseRecyclerOptions.Builder<Timings>()
+                        .setQuery(query, Timings.class)
+                        .build();
+
+        timingsAdapter = new TimingsAdapter(options);
+        timingsRecycler.setAdapter(timingsAdapter);
     }
 
     private void mostViewedRecycler() {
@@ -147,5 +169,17 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
                 startActivity(new Intent(getApplicationContext(), RetailerStartUpScreen.class));
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        timingsAdapter.startListening();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        timingsAdapter.stopListening();
     }
 }

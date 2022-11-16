@@ -17,6 +17,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
             android:padding="10dp">
 
             <TextView
@@ -24,10 +25,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:fontFamily="@font/advent_pro_bold"
                 android:text="Data"
                 android:textColor="@color/colorAccent"
-                android:textSize="20sp" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/tm_date_vl"
@@ -35,10 +36,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:fontFamily="@font/advent_pro_bold"
                 android:text="16.11.2022"
                 android:textColor="@color/colorAccent"
-                android:textSize="20sp" />
+                android:textSize="24sp" />
 
         </RelativeLayout>
         <RelativeLayout
@@ -51,10 +52,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:fontFamily="@font/advent_pro_bold"
                 android:text="Suhur"
                 android:textColor="@color/colorAccent"
-                android:textSize="20sp" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/tm_suhur_vl"
@@ -62,10 +63,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:fontFamily="@font/advent_pro_bold"
                 android:text="16.11.2022"
                 android:textColor="@color/colorAccent"
-                android:textSize="20sp" />
+                android:textSize="24sp" />
 
         </RelativeLayout>
         <RelativeLayout
@@ -78,10 +79,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:fontFamily="@font/advent_pro_bold"
                 android:text="Fajr"
                 android:textColor="@color/colorAccent"
-                android:textSize="20sp" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/tm_fajr_vl"
@@ -89,10 +90,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:fontFamily="@font/advent_pro_bold"
                 android:text="16.11.2022"
                 android:textColor="@color/colorAccent"
-                android:textSize="20sp" />
+                android:textSize="24sp" />
 
         </RelativeLayout>
         <RelativeLayout
@@ -105,10 +106,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:fontFamily="@font/advent_pro_bold"
                 android:text="Nasc. Sol"
                 android:textColor="@color/colorAccent"
-                android:textSize="20sp" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/tm_sunrise_vl"
@@ -116,10 +117,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:fontFamily="@font/advent_pro_bold"
                 android:text="16.11.2022"
                 android:textColor="@color/colorAccent"
-                android:textSize="20sp" />
+                android:textSize="24sp" />
 
         </RelativeLayout>
         <RelativeLayout
@@ -132,10 +133,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:fontFamily="@font/advent_pro_bold"
                 android:text="Zawal"
                 android:textColor="@color/colorAccent"
-                android:textSize="20sp" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/tm_zawal_vl"
@@ -143,10 +144,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:fontFamily="@font/advent_pro_bold"
                 android:text="16.11.2022"
                 android:textColor="@color/colorAccent"
-                android:textSize="20sp" />
+                android:textSize="24sp" />
 
         </RelativeLayout>
         <RelativeLayout
@@ -159,10 +160,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:fontFamily="@font/advent_pro_bold"
                 android:text="Zuhr"
                 android:textColor="@color/colorAccent"
-                android:textSize="20sp" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/tm_zuhr_vl"
@@ -170,10 +171,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:fontFamily="@font/advent_pro_bold"
                 android:text="16.11.2022"
                 android:textColor="@color/colorAccent"
-                android:textSize="20sp" />
+                android:textSize="24sp" />
 
         </RelativeLayout>
         <RelativeLayout
@@ -186,10 +187,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:fontFamily="@font/advent_pro_bold"
                 android:text="Assr"
                 android:textColor="@color/colorAccent"
-                android:textSize="20sp" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/tm_assr_vl"
@@ -197,10 +198,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:fontFamily="@font/advent_pro_bold"
                 android:text="16.11.2022"
                 android:textColor="@color/colorAccent"
-                android:textSize="20sp" />
+                android:textSize="24sp" />
 
         </RelativeLayout>
         <RelativeLayout
@@ -213,10 +214,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:fontFamily="@font/advent_pro_bold"
                 android:text="Ocaso"
                 android:textColor="@color/colorAccent"
-                android:textSize="20sp" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/tm_sunset_vl"
@@ -224,10 +225,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:fontFamily="@font/advent_pro_bold"
                 android:text="16.11.2022"
                 android:textColor="@color/colorAccent"
-                android:textSize="20sp" />
+                android:textSize="24sp" />
 
         </RelativeLayout>
         <RelativeLayout
@@ -240,10 +241,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:fontFamily="@font/advent_pro_bold"
                 android:text="Magrib"
                 android:textColor="@color/colorAccent"
-                android:textSize="20sp" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/tm_magrib_vl"
@@ -251,10 +252,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:fontFamily="@font/advent_pro_bold"
                 android:text="16.11.2022"
                 android:textColor="@color/colorAccent"
-                android:textSize="20sp" />
+                android:textSize="24sp" />
 
         </RelativeLayout>
         <RelativeLayout
@@ -267,10 +268,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:fontFamily="@font/advent_pro_bold"
                 android:text="Isha"
                 android:textColor="@color/colorAccent"
-                android:textSize="20sp" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/tm_isha_vl"
@@ -278,10 +279,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:fontFamily="@font/advent_pro_bold"
                 android:text="16.11.2022"
                 android:textColor="@color/colorAccent"
-                android:textSize="20sp" />
+                android:textSize="24sp" />
 
         </RelativeLayout>
 

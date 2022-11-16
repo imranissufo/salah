@@ -2,52 +2,169 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
-    android:layout_margin="12dp"
-    app:cardCornerRadius="0dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+    app:cardCornerRadius="2dp"
     app:cardElevation="8dp">
 
-    <RelativeLayout
-        android:layout_width="300dp"
-        android:layout_height="150dp"
-        android:padding="10dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="4dp">
 
-        <ImageView
-            android:id="@+id/mv_image"
-            android:layout_width="100dp"
-            android:layout_height="150dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/logo" />
-
-        <TextView
-            android:id="@+id/mv_title"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/mv_image"
-            android:fontFamily="@font/advent_pro"
-            android:text="Logo"
-            android:textSize="20dp" />
+            android:background="@color/colorPrimary"
+            android:padding="10dp">
 
-        <RatingBar
-            android:id="@+id/mv_rating"
-            style="@style/Widget.AppCompat.RatingBar.Small"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/mj_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/advent_pro_bold"
+                android:text="Masjid"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/mv_title"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/mv_image"
-            android:rating="4" />
+            android:padding="10dp">
 
-        <TextView
-            android:id="@+id/mv_desc"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/mj_fajr_lb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/advent_pro_bold"
+                android:text="Fajr"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/mj_fajr_vl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/ds_digib"
+                android:text="04:30"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/mv_rating"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/mv_image"
-            android:text="asdasd asdasd asdasdasd asdas" />
+            android:padding="10dp">
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/mj_zuhr_lb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/advent_pro_bold"
+                android:text="Zuhr"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp" />
 
+            <TextView
+                android:id="@+id/mj_zuhr_vl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/ds_digib"
+                android:text="12:45"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/mj_zawal_lb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/advent_pro_bold"
+                android:text="Jumma"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/mj_zawal_vl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/ds_digib"
+                android:text="12:45"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/mj_assr_lb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/advent_pro_bold"
+                android:text="Assr"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/mj_assr_vl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/ds_digib"
+                android:text="17:00"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/mj_isha_lb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/advent_pro_bold"
+                android:text="Isha"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/mj_isha_vl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/ds_digib"
+                android:text="20:00"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp" />
+
+        </RelativeLayout>
+    </LinearLayout>
 </androidx.cardview.widget.CardView>

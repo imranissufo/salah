@@ -11,6 +11,9 @@ public class Masjid {
     private String magrib;
     private String isha;
 
+    public Masjid() {
+    }
+
     public Masjid(String code, String name, String fajr, String zuhr, String jumma, String assr, String isha) {
         this.code = code;
         this.name = name;
@@ -39,10 +42,6 @@ public class Masjid {
 
     public void setCode(String code) {
         this.code = code;
-    }
-
-    public Masjid(String name) {
-        this.name = name;
     }
 
     public String getName() {

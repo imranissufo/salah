@@ -118,11 +118,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/advent_pro_bold"
                             android:text="@string/timings"
                             android:textAllCaps="true"
-                            android:fontFamily="@font/advent_pro_bold"
                             android:textColor="@color/colorAccent"
-                            android:textSize="20sp"
+                            android:textSize="24sp"
                             android:textStyle="bold" />
 
                     </RelativeLayout>
@@ -148,11 +148,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/advent_pro_bold"
                             android:text="@string/masaajid"
                             android:textAllCaps="true"
-                            android:fontFamily="@font/advent_pro_bold"
                             android:textColor="@color/colorAccent"
-                            android:textSize="20sp"
+                            android:textSize="24sp"
                             android:textStyle="bold" />
 
                         <TextView

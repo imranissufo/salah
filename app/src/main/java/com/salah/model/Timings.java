@@ -15,6 +15,9 @@ public class Timings {
     private String isha;
     private String location;
 
+    public Timings() {
+    }
+
     public Timings(String code, String month, String day, String suhur, String fajr, String sunrise, String zawal, String zuhr, String assr, String sunset, String magrib, String isha, String location) {
         this.code = code;
         this.month = month;
