@@ -212,7 +212,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_all_categories: {
-                Intent intent = new Intent(getApplicationContext(), Categories.class);
+                Intent intent = new Intent(getApplicationContext(), MasjidActivity.class);
                 startActivity(intent);
             }
             break;
