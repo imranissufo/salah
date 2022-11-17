@@ -80,6 +80,7 @@ public class VerifyOTP extends AppCompatActivity {
                 public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                     super.onCodeSent(s, forceResendingToken);
                     codeBySystem = s;
+                    Toast.makeText(VerifyOTP.this, "onCodeSent:"+s, Toast.LENGTH_LONG).show();
                 }
 
                 @Override

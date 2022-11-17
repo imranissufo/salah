@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:background="@color/lightWhite"
+    android:background="@color/colorPrimary"
     android:paddingLeft="15dp">
 
     <TextView
@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:layout_width="wrap_content"
+        android:textSize="18sp"
         android:text="@string/slogan_name" />
 
     <TextView
@@ -21,18 +22,19 @@
         android:layout_width="wrap_content"
         android:text="@string/logo_name"
         android:textColor="@color/black"
-        android:textSize="24sp" />
+        android:textStyle="bold"
+        android:textSize="44sp" />
 
     <ImageView
         android:layout_above="@id/app_name"
-        android:layout_height="40dp"
-        android:layout_width="40dp"
-        android:src="@drawable/logo" />
+        android:layout_height="120dp"
+        android:layout_width="120dp"
+        android:src="@drawable/arabic" />
 
     <ImageView
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_height="175dp"
         android:layout_width="160dp"
-        android:src="@drawable/sujud" />
+        android:src="@drawable/sujud_2" />
 </RelativeLayout>
