@@ -10,6 +10,8 @@ public class Masjid {
     private String assr;
     private String magrib;
     private String isha;
+    private String annc;
+    private String anncTime;
 
     public Masjid() {
     }
@@ -25,6 +27,18 @@ public class Masjid {
         this.isha = isha;
     }
 
+    public Masjid(String code, String name, String fajr, String zuhr, String jumma, String assr, String isha, String annc, String anncTime) {
+        this.code = code;
+        this.name = name;
+        this.fajr = fajr;
+        this.zuhr = zuhr;
+        this.jumma = jumma;
+        this.assr = assr;
+        this.isha = isha;
+        this.annc = annc;
+        this.anncTime = anncTime;
+    }
+
     public Masjid(String code, String name, String fajr, String zuhr, String jumma, String assr, String magrib, String isha) {
         this.code = code;
         this.name = name;
@@ -34,6 +48,22 @@ public class Masjid {
         this.assr = assr;
         this.magrib = magrib;
         this.isha = isha;
+    }
+
+    public String getAnnc() {
+        return annc;
+    }
+
+    public void setAnnc(String annc) {
+        this.annc = annc;
+    }
+
+    public String getAnncTime() {
+        return anncTime;
+    }
+
+    public void setAnncTime(String anncTime) {
+        this.anncTime = anncTime;
     }
 
     public String getCode() {
