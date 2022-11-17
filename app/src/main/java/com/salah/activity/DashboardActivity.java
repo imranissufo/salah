@@ -38,6 +38,7 @@ import com.salah.adapter.MasjidAdapter;
 import com.salah.adapter.TimingsAdapter;
 import com.salah.common.Login;
 import com.salah.common.RetailerStartUpScreen;
+import com.salah.model.Masjid;
 import com.salah.model.Timings;
 import com.salah.user.Categories;
 
@@ -53,7 +54,6 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     ImageView menuIcon, addIcon;
     LinearLayout contentView;
     int height, width;
-    double longitude, latitude;
     LocationManager locationManager;
     LocationListener locationListener;
 
@@ -99,9 +99,11 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         menuIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (drawerLayout.isDrawerVisible(GravityCompat.START))
+                if (drawerLayout.isDrawerVisible(GravityCompat.START)) {
                     drawerLayout.closeDrawer(GravityCompat.START);
-                else drawerLayout.openDrawer(GravityCompat.START);
+                } else {
+                    drawerLayout.openDrawer(GravityCompat.START);
+                }
             }
         });
     }
@@ -183,7 +185,19 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     private void masjidRecycler() {
         masjidRecycler.setHasFixedSize(true);
         masjidRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        masjidRecycler.setItemAnimator(null);
 
+        Query query = FirebaseDatabase.getInstance()
+                .getReference()
+                .child("masjid");
+
+        FirebaseRecyclerOptions<Masjid> options =
+                new FirebaseRecyclerOptions.Builder<Masjid>()
+                        .setQuery(query, Masjid.class)
+                        .build();
+
+        masjidAdapter = new MasjidAdapter(options);
+        masjidRecycler.setAdapter(masjidAdapter);
         /*
         ArrayList<Location> mostViewedLocations = new ArrayList<>();
         mostViewedLocations.add(new Location(R.drawable.sujud, "Sujud", "Sajdah"));
@@ -234,16 +248,22 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     protected void onStart() {
         super.onStart();
         timingsAdapter.startListening();
+        masjidAdapter.startListening();
 
         //Remove crash on press back
         timingsRecycler.getRecycledViewPool().clear();
+        masjidRecycler.getRecycledViewPool().clear();
+
         timingsAdapter.notifyDataSetChanged();
+        masjidAdapter.notifyDataSetChanged();
+
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         timingsAdapter.stopListening();
+        masjidAdapter.stopListening();
     }
 
     @Override

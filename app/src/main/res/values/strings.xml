@@ -40,10 +40,10 @@
     <string name="view_all">View All</string>
     <string name="search_text">Search...</string>
     <string name="salah_ar">صلاة</string>
-    <string name="home">HOME</string>
-    <string name="search">SEARCH</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
     <string name="add_missing_place">ADD MISSING PLACE</string>
-    <string name="all_categories">ALL CATEGORIES</string>
+    <string name="all_categories">Massájid</string>
     <string name="login">Login</string>
     <string name="profile">Profile</string>
     <string name="logout">Logout</string>

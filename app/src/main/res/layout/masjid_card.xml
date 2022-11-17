@@ -34,6 +34,34 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/black"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/mj_location_lb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/advent_pro_bold"
+                android:text="Location"
+                android:textColor="@color/colorPrimary"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/mj_location_vl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/advent_pro_medium"
+                android:text="04:30"
+                android:textColor="@color/colorPrimary"
+                android:textSize="24sp" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:padding="10dp">
 
             <TextView
@@ -91,7 +119,7 @@
             android:padding="10dp">
 
             <TextView
-                android:id="@+id/mj_zawal_lb"
+                android:id="@+id/mj_jumma_lb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -101,7 +129,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/mj_zawal_vl"
+                android:id="@+id/mj_jumma_vl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -156,6 +184,33 @@
 
             <TextView
                 android:id="@+id/mj_isha_vl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/ds_digib"
+                android:text="20:00"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/mj_annc_lb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/advent_pro_bold"
+                android:text="Anuncio"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/mj_anncTime_vl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"

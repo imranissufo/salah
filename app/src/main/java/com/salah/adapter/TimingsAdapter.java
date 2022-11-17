@@ -13,7 +13,11 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.salah.R;
 import com.salah.model.Timings;
 
+import java.util.Calendar;
+
 public class TimingsAdapter extends FirebaseRecyclerAdapter<Timings, TimingsAdapter.TimingsViewHolder> {
+
+     private Calendar calendar;
 
     /**
      * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
@@ -23,6 +27,7 @@ public class TimingsAdapter extends FirebaseRecyclerAdapter<Timings, TimingsAdap
      */
     public TimingsAdapter(@NonNull FirebaseRecyclerOptions<Timings> options) {
         super(options);
+        calendar = Calendar.getInstance();
     }
 
     /*
@@ -41,7 +46,8 @@ public class TimingsAdapter extends FirebaseRecyclerAdapter<Timings, TimingsAdap
 
     @Override
     protected void onBindViewHolder(@NonNull TimingsViewHolder holder, int position, @NonNull Timings model) {
-        holder.code.setText(model.getCode());
+        holder.location.setText(model.getLocation());
+        holder.code.setText(model.getDay()+"/"+model.getMonth()+"/"+calendar.get(Calendar.YEAR));
         holder.suhur.setText(model.getSuhur());
         holder.fajr.setText(model.getFajr());
         holder.sunrise.setText(model.getSunrise());
@@ -72,6 +78,7 @@ public class TimingsAdapter extends FirebaseRecyclerAdapter<Timings, TimingsAdap
         public TimingsViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            location =itemView.findViewById(R.id.tm_location_vl);
             code = itemView.findViewById(R.id.tm_date_vl);
             suhur = itemView.findViewById(R.id.tm_suhur_vl);
             fajr = itemView.findViewById(R.id.tm_fajr_vl);
