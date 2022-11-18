@@ -65,6 +65,7 @@ public class MasjidActivity extends AppCompatActivity {
         masjidAdapter.stopListening();
     }
 
+    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -107,4 +108,6 @@ public class MasjidActivity extends AppCompatActivity {
         masjidAdapter.startListening();
         masjidRecycler.setAdapter(masjidAdapter);
     }
+
+     */
 }

@@ -14,7 +14,7 @@
         android:orientation="vertical"
         android:padding="4dp">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
@@ -30,17 +30,19 @@
                 android:textColor="@color/colorAccent"
                 android:textSize="24sp" />
 
-        </RelativeLayout>
-        <RelativeLayout
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/black"
+            android:orientation="horizontal"
             android:padding="10dp">
 
             <TextView
                 android:id="@+id/mj_location_lb"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="3"
                 android:layout_centerVertical="true"
                 android:fontFamily="@font/advent_pro_medium"
                 android:text="Location"
@@ -49,8 +51,10 @@
 
             <TextView
                 android:id="@+id/mj_location_vl"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="textEnd"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:fontFamily="@font/advent_pro_medium"
@@ -58,16 +62,17 @@
                 android:textColor="@color/colorPrimary"
                 android:textSize="24sp" />
 
-        </RelativeLayout>
-        <RelativeLayout
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp">
 
             <TextView
                 android:id="@+id/mj_fajr_lb"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="3"
                 android:layout_centerVertical="true"
                 android:fontFamily="@font/advent_pro_medium"
                 android:text="Fajr"
@@ -76,25 +81,28 @@
 
             <TextView
                 android:id="@+id/mj_fajr_vl"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="textEnd"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:fontFamily="@font/ds_digib"
                 android:text="04:30"
                 android:textColor="@color/colorAccent"
-                android:textSize="24sp" />
+                android:textSize="29sp" />
 
-        </RelativeLayout>
-        <RelativeLayout
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp">
 
             <TextView
                 android:id="@+id/mj_zuhr_lb"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="3"
                 android:layout_centerVertical="true"
                 android:fontFamily="@font/advent_pro_medium"
                 android:text="Zuhr"
@@ -103,25 +111,28 @@
 
             <TextView
                 android:id="@+id/mj_zuhr_vl"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
+                android:layout_weight="1"
                 android:fontFamily="@font/ds_digib"
                 android:text="12:45"
+                android:textAlignment="textEnd"
                 android:textColor="@color/colorAccent"
-                android:textSize="24sp" />
+                android:textSize="29sp" />
 
-        </RelativeLayout>
-        <RelativeLayout
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp">
 
             <TextView
                 android:id="@+id/mj_jumma_lb"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="3"
                 android:layout_centerVertical="true"
                 android:fontFamily="@font/advent_pro_medium"
                 android:text="Jumma"
@@ -130,25 +141,28 @@
 
             <TextView
                 android:id="@+id/mj_jumma_vl"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
+                android:layout_weight="1"
                 android:fontFamily="@font/ds_digib"
                 android:text="12:45"
+                android:textAlignment="textEnd"
                 android:textColor="@color/colorAccent"
-                android:textSize="24sp" />
+                android:textSize="29sp" />
 
-        </RelativeLayout>
-        <RelativeLayout
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp">
 
             <TextView
                 android:id="@+id/mj_assr_lb"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="3"
                 android:layout_centerVertical="true"
                 android:fontFamily="@font/advent_pro_medium"
                 android:text="Assr"
@@ -157,25 +171,28 @@
 
             <TextView
                 android:id="@+id/mj_assr_vl"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
+                android:layout_weight="1"
                 android:fontFamily="@font/ds_digib"
                 android:text="17:00"
+                android:textAlignment="textEnd"
                 android:textColor="@color/colorAccent"
-                android:textSize="24sp" />
+                android:textSize="29sp" />
 
-        </RelativeLayout>
-        <RelativeLayout
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp">
 
             <TextView
                 android:id="@+id/mj_isha_lb"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="3"
                 android:layout_centerVertical="true"
                 android:fontFamily="@font/advent_pro_medium"
                 android:text="Isha"
@@ -184,25 +201,28 @@
 
             <TextView
                 android:id="@+id/mj_isha_vl"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
+                android:layout_weight="1"
                 android:fontFamily="@font/ds_digib"
                 android:text="20:00"
+                android:textAlignment="textEnd"
                 android:textColor="@color/colorAccent"
-                android:textSize="24sp" />
+                android:textSize="29sp" />
 
-        </RelativeLayout>
-        <RelativeLayout
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp">
 
             <TextView
                 android:id="@+id/mj_annc_lb"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="3"
                 android:layout_centerVertical="true"
                 android:fontFamily="@font/advent_pro_medium"
                 android:text="Anuncio"
@@ -211,15 +231,17 @@
 
             <TextView
                 android:id="@+id/mj_anncTime_vl"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
+                android:layout_weight="1"
                 android:fontFamily="@font/ds_digib"
                 android:text="20:00"
+                android:textAlignment="textEnd"
                 android:textColor="@color/colorAccent"
-                android:textSize="24sp" />
+                android:textSize="29sp" />
 
-        </RelativeLayout>
+        </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
