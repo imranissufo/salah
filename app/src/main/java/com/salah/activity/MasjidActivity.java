@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.SearchView;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.salah.R;
@@ -25,6 +26,7 @@ public class MasjidActivity extends AppCompatActivity {
     RecyclerView masjidRecycler;
     MasjidAdapter masjidAdapter;
     int height, width;
+    MaterialToolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
