@@ -5,8 +5,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.widget.SearchView;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -22,20 +24,31 @@ public class MasjidActivity extends AppCompatActivity {
 
     RecyclerView masjidRecycler;
     MasjidAdapter masjidAdapter;
+    int height, width;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_masjid);
 
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        height = displayMetrics.heightPixels;
+        width = displayMetrics.widthPixels;
+
         masjidRecycler = findViewById(R.id.mj_rv);
         masjidRecycler.setHasFixedSize(true);
         masjidRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         masjidRecycler.setItemAnimator(null);
 
+        ViewGroup.LayoutParams params = masjidRecycler.getLayoutParams();
+        params.height = height;
+        masjidRecycler.setLayoutParams(params);
+
+
         Query query = FirebaseDatabase.getInstance()
                 .getReference()
-                .child("masjid");
+                .child("masjid").orderByChild("name");
 
         FirebaseRecyclerOptions<Masjid> options =
                 new FirebaseRecyclerOptions.Builder<Masjid>()
@@ -65,7 +78,6 @@ public class MasjidActivity extends AppCompatActivity {
         masjidAdapter.stopListening();
     }
 
-    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -77,14 +89,14 @@ public class MasjidActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextSubmit(String query) {
-                txtSearch(query);
+                //txtSearch(query);
                 return false;
             }
 
             @Override
 
             public boolean onQueryTextChange(String newText) {
-                txtSearch(newText);
+                //txtSearch(newText);
                 return false;
             }
         });
@@ -108,6 +120,4 @@ public class MasjidActivity extends AppCompatActivity {
         masjidAdapter.startListening();
         masjidRecycler.setAdapter(masjidAdapter);
     }
-
-     */
 }
