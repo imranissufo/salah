@@ -40,7 +40,6 @@ import com.salah.common.Login;
 import com.salah.common.RetailerStartUpScreen;
 import com.salah.model.Masjid;
 import com.salah.model.Timings;
-import com.salah.user.Categories;
 
 import java.util.Calendar;
 
