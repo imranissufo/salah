@@ -8,8 +8,6 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
@@ -34,12 +32,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 import com.salah.R;
 import com.salah.adapter.MasgidAdapter;
 import com.salah.adapter.MasjidAdapter;
@@ -52,12 +47,11 @@ import com.salah.model.Timings;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class Dashboard2Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     RecyclerView timingsRecycler, masjidRecycler;
-    LinearLayout timmingLayout;
     TimingsAdapter timingsAdapter;
-    MasgidAdapter masgidAdapter;
+    MasjidAdapter masjidAdapter;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ImageView menuIcon, addIcon;
@@ -65,9 +59,6 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     int height, width;
     LocationManager locationManager;
     LocationListener locationListener;
-
-    TextInputEditText searchInput;
-    String searchTxt;
 
     private ArrayList<Masjid> entries = new ArrayList<>();
     private DatabaseReference databaseReference;
@@ -80,11 +71,6 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_dashboard);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference();
-        timmingLayout = findViewById(R.id.db_timming_layout);
-
-        loadEntries("");
-
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         height = displayMetrics.heightPixels;
@@ -92,10 +78,6 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
 
         timingsRecycler = findViewById(R.id.db_timings_recycler);
         masjidRecycler = findViewById(R.id.db_masjid_recycler);
-
-        masjidRecycler.setHasFixedSize(true);
-        masjidRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        masjidRecycler.setItemAnimator(null);
 
         ViewGroup.LayoutParams params = masjidRecycler.getLayoutParams();
         params.height = height;
@@ -112,61 +94,9 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         retailerScreens();
 
         timingsRecycler();
+        masjidRecycler();
 
-        //geolocation();
-
-        searchInput = findViewById(R.id.db_search_editText);
-        searchInput.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                searchTxt = charSequence.toString();
-                loadEntries(searchTxt);
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
-
-        masgidAdapter = new MasgidAdapter(entries);
-        masjidRecycler.setAdapter(masgidAdapter);
-
-    }
-
-    private void loadEntries(String search) {
-        if (search.isEmpty()){
-            timmingLayout.setVisibility(View.VISIBLE);
-        }else{
-            timmingLayout.setVisibility(View.GONE);
-        }
-
-        entries = new ArrayList<Masjid>();
-        masjidReference = databaseReference.child("masjid");
-        ValueEventListener valueEventListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    Masjid masjid = ds.getValue(Masjid.class);
-                    if (search.isEmpty() || masjid.getName().toUpperCase().contains(search.toUpperCase())) {
-                        entries.add(masjid);
-                    }
-                }
-                masgidAdapter.setMasjids(entries);
-                masgidAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.w("LogFragment", "loadLog:onCancelled", databaseError.toException());
-            }
-        };
-        masjidReference.addValueEventListener(valueEventListener);
+        geolocation();
     }
 
     private void navigationDrawer() {
@@ -260,6 +190,32 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         timingsRecycler.setAdapter(timingsAdapter);
     }
 
+    private void masjidRecycler() {
+        masjidRecycler.setHasFixedSize(true);
+        masjidRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        masjidRecycler.setItemAnimator(null);
+
+        Query query = FirebaseDatabase.getInstance()
+                .getReference()
+                .child("masjid");
+
+        FirebaseRecyclerOptions<Masjid> options =
+                new FirebaseRecyclerOptions.Builder<Masjid>()
+                        .setQuery(query, Masjid.class)
+                        .build();
+
+        masjidAdapter = new MasjidAdapter(options);
+        masjidRecycler.setAdapter(masjidAdapter);
+        /*
+        ArrayList<Location> mostViewedLocations = new ArrayList<>();
+        mostViewedLocations.add(new Location(R.drawable.sujud, "Sujud", "Sajdah"));
+        mostViewedLocations.add(new Location(R.drawable.dua, "Salah", "Salah"));
+
+        masjidAdapter = new MasjidAdapter(mostViewedLocations);
+        masjidRecycler.setAdapter(masjidAdapter);
+                 */
+    }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -305,13 +261,14 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     protected void onStart() {
         super.onStart();
         timingsAdapter.startListening();
+        masjidAdapter.startListening();
 
         //Remove crash on press back
         timingsRecycler.getRecycledViewPool().clear();
         masjidRecycler.getRecycledViewPool().clear();
 
         timingsAdapter.notifyDataSetChanged();
-        masgidAdapter.notifyDataSetChanged();
+        masjidAdapter.notifyDataSetChanged();
 
     }
 
@@ -319,6 +276,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     protected void onStop() {
         super.onStop();
         timingsAdapter.stopListening();
+        masjidAdapter.stopListening();
     }
 
     @Override
@@ -372,7 +330,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             public void onLocationChanged(Location location) {
                 //when location is changed
                 Log.i("location", location.toString());//printing location to logs
-                Toast.makeText(DashboardActivity.this, location.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(Dashboard2Activity.this, location.toString(), Toast.LENGTH_LONG).show();
             }
 
             @Override

@@ -26,6 +26,13 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".activity.MasgidActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".activity.DashboardActivity"
             android:exported="false">
             <meta-data

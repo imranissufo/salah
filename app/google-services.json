@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "419030844671",
+    "firebase_url": "https://salah-c19d9-default-rtdb.firebaseio.com",
     "project_id": "salah-c19d9",
     "storage_bucket": "salah-c19d9.appspot.com"
   },
@@ -13,6 +14,22 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "419030844671-er0fovctte904hsdgqm75qjvf0phj69p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.salah",
+            "certificate_hash": "fb83e23e64d94ff5d5d48dba5be0881da0ffcf48"
+          }
+        },
+        {
+          "client_id": "419030844671-gf5q52c3nm7aptgmrso2etpp7gqsu837.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.salah",
+            "certificate_hash": "0df7511d81a67ea8b24010287d63f5cc3ebd7c9e"
+          }
+        },
         {
           "client_id": "419030844671-dkq376310495ls8fctmd748a3jt9suan.apps.googleusercontent.com",
           "client_type": 3

@@ -6,8 +6,8 @@
         android:enabled="true"/>
     <item
         android:id="@+id/navigation_featured"
-        android:icon="@drawable/ic_monitor_heart"
-        android:title="Featured"
+        android:icon="@drawable/ic_mosque"
+        android:title="@string/masaajid"
         android:enabled="true"/>
     <item
         android:id="@+id/navigation_location"

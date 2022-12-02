@@ -16,10 +16,14 @@ import java.util.ArrayList;
 
 public class MasgidAdapter extends RecyclerView.Adapter<MasgidAdapter.MasgidViewHolder> {
 
-    ArrayList<Masjid> masjids;
+    ArrayList<Masjid> masjids = new ArrayList<>();
 
     public MasgidAdapter(ArrayList<Masjid> locations) {
         this.masjids = locations;
+    }
+
+    public void setMasjids(ArrayList<Masjid> masjids) {
+        this.masjids = masjids;
     }
 
     @NonNull
