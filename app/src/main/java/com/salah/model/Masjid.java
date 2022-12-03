@@ -1,6 +1,8 @@
 package com.salah.model;
 
-public class Masjid {
+import java.io.Serializable;
+
+public class Masjid implements Serializable {
 
     private String code;
     private String name;

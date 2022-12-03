@@ -28,6 +28,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.hbb20.CountryCodePicker;
 import com.salah.R;
+import com.salah.activity.MasgidAdminActivity;
 import com.salah.activity.RetailerDashboard;
 import com.salah.util.SharedPreferencesManager;
 
@@ -135,7 +136,7 @@ public class Login extends AppCompatActivity {
                         manager.createSession(_fullName,_username,_email,_phoneNo,_password,_date,_gender);
 
                         //We will also create a Session here in next videos to keep the user logged In
-                        startActivity(new Intent(getApplicationContext(), RetailerDashboard.class));
+                        startActivity(new Intent(getApplicationContext(), MasgidAdminActivity.class));
                         finish();
                     }else{
                         Toast.makeText(Login.this, _password+" does not match "+systemPassword, Toast.LENGTH_LONG).show();

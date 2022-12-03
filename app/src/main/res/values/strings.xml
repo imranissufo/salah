@@ -79,5 +79,9 @@
     <string name="user_profile">User\nProfile</string>
     <string name="locker">locker</string>
     <string name="forgot_password_title">Forgot\nPassword</string>
+    <string name="masgid">Masgid</string>
+    <string name="localizacao">Localização</string>
+    <string name="add_masjid">Adicionar Masgid</string>
+    <string name="masjid">MASGID</string>
 
 </resources>

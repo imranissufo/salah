@@ -140,9 +140,9 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     }
 
     private void loadEntries(String search) {
-        if (search.isEmpty()){
+        if (search.isEmpty()) {
             timmingLayout.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             timmingLayout.setVisibility(View.GONE);
         }
 
@@ -201,6 +201,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DAY_OF_MONTH);
         int month = calendar.get(Calendar.MONTH);
+        month++;
         String d = String.valueOf(day);
         String m = String.valueOf(month);
         if (day < 10) {
@@ -218,11 +219,10 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             case 7:
             case 8:
             case 10:
-                case12:
-                {
-                    limit = 31 - day + 1;
-                }
-                break;
+            case 12: {
+                limit = 31 - day + 1;
+            }
+            break;
             case 4:
             case 6:
             case 9:
