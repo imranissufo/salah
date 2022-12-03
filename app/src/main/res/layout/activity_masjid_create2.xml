@@ -121,11 +121,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:timePickerMode="clock"
-                android:numbersSelectorColor="@color/black"
-                android:headerBackground="@color/colorPrimary"
-                android:numbersTextColor="@color/colorPrimary"
+                android:headerBackground="#0076A3"
+                android:numbersTextColor="#b71c1c"
+                android:numbersInnerTextColor="#f44336"
+                android:numbersSelectorColor="#DCA811"
+                android:numbersBackgroundColor="#004A80"
+                android:amPmTextColor="#fff"
                 android:id="@+id/mjc_fajr_picker" />
-
         </LinearLayout>
 
         <Button

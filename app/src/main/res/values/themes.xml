@@ -13,4 +13,13 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorControlHighlight">@color/colorAccent</item>
     </style>
+
+    <style name="MyTimePickerStyle" parent="@android:style/Widget.Material.TimePicker">
+        <item name="android:headerBackground">#0076A3</item>
+        <item name="android:numbersTextColor">#b71c1c</item>
+        <item name="android:numbersInnerTextColor">#f44336</item>
+        <item name="android:numbersSelectorColor">#DCA811</item>
+        <item name="android:numbersBackgroundColor">#004A80</item>
+        <item name="android:amPmTextColor">#fff</item>
+    </style>
 </resources>
