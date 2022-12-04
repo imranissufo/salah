@@ -12,10 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.salah.R;
-import com.salah.common.SignUpStep2;
 import com.salah.model.Masjid;
 
-public class MasjidCreate1Activity extends AppCompatActivity {
+public class MasjidForm1Activity extends AppCompatActivity {
 
     //Variables
     ImageView backBtn;
@@ -25,12 +24,11 @@ public class MasjidCreate1Activity extends AppCompatActivity {
     Masjid masjid;
     String action;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_masjid_create1);
+        setContentView(R.layout.activity_masjid_form1);
 
         action = getIntent().getStringExtra("action");
         masjid = (Masjid) getIntent().getSerializableExtra("masjid");
@@ -80,7 +78,7 @@ public class MasjidCreate1Activity extends AppCompatActivity {
             return;
         }
 
-        Intent intent = new Intent(getApplicationContext(), MasjidCreate2Activity.class);
+        Intent intent = new Intent(getApplicationContext(), MasjidForm2Activity.class);
 
         String _name = name.getEditText().getText().toString().trim();
         String _location = location.getEditText().getText().toString().trim();
@@ -96,6 +94,6 @@ public class MasjidCreate1Activity extends AppCompatActivity {
     }
 
     public void onBackBtnClick(View view) {
-        MasjidCreate1Activity.super.onBackPressed();
+        MasjidForm1Activity.super.onBackPressed();
     }
 }

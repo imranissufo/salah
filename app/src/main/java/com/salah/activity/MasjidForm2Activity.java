@@ -10,11 +10,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.salah.R;
-import com.salah.common.SignUpStep2;
 import com.salah.model.Masjid;
 import com.salah.util.TimeUtils;
 
-public class MasjidCreate2Activity extends AppCompatActivity {
+public class MasjidForm2Activity extends AppCompatActivity {
 
     TimePicker fajr;
     Masjid masjid;
@@ -25,10 +24,10 @@ public class MasjidCreate2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_masjid_create2);
+        setContentView(R.layout.activity_masjid_form2);
 
-        name = findViewById(R.id.mjc2_name);
-        fajr = findViewById(R.id.mjc_fajr_picker);
+        name = findViewById(R.id.mjf2_name);
+        fajr = findViewById(R.id.mjf2_fajr_picker);
         fajr.setIs24HourView(true);
 
         action = getIntent().getStringExtra("action");
@@ -47,7 +46,7 @@ public class MasjidCreate2Activity extends AppCompatActivity {
             return;
         }
 
-        Intent intent = new Intent(getApplicationContext(), SignUpStep2.class);
+        Intent intent = new Intent(getApplicationContext(), MasjidForm3Activity.class);
 
         int hour = fajr.getHour();
         int minute = fajr.getMinute();
@@ -71,7 +70,7 @@ public class MasjidCreate2Activity extends AppCompatActivity {
     }
 
     public void onBackBtnClick(View view) {
-        MasjidCreate2Activity.super.onBackPressed();
+        MasjidForm2Activity.super.onBackPressed();
     }
 
 }

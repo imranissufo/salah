@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorPrimary"
     android:padding="30dp"
-    tools:context=".activity.MasjidCreate2Activity">
+    tools:context=".activity.MasjidForm2Activity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,7 +20,8 @@
             android:padding="5dp"
             android:onClick="onBackBtnClick"
             android:src="@drawable/ic_arrow_back"
-            android:transitionName="transition_back_arrow_btn" />
+            android:transitionName="transition_back_arrow_btn"
+            android:contentDescription="@string/back" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -45,8 +46,8 @@
                 android:layout_height="100dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/advent_pro"
-                android:text="2/3"
-                android:layout_alignParentRight="true"
+                android:text="@string/step_2_6"
+                android:layout_alignParentEnd="true"
                 android:textColor="@color/black"
                 android:textAlignment="center"
                 android:textSize="30sp"
@@ -65,11 +66,11 @@
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/mjc2_name"
+                android:id="@+id/mjf2_name"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nome do Masgid"
+                android:hint="@string/masjid_name"
                 android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/black"
                 app:boxStrokeWidthFocused="2dp"
@@ -95,7 +96,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Fajr"
+                android:hint="@string/fajr"
                 android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/black"
                 app:boxStrokeWidthFocused="2dp"
@@ -120,14 +121,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:timePickerMode="clock"
+                android:timePickerMode="spinner"
                 android:headerBackground="@color/colorPrimary"
                 android:numbersTextColor="@color/colorPrimary"
                 android:numbersInnerTextColor="@color/black"
                 android:numbersSelectorColor="@color/grey"
                 android:numbersBackgroundColor="@color/black"
                 android:amPmTextColor="#fff"
-                android:id="@+id/mjc_fajr_picker" />
+                android:id="@+id/mjf2_fajr_picker" />
         </LinearLayout>
 
         <Button

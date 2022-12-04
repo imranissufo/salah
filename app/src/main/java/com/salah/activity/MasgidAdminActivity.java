@@ -7,20 +7,17 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.util.Pair;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.textfield.TextInputEditText;
@@ -31,10 +28,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.salah.R;
 import com.salah.adapter.MasgidAdapter;
-import com.salah.adapter.TimingsAdapter;
-import com.salah.common.Login;
-import com.salah.common.SignUp;
-import com.salah.common.SignUpStep2;
 import com.salah.model.Masjid;
 
 import java.util.ArrayList;
@@ -187,7 +180,7 @@ public class MasgidAdminActivity extends AppCompatActivity implements Navigation
 
     public void addMasjid(View view) {
         Masjid masjid = new Masjid();
-        Intent intent = new Intent(getApplicationContext(), MasjidCreate1Activity.class);
+        Intent intent = new Intent(getApplicationContext(), MasjidForm1Activity.class);
         intent.putExtra("masjid", masjid);
         intent.putExtra("action", "ADD");
         startActivity(intent);
@@ -195,7 +188,7 @@ public class MasgidAdminActivity extends AppCompatActivity implements Navigation
 
     public void editMasjid(View view) {
         Masjid masjid = new Masjid();
-        Intent intent = new Intent(getApplicationContext(), MasjidCreate1Activity.class);
+        Intent intent = new Intent(getApplicationContext(), MasjidForm1Activity.class);
         intent.putExtra("masjid", masjid);
         intent.putExtra("action", "EDIT");
         startActivity(intent);

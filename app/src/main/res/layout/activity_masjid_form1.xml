@@ -7,7 +7,7 @@
     android:background="@color/colorPrimary"
     android:padding="30dp"
     android:transitionName="transition_mjc"
-    tools:context=".activity.MasjidCreate1Activity">
+    tools:context=".activity.MasjidForm1Activity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -52,7 +52,7 @@
                 android:fontFamily="@font/advent_pro"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="@string/step1_3"
+                android:text="1/6"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="30sp"

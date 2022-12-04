@@ -9,6 +9,13 @@ public class TimeUtils {
         return hour;
     }
 
+    public static String addZero(int number) {
+        if(number<10){
+            return "0"+number;
+        }
+        return ""+number;
+    }
+
     public static int getMinute(String time) {
         String[] timef = time.split(":");
         int hour = Integer.parseInt(timef[0]);
