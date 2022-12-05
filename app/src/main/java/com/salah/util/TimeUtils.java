@@ -9,6 +9,10 @@ public class TimeUtils {
         return hour;
     }
 
+    public static String getFormatedTime(int hour, int minute) {
+        return addZero(hour)+":"+addZero(minute);
+    }
+
     public static String addZero(int number) {
         if(number<10){
             return "0"+number;

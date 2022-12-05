@@ -42,7 +42,7 @@ public class MasjidForm1Activity extends AppCompatActivity {
         name = findViewById(R.id.mjc_name);
         location = findViewById(R.id.mjc_location);
 
-        if(action.equals("EDIT")){
+        if(action.equals("EDIT") || (masjid.getName()!=null && !masjid.getName().isEmpty())){
             name.getEditText().setText(masjid.getName());
             location.getEditText().setText(masjid.getLocation());
         }
@@ -95,5 +95,11 @@ public class MasjidForm1Activity extends AppCompatActivity {
 
     public void onBackBtnClick(View view) {
         MasjidForm1Activity.super.onBackPressed();
+    }
+
+    public void cancel(View view) {
+        Intent intent = new Intent(getApplicationContext(), MasgidAdminActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 }

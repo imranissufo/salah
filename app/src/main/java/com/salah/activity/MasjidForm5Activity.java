@@ -15,10 +15,10 @@ import com.salah.common.SignUpStep2;
 import com.salah.model.Masjid;
 import com.salah.util.TimeUtils;
 
-public class MasjidForm3Activity extends AppCompatActivity {
+public class MasjidForm5Activity extends AppCompatActivity {
 
-    static final int MIN = 12;
-    static final int MAX = 14;
+    static final int MIN = 18;
+    static final int MAX = 20;
 
     TimePicker timePicker;
     Masjid masjid;
@@ -29,11 +29,11 @@ public class MasjidForm3Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_masjid_form3);
+        setContentView(R.layout.activity_masjid_form5);
 
-        name = findViewById(R.id.mjf3_name);
-        time = findViewById(R.id.mjf3_time);
-        timePicker = findViewById(R.id.mjf3_time_picker);
+        name = findViewById(R.id.mjf5_name);
+        time = findViewById(R.id.mjf5_time);
+        timePicker = findViewById(R.id.mjf5_time_picker);
         timePicker.setIs24HourView(true);
         timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
@@ -45,13 +45,14 @@ public class MasjidForm3Activity extends AppCompatActivity {
         action = getIntent().getStringExtra("action");
         masjid = (Masjid) getIntent().getSerializableExtra("masjid");
         name.setText(masjid.getName());
-        if(action.equals("EDIT") || (masjid.getZuhr()!=null && !masjid.getZuhr().isEmpty())){
-            timePicker.setHour(TimeUtils.getHour(masjid.getZuhr()));
-            timePicker.setMinute(TimeUtils.getMinute(masjid.getZuhr()));
+        if(action.equals("EDIT") || (masjid.getIsha()!=null && !masjid.getIsha().isEmpty())){
+            timePicker.setHour(TimeUtils.getHour(masjid.getIsha()));
+            timePicker.setMinute(TimeUtils.getMinute(masjid.getIsha()));
         }else{
-            timePicker.setHour(12);
+            timePicker.setHour(MIN);
             timePicker.setMinute(0);
         }
+
     }
 
     public void next(View view) {
@@ -60,12 +61,12 @@ public class MasjidForm3Activity extends AppCompatActivity {
             return;
         }
 
-        Intent intent = new Intent(getApplicationContext(), MasjidForm4Activity.class);
+        Intent intent = new Intent(getApplicationContext(), SignUpStep2.class);
 
         int hour = timePicker.getHour();
         int minute = timePicker.getMinute();
 
-        masjid.setZuhr(TimeUtils.getFormatedTime(hour, minute));
+        masjid.setAssr(TimeUtils.getFormatedTime(hour, minute));
         //Pass all fields to the next activity
         intent.putExtra("masjid", masjid);
         intent.putExtra("action", action);
@@ -80,12 +81,12 @@ public class MasjidForm3Activity extends AppCompatActivity {
         if(hour>= MIN && hour<=MAX){
             return true;
         }
-        Toast.makeText(MasjidForm3Activity.this, "Salah hour "+hour+" is not between "+MIN+"and "+MAX+"!", Toast.LENGTH_LONG).show();
+        Toast.makeText(MasjidForm5Activity.this, "Salah hour "+hour+" is not between "+MIN+"and "+MAX+"!", Toast.LENGTH_LONG).show();
         return false;
     }
 
-    public void onBackBtnClick(View view) {
-        MasjidForm3Activity.super.onBackPressed();
+    public void back(View view) {
+        MasjidForm5Activity.super.onBackPressed();
     }
 
     public void cancel(View view) {

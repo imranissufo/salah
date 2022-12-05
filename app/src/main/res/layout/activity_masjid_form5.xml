@@ -1,27 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorPrimary"
     android:padding="30dp"
-    tools:context=".activity.MasjidForm2Activity">
+    tools:context=".activity.MasjidForm5Activity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/mjc_back_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:onClick="onBackBtnClick"
-            android:src="@drawable/ic_arrow_back"
-            android:transitionName="transition_back_arrow_btn"
-            android:contentDescription="@string/back" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/mjf5_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="back"
+                android:padding="5dp"
+                android:src="@drawable/ic_arrow_back" />
+
+            <ImageView
+                android:id="@+id/mjf5_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:onClick="cancel"
+                android:padding="5dp"
+                android:src="@drawable/ic_close" />
+
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -29,33 +43,33 @@
             android:layout_marginTop="50dp">
 
             <TextView
-                android:id="@+id/mjc_title_text"
+                android:id="@+id/mjf5_title_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:fontFamily="@font/advent_pro"
                 android:text="@string/masjid"
                 android:textAllCaps="true"
                 android:textColor="@color/black"
-                android:layout_centerVertical="true"
                 android:textSize="40sp"
                 android:transitionName="transition_title_text" />
 
             <TextView
-                android:id="@+id/mjc_slide_text"
+                android:id="@+id/mjf5_step"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/advent_pro"
-                android:text="@string/step_2_6"
-                android:layout_alignParentEnd="true"
-                android:textColor="@color/black"
-                android:textAlignment="center"
-                android:textSize="30sp"
-                android:padding="10dp"
+                android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/circle_black_border"
-                android:transitionName="transition_slide_text"
-                android:gravity="center" />
+                android:fontFamily="@font/advent_pro"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="5/6"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:transitionName="transition_slide_text" />
 
         </RelativeLayout>
 
@@ -68,41 +82,41 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:background="@drawable/round_rect_shape"
-                android:padding="10dp"
-                android:layout_marginTop="5dp">
+                android:padding="10dp">
 
 
                 <ImageView
-                    android:id="@+id/mjf2_masjid_ic"
+                    android:id="@+id/mjf5_masjid_ic"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_alignParentLeft="true"
                     android:src="@drawable/ic_mosque" />
 
                 <TextView
-                    android:id="@+id/mjf2_name"
+                    android:id="@+id/mjf5_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="10dp"
-                    android:layout_toEndOf="@+id/mjf2_masjid_ic"
+                    android:layout_toEndOf="@+id/mjf5_masjid_ic"
                     android:text="Nome do Masgid"
-                    android:textSize="18sp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
 
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:background="@drawable/round_rect_shape"
-                android:padding="10dp"
-                android:layout_marginTop="5dp">
+                android:padding="10dp">
 
 
                 <ImageView
-                    android:id="@+id/mjf2_fajr_ic"
+                    android:id="@+id/mjf5_salah_ic"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_alignParentLeft="true"
@@ -113,41 +127,40 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="10dp"
-                    android:layout_toEndOf="@+id/mjf2_fajr_ic"
-                    android:text="Zuhr"
-                    android:textSize="18sp"
-                    android:textColor="@color/black"/>
+                    android:layout_toEndOf="@+id/mjf5_salah_ic"
+                    android:text="Isha"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/mjf2_time"
+                    android:id="@+id/mjf5_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
-                    android:text="12:45"
-                    android:textSize="34sp"
+                    android:layout_centerVertical="true"
                     android:fontFamily="@font/ds_digib"
-                    android:textColor="@color/black"/>
+                    android:text="12:45"
+                    android:textColor="@color/black"
+                    android:textSize="34sp" />
 
             </RelativeLayout>
 
-
             <TimePicker
+                android:id="@+id/mjf5_time_picker"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:timePickerMode="spinner"
+                android:amPmTextColor="#fff"
                 android:headerBackground="@color/colorPrimary"
-                android:numbersTextColor="@color/colorPrimary"
+                android:numbersBackgroundColor="@color/black"
                 android:numbersInnerTextColor="@color/black"
                 android:numbersSelectorColor="@color/grey"
-                android:numbersBackgroundColor="@color/black"
-                android:amPmTextColor="#fff"
-                android:id="@+id/mjf2_fajr_picker" />
+                android:numbersTextColor="@color/colorPrimary"
+                android:timePickerMode="spinner" />
         </LinearLayout>
 
         <Button
-            android:id="@+id/mjc2_next"
+            android:id="@+id/mjf5_next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
