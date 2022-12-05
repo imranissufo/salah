@@ -41,7 +41,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.salah.R;
-import com.salah.adapter.MasgidAdapter;
 import com.salah.adapter.MasjidAdapter;
 import com.salah.adapter.TimingsAdapter;
 import com.salah.common.Login;
@@ -57,7 +56,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     RecyclerView timingsRecycler, masjidRecycler;
     LinearLayout timmingLayout;
     TimingsAdapter timingsAdapter;
-    MasgidAdapter masgidAdapter;
+    MasjidAdapter masgidAdapter;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ImageView menuIcon, addIcon;
@@ -134,7 +133,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             }
         });
 
-        masgidAdapter = new MasgidAdapter(entries);
+        masgidAdapter = new MasjidAdapter(entries);
         masjidRecycler.setAdapter(masgidAdapter);
 
     }

@@ -29,7 +29,7 @@ public class MasgidAdapter extends RecyclerView.Adapter<MasgidAdapter.MasgidView
     @NonNull
     @Override
     public MasgidViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view  = LayoutInflater.from(parent.getContext()).inflate(R.layout.masjid_card, parent,false);
+        View view  = LayoutInflater.from(parent.getContext()).inflate(R.layout.masgid_card, parent,false);
         MasgidViewHolder viewHolder = new MasgidViewHolder(view);
         return viewHolder;
     }

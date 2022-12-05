@@ -25,6 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.salah.R;
 import com.salah.adapter.MasjidAdapter;
+import com.salah.adapter.MasjidFireAdapter;
 import com.salah.model.Masjid;
 
 import java.util.Locale;
@@ -32,7 +33,7 @@ import java.util.Locale;
 public class MasjidActivity extends AppCompatActivity {
 
     RecyclerView masjidRecycler;
-    MasjidAdapter masjidAdapter;
+    MasjidFireAdapter masjidAdapter;
     int height, width;
     TextInputEditText searchInput;
     String searchTxt;
@@ -88,7 +89,7 @@ public class MasjidActivity extends AppCompatActivity {
                         .setQuery(query, Masjid.class)
                         .build();
 
-        masjidAdapter = new MasjidAdapter(options);
+        masjidAdapter = new MasjidFireAdapter(options);
         masjidRecycler.setAdapter(masjidAdapter);
 
     }

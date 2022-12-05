@@ -8,36 +8,27 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.salah.R;
-import com.salah.model.Location;
 import com.salah.model.Masjid;
 
-import java.util.ArrayList;
+public class MasjidFireAdapter extends FirebaseRecyclerAdapter<Masjid, MasjidFireAdapter.MasjidViewHolder> {
 
-public class MasjidAdapter extends RecyclerView.Adapter<MasjidAdapter.MasjidViewHolder> {
-
-    ArrayList<Masjid> masjids = new ArrayList<>();
-
-    public MasjidAdapter(ArrayList<Masjid> locations) {
-        this.masjids = locations;
-    }
-
-    public void setMasjids(ArrayList<Masjid> masjids) {
-        this.masjids = masjids;
+    public MasjidFireAdapter(@NonNull FirebaseRecyclerOptions<Masjid> options) {
+        super(options);
     }
 
     @NonNull
     @Override
     public MasjidViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view  = LayoutInflater.from(parent.getContext()).inflate(R.layout.masjid_card, parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.masjid_card, parent, false);
         MasjidViewHolder viewHolder = new MasjidViewHolder(view);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MasjidViewHolder holder, int position) {
-        Masjid model = masjids.get(position);
-
+    protected void onBindViewHolder(@NonNull MasjidViewHolder holder, int position, @NonNull Masjid model) {
         holder.name.setText(model.getName());
         holder.fajr.setText(model.getFajr());
         holder.zuhr.setText(model.getZuhr());
@@ -47,15 +38,9 @@ public class MasjidAdapter extends RecyclerView.Adapter<MasjidAdapter.MasjidView
         holder.location.setText(model.getLocation());
         holder.annc.setText(model.getAnnc());
         holder.anncTime.setText(model.getAnncTime());
-
     }
 
-    @Override
-    public int getItemCount() {
-        return masjids.size();
-    }
-
-    public static class MasjidViewHolder extends RecyclerView.ViewHolder{
+    public static class MasjidViewHolder extends RecyclerView.ViewHolder {
 
         TextView code;
         TextView name;
@@ -83,4 +68,5 @@ public class MasjidAdapter extends RecyclerView.Adapter<MasjidAdapter.MasjidView
             anncTime = itemView.findViewById(R.id.mj_anncTime_vl);
         }
     }
+
 }

@@ -38,6 +38,7 @@ import com.google.firebase.database.Query;
 import com.salah.R;
 import com.salah.adapter.MasgidAdapter;
 import com.salah.adapter.MasjidAdapter;
+import com.salah.adapter.MasjidFireAdapter;
 import com.salah.adapter.TimingsAdapter;
 import com.salah.common.Login;
 import com.salah.common.RetailerStartUpScreen;
@@ -51,7 +52,7 @@ public class Dashboard2Activity extends AppCompatActivity implements NavigationV
 
     RecyclerView timingsRecycler, masjidRecycler;
     TimingsAdapter timingsAdapter;
-    MasjidAdapter masjidAdapter;
+    MasjidFireAdapter masjidAdapter;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ImageView menuIcon, addIcon;
@@ -204,7 +205,7 @@ public class Dashboard2Activity extends AppCompatActivity implements NavigationV
                         .setQuery(query, Masjid.class)
                         .build();
 
-        masjidAdapter = new MasjidAdapter(options);
+        masjidAdapter = new MasjidFireAdapter(options);
         masjidRecycler.setAdapter(masjidAdapter);
         /*
         ArrayList<Location> mostViewedLocations = new ArrayList<>();

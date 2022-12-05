@@ -22,6 +22,7 @@
 
             <TextView
                 android:id="@+id/mj_name"
+                android:layout_weight="4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -29,6 +30,17 @@
                 android:text="Masjid"
                 android:textColor="@color/colorAccent"
                 android:textSize="24sp" />
+
+            <ImageView
+                android:id="@+id/mj_edit"
+                android:layout_weight="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:onClick="cancel"
+                android:padding="5dp"
+                android:src="@drawable/ic_edit" />
 
         </LinearLayout>
         <LinearLayout
@@ -231,18 +243,16 @@
                 android:textColor="@color/black"
                 android:textSize="24sp" />
 
-            <TextView
-                android:id="@+id/mj_anncement_vl"
-                android:layout_width="0dp"
+            <ImageView
+                android:id="@+id/mj_annc_edit"
+                android:layout_weight="0"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textAlignment="textEnd"
-                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
-                android:text=""
-                android:textColor="@color/colorPrimary"
-                android:textSize="24sp" />
+                android:onClick="cancel"
+                android:padding="5dp"
+                android:src="@drawable/ic_edit" />
 
         </LinearLayout>
         <LinearLayout
