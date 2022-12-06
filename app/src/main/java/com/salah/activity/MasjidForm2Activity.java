@@ -84,7 +84,7 @@ public class MasjidForm2Activity extends AppCompatActivity {
         return false;
     }
 
-    public void onBackBtnClick(View view) {
+    public void back(View view) {
         MasjidForm2Activity.super.onBackPressed();
     }
 

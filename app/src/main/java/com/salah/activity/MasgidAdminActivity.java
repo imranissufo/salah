@@ -99,7 +99,7 @@ public class MasgidAdminActivity extends AppCompatActivity implements Navigation
             }
         });
 
-        masgidAdapter = new MasgidAdapter(entries);
+        masgidAdapter = new MasgidAdapter(this, entries);
         masjidRecycler.setAdapter(masgidAdapter);
 
     }
@@ -112,6 +112,7 @@ public class MasgidAdminActivity extends AppCompatActivity implements Navigation
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     Masjid masjid = ds.getValue(Masjid.class);
+                    masjid.setId(dataSnapshot.getKey());
                     if (search.isEmpty() || masjid.getName().toUpperCase().contains(search.toUpperCase())) {
                         entries.add(masjid);
                     }

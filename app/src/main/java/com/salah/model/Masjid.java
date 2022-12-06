@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Masjid implements Serializable {
 
+    private String id;
     private String code;
     private String name;
     private String fajr;
@@ -31,6 +32,14 @@ public class Masjid implements Serializable {
         this.location = location;
         this.annc = annc;
         this.anncTime = anncTime;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getLocation() {

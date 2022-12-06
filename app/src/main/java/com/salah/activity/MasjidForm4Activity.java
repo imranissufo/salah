@@ -84,7 +84,7 @@ public class MasjidForm4Activity extends AppCompatActivity {
         return false;
     }
 
-    public void onBackBtnClick(View view) {
+    public void back(View view) {
         MasjidForm4Activity.super.onBackPressed();
     }
 

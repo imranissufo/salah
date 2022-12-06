@@ -61,12 +61,12 @@ public class MasjidForm5Activity extends AppCompatActivity {
             return;
         }
 
-        Intent intent = new Intent(getApplicationContext(), SignUpStep2.class);
+        Intent intent = new Intent(getApplicationContext(), MasjidForm6Activity.class);
 
         int hour = timePicker.getHour();
         int minute = timePicker.getMinute();
 
-        masjid.setAssr(TimeUtils.getFormatedTime(hour, minute));
+        masjid.setIsha(TimeUtils.getFormatedTime(hour, minute));
         //Pass all fields to the next activity
         intent.putExtra("masjid", masjid);
         intent.putExtra("action", action);

@@ -1,24 +1,29 @@
 package com.salah.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.salah.R;
-import com.salah.model.Location;
+import com.salah.activity.MasjidForm1Activity;
 import com.salah.model.Masjid;
 
 import java.util.ArrayList;
 
 public class MasgidAdapter extends RecyclerView.Adapter<MasgidAdapter.MasgidViewHolder> {
 
-    ArrayList<Masjid> masjids = new ArrayList<>();
+    Context context;
+    ArrayList<Masjid> masjids;
 
-    public MasgidAdapter(ArrayList<Masjid> locations) {
+    public MasgidAdapter(Context context, ArrayList<Masjid> locations) {
+        this.context = context;
         this.masjids = locations;
     }
 
@@ -30,8 +35,7 @@ public class MasgidAdapter extends RecyclerView.Adapter<MasgidAdapter.MasgidView
     @Override
     public MasgidViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view  = LayoutInflater.from(parent.getContext()).inflate(R.layout.masgid_card, parent,false);
-        MasgidViewHolder viewHolder = new MasgidViewHolder(view);
-        return viewHolder;
+        return new MasgidViewHolder(view);
     }
 
     @Override
@@ -47,6 +51,16 @@ public class MasgidAdapter extends RecyclerView.Adapter<MasgidAdapter.MasgidView
         holder.location.setText(model.getLocation());
         holder.annc.setText(model.getAnnc());
         holder.anncTime.setText(model.getAnncTime());
+
+        holder.editMasjid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, MasjidForm1Activity.class);
+                intent.putExtra("masjid", model);
+                intent.putExtra("action", "EDIT");
+                context.startActivity(intent);
+            }
+        });
 
     }
 
@@ -68,6 +82,8 @@ public class MasgidAdapter extends RecyclerView.Adapter<MasgidAdapter.MasgidView
         TextView location;
         TextView annc;
         TextView anncTime;
+        ImageView editMasjid;
+        ImageView editAnnouncement;
 
         public MasgidViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -81,6 +97,8 @@ public class MasgidAdapter extends RecyclerView.Adapter<MasgidAdapter.MasgidView
             location = itemView.findViewById(R.id.mj_location_vl);
             annc = itemView.findViewById(R.id.mj_annc_lb);
             anncTime = itemView.findViewById(R.id.mj_anncTime_vl);
+            editMasjid = itemView.findViewById(R.id.mj_edit);
+            editAnnouncement = itemView.findViewById(R.id.mj_annc_edit);
         }
     }
 }

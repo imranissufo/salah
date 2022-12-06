@@ -13,15 +13,29 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/mjc_back_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:onClick="onBackBtnClick"
-            android:src="@drawable/ic_arrow_back"
-            android:transitionName="transition_back_arrow_btn"
-            android:contentDescription="@string/back" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/mjf2_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="back"
+                android:padding="5dp"
+                android:src="@drawable/ic_arrow_back" />
+
+            <ImageView
+                android:id="@+id/mjf2_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:onClick="cancel"
+                android:padding="5dp"
+                android:src="@drawable/ic_close" />
+
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -114,7 +128,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginStart="10dp"
                     android:layout_toEndOf="@+id/mjf2_fajr_ic"
-                    android:text="Zuhr"
+                    android:text="Fajr"
                     android:textSize="18sp"
                     android:textColor="@color/black"/>
 

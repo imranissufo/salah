@@ -34,7 +34,7 @@ public class MasjidForm1Activity extends AppCompatActivity {
         masjid = (Masjid) getIntent().getSerializableExtra("masjid");
 
         //Hooks for animation
-        backBtn = findViewById(R.id.mjc_back_button);
+        backBtn = findViewById(R.id.mjf1_back);
         next = findViewById(R.id.mjc_next_button);
         titleText = findViewById(R.id.mjc_title_text);
         slideText = findViewById(R.id.mjc_slide_text);
@@ -93,7 +93,7 @@ public class MasjidForm1Activity extends AppCompatActivity {
 
     }
 
-    public void onBackBtnClick(View view) {
+    public void back(View view) {
         MasjidForm1Activity.super.onBackPressed();
     }
 

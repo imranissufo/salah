@@ -122,7 +122,7 @@ public class RetailerFeaturedFragment extends Fragment {
         params.height = height;
         masjidRecycler.setLayoutParams(params);
 
-        masjidAdapter = new MasgidAdapter(entries);
+        masjidAdapter = new MasgidAdapter(getActivity().getApplicationContext(), entries);
         masjidRecycler.setAdapter(masjidAdapter);
 
         return view;

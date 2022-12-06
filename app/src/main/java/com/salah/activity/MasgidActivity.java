@@ -13,17 +13,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.salah.R;
 import com.salah.adapter.MasgidAdapter;
-import com.salah.adapter.MasjidAdapter;
 import com.salah.model.Masjid;
 
 import java.util.ArrayList;
@@ -82,7 +79,7 @@ public class MasgidActivity extends AppCompatActivity {
         params.height = height;
         masjidRecycler.setLayoutParams(params);
 
-        masjidAdapter = new MasgidAdapter(entries);
+        masjidAdapter = new MasgidAdapter(this, entries);
         masjidRecycler.setAdapter(masjidAdapter);
 
     }
