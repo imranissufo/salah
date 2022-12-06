@@ -42,6 +42,7 @@ public class MasjidForm6Activity extends AppCompatActivity {
 
         action = getIntent().getStringExtra("action");
         masjid = (Masjid) getIntent().getSerializableExtra("masjid");
+        name.setText(masjid.getName());
         location.setText(masjid.getLocation());
         farj.setText(masjid.getFajr());
         zuhr.setText(masjid.getZuhr());
