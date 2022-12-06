@@ -1,7 +1,13 @@
 package com.salah.model;
 
-import java.io.Serializable;
+import com.google.firebase.database.Exclude;
+import com.google.firebase.database.IgnoreExtraProperties;
 
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
+
+@IgnoreExtraProperties
 public class Masjid implements Serializable {
 
     private String id;
@@ -32,6 +38,25 @@ public class Masjid implements Serializable {
         this.location = location;
         this.annc = annc;
         this.anncTime = anncTime;
+    }
+
+    @Exclude
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("id", id);
+        result.put("code", code);
+        result.put("name", name);
+        result.put("fajr", fajr);
+        result.put("zuhr", zuhr);
+        result.put("jumma", jumma);
+        result.put("assr", assr);
+        result.put("magrib", magrib);
+        result.put("isha", isha);
+        result.put("location", location);
+        result.put("annc", annc);
+        result.put("anncTime", anncTime);
+
+        return result;
     }
 
     public String getId() {

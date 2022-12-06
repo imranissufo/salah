@@ -52,8 +52,18 @@ public class MasjidForm6Activity extends AppCompatActivity {
 
     public void next(View view) {
 
+//        String key = mDatabase.child("posts").push().getKey();
+//        Post post = new Post(userId, username, title, body);
+//        Map<String, Object> postValues = post.toMap();
+//
+//        Map<String, Object> childUpdates = new HashMap<>();
+//        childUpdates.put("/posts/" + key, postValues);
+//        childUpdates.put("/user-posts/" + userId + "/" + key, postValues);
+//
+//        mDatabase.updateChildren(childUpdates);
+
         masjidReference = databaseReference.child("masjid");
-        masjidReference.child(masjid.getId()).setValue(masjid).addOnSuccessListener(new OnSuccessListener<Void>() {
+        masjidReference.child(masjid.getId()).updateChildren(masjid.toMap()).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
                 Toast.makeText(MasjidForm6Activity.this, "Registo actualizado com sucesso!", Toast.LENGTH_LONG).show();
