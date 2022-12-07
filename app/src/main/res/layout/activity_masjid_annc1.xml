@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorPrimary"
     android:padding="30dp"
-    tools:context=".activity.MasjidForm6Activity">
+    tools:context=".activity.MasjidAnnc1Activity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/mjf5_back"
+                android:id="@+id/mja1_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="back"
@@ -26,7 +26,7 @@
                 android:src="@drawable/ic_arrow_back" />
 
             <ImageView
-                android:id="@+id/mjf5_close"
+                android:id="@+id/mja1_close"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -43,33 +43,33 @@
             android:layout_marginTop="50dp">
 
             <TextView
-                android:id="@+id/mjf5_title_text"
+                android:id="@+id/mja1_title_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:fontFamily="@font/advent_pro"
-                android:text="@string/masjid"
+                android:text="MASGID\nANUNCIO"
                 android:textAllCaps="true"
                 android:textColor="@color/black"
+                android:layout_centerVertical="true"
                 android:textSize="40sp"
                 android:transitionName="transition_title_text" />
 
             <TextView
-                android:id="@+id/mjf5_step"
+                android:id="@+id/mja1_slide_text"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/circle_black_border"
                 android:fontFamily="@font/advent_pro"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="5/6"
-                android:textAlignment="center"
+                android:text="1/2"
+                android:layout_alignParentEnd="true"
                 android:textColor="@color/black"
+                android:textAlignment="center"
                 android:textSize="30sp"
-                android:transitionName="transition_slide_text" />
+                android:padding="10dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/circle_black_border"
+                android:transitionName="transition_slide_text"
+                android:gravity="center" />
 
         </RelativeLayout>
 
@@ -82,41 +82,41 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:background="@drawable/round_rect_shape"
-                android:padding="10dp">
+                android:padding="10dp"
+                android:layout_marginTop="5dp">
 
 
                 <ImageView
-                    android:id="@+id/mjf6_masjid_ic"
+                    android:id="@+id/mja1_masjid_ic"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_alignParentLeft="true"
                     android:src="@drawable/ic_mosque" />
 
                 <TextView
-                    android:id="@+id/mjf6_name"
+                    android:id="@+id/mja1_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="10dp"
-                    android:layout_toEndOf="@+id/mjf6_masjid_ic"
+                    android:layout_toEndOf="@+id/mja1_masjid_ic"
                     android:text="Nome do Masgid"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textColor="@color/black"/>
 
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:background="@drawable/round_rect_shape"
-                android:padding="10dp">
+                android:padding="10dp"
+                android:layout_marginTop="5dp">
 
 
                 <ImageView
-                    android:id="@+id/mjf6_salah_ic"
+                    android:id="@+id/mja1_fajr_ic"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_alignParentLeft="true"
@@ -127,40 +127,58 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="10dp"
-                    android:layout_toEndOf="@+id/mjf6_salah_ic"
-                    android:text="Jumma"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:layout_toEndOf="@+id/mja1_fajr_ic"
+                    android:text="Fajr"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"/>
 
                 <TextView
-                    android:id="@+id/mjf6_time"
+                    android:id="@+id/mja1_fajr_date"
+                    android:layout_marginRight="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/mja1_fajr_date_ic"
+                    android:text="01/01/2022"
+                    android:textSize="25sp"
                     android:fontFamily="@font/ds_digib"
+                    android:textColor="@color/black"/>
+
+                <ImageView
+                    android:id="@+id/mja1_fajr_date_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:onClick="showDatePickerDialog"
+                    android:layout_toStartOf="@+id/mja1_fajr_time"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_calendar" />
+
+                <TextView
+                    android:id="@+id/mja1_fajr_time"
+                    android:layout_marginRight="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/mja1_fajr_time_ic"
                     android:text="12:45"
-                    android:textColor="@color/black"
-                    android:textSize="34sp" />
+                    android:textSize="25sp"
+                    android:fontFamily="@font/ds_digib"
+                    android:textColor="@color/black"/>
+
+                <ImageView
+                    android:id="@+id/mja1_fajr_time_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:onClick="showTimePickerDialog"
+                    android:src="@drawable/ic_time" />
 
             </RelativeLayout>
-
-            <TimePicker
-                android:id="@+id/mjf6_time_picker"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:amPmTextColor="#fff"
-                android:headerBackground="@color/colorPrimary"
-                android:numbersBackgroundColor="@color/black"
-                android:numbersInnerTextColor="@color/black"
-                android:numbersSelectorColor="@color/grey"
-                android:numbersTextColor="@color/colorPrimary"
-                android:timePickerMode="spinner" />
         </LinearLayout>
 
         <Button
-            android:id="@+id/mjf6_next"
+            android:id="@+id/mjc2_next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"

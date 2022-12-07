@@ -8,7 +8,19 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:datePickerDialogTheme">@style/MyDatePickerDialogTheme</item>
     </style>
+    <style name="MyDatePickerDialogTheme" parent="android:Theme.Material.Light.Dialog">
+        <item name="android:datePickerStyle">@style/MyDatePickerStyle</item>
+    </style>
+    <style name="MyDatePickerStyle" parent="@android:style/Widget.Material.Light.DatePicker">
+        <item name="android:headerBackground">@color/colorAccent</item>
+        <item name="android:numbersTextColor">@color/colorPrimary</item>
+        <item name="android:numbersInnerTextColor">#f44336</item>
+        <item name="android:numbersSelectorColor">#DCA811</item>
+        <item name="android:numbersBackgroundColor">#004A80</item>
+    </style>
+
     <style name="navigation">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorControlHighlight">@color/colorAccent</item>

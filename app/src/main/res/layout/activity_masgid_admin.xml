@@ -55,13 +55,13 @@
                     android:textStyle="bold" />
 
                 <ImageView
-                    android:id="@+id/mjadm_add"
+                    android:id="@+id/mjadm_sync"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:padding="5dp"
-                    android:src="@drawable/ic_more_vert" />
+                    android:src="@drawable/ic_sync" />
 
             </RelativeLayout>
 

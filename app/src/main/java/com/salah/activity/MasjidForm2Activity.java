@@ -44,7 +44,7 @@ public class MasjidForm2Activity extends AppCompatActivity {
         action = getIntent().getStringExtra("action");
         masjid = (Masjid) getIntent().getSerializableExtra("masjid");
         name.setText(masjid.getName());
-        if(action.equals("EDIT") || (masjid.getFajr()!=null && !masjid.getFajr().isEmpty())){
+        if(action.equals("EDIT") || (masjid.getFajr()!=null && !masjid.getFajr().trim().isEmpty())){
             timePicker.setHour(TimeUtils.getHour(masjid.getFajr()));
             timePicker.setMinute(TimeUtils.getMinute(masjid.getFajr()));
         }else{

@@ -3,10 +3,14 @@ package com.salah.util;
 public class TimeUtils {
 
     public static int getHour(String time) {
-        String[] timef = time.split(":");
-        int hour = Integer.parseInt(timef[0]);
-        int minute = Integer.parseInt(timef[1]);
-        return hour;
+        try {
+            String[] timef = time.split(":");
+            int hour = Integer.parseInt(timef[0]);
+            int minute = Integer.parseInt(timef[1]);
+            return hour;
+        }catch (Exception e){
+            return 0;
+        }
     }
 
     public static String getFormatedTime(int hour, int minute) {
@@ -21,10 +25,14 @@ public class TimeUtils {
     }
 
     public static int getMinute(String time) {
-        String[] timef = time.split(":");
-        int hour = Integer.parseInt(timef[0]);
-        int minute = Integer.parseInt(timef[1]);
-        return minute;
+        try {
+            String[] timef = time.split(":");
+            int hour = Integer.parseInt(timef[0]);
+            int minute = Integer.parseInt(timef[1]);
+            return minute;
+        }catch (Exception e){
+            return 0;
+        }
     }
 
 }

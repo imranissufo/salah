@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:padding="30dp"
+    tools:context=".activity.MasjidForm7Activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/mjf6_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="back"
+                android:padding="5dp"
+                android:src="@drawable/ic_arrow_back" />
+
+            <ImageView
+                android:id="@+id/mjf6_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:onClick="cancel"
+                android:padding="5dp"
+                android:src="@drawable/ic_close" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp">
+
+            <TextView
+                android:id="@+id/mjf5_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/advent_pro"
+                android:text="@string/masjid"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="40sp"
+                android:transitionName="transition_title_text" />
+
+            <TextView
+                android:id="@+id/mjf5_step"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/circle_black_border"
+                android:fontFamily="@font/advent_pro"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="6/7"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:transitionName="transition_slide_text" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/round_rect_shape"
+                android:padding="10dp">
+
+
+                <ImageView
+                    android:id="@+id/mjf7_masjid_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/ic_mosque" />
+
+                <TextView
+                    android:id="@+id/mjf7_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/mjf7_masjid_ic"
+                    android:text="Nome do Masgid"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/round_rect_shape"
+                android:padding="10dp">
+
+
+                <ImageView
+                    android:id="@+id/mjf7_location_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/ic_location" />
+
+                <TextView
+                    android:id="@+id/mjf7_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/mjf7_location_ic"
+                    android:text="Location"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_rect_shape"
+                android:padding="10dp"
+                android:layout_marginTop="5dp">
+
+
+                <ImageView
+                    android:id="@+id/mjf2_fajr_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/ic_sujud_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/mjf2_fajr_ic"
+                    android:text="Fajr"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/mjf2_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:text="12:45"
+                    android:textSize="34sp"
+                    android:fontFamily="@font/ds_digib"
+                    android:textColor="@color/black"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_rect_shape"
+                android:padding="10dp"
+                android:layout_marginTop="5dp">
+
+
+                <ImageView
+                    android:id="@+id/mjf3_zuhr_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/ic_sujud_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/mjf3_zuhr_ic"
+                    android:text="Zuhr"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/mjf3_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:text="12:45"
+                    android:textSize="34sp"
+                    android:fontFamily="@font/ds_digib"
+                    android:textColor="@color/black"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_rect_shape"
+                android:padding="10dp"
+                android:layout_marginTop="5dp">
+
+
+                <ImageView
+                    android:id="@+id/mjf4_salah_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/ic_sujud_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/mjf4_salah_ic"
+                    android:text="Assr"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/mjf4_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:text="12:45"
+                    android:textSize="34sp"
+                    android:fontFamily="@font/ds_digib"
+                    android:textColor="@color/black"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/round_rect_shape"
+                android:padding="10dp">
+
+
+                <ImageView
+                    android:id="@+id/mjf5_salah_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/ic_sujud_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/mjf5_salah_ic"
+                    android:text="Isha"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/mjf5_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/ds_digib"
+                    android:text="12:45"
+                    android:textColor="@color/black"
+                    android:textSize="34sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/round_rect_shape"
+                android:padding="10dp">
+
+
+                <ImageView
+                    android:id="@+id/mjf6_salah_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/ic_sujud_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/mjf6_salah_ic"
+                    android:text="Jumma"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/mjf6_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/ds_digib"
+                    android:text="12:45"
+                    android:textColor="@color/black"
+                    android:textSize="34sp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/mjf5_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/black"
+            android:elevation="5dp"
+            android:onClick="next"
+            android:text="Confirmar"
+            android:textColor="@color/white"
+            android:transitionName="transition_next_btn" />
+
+    </LinearLayout>
+</ScrollView>

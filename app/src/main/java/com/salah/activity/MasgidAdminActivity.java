@@ -38,7 +38,7 @@ public class MasgidAdminActivity extends AppCompatActivity implements Navigation
     MasgidAdapter masgidAdapter;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    ImageView menuIcon, addIcon;
+    ImageView menuIcon, syncIcon;
     int height, width;
 
     TextInputEditText searchInput;
@@ -55,14 +55,32 @@ public class MasgidAdminActivity extends AppCompatActivity implements Navigation
         setContentView(R.layout.activity_masgid_admin);
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        loadEntries("");
 
+        //hooks
+        masjidRecycler = findViewById(R.id.mjadm_masjid_recycler);
+        drawerLayout = findViewById(R.id.mjadm_drawer_layout);
+        navigationView = findViewById(R.id.mjadm_navigation_view);
+        menuIcon = findViewById(R.id.mjadm_menu);
+        syncIcon = findViewById(R.id.mjadm_sync);
+        searchInput = findViewById(R.id.mjadm_search_editText);
+
+        masgidAdapter = new MasgidAdapter(this, entries);
+        masjidRecycler.setAdapter(masgidAdapter);
+
+        loadEntries("");
+        recycler();
+        navigationDrawer();
+        sync();
+        search();
+
+
+    }
+
+    private void recycler() {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         height = displayMetrics.heightPixels;
         width = displayMetrics.widthPixels;
-
-        masjidRecycler = findViewById(R.id.mjadm_masjid_recycler);
 
         masjidRecycler.setHasFixedSize(true);
         masjidRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
@@ -71,16 +89,9 @@ public class MasgidAdminActivity extends AppCompatActivity implements Navigation
         ViewGroup.LayoutParams params = masjidRecycler.getLayoutParams();
         params.height = height;
         masjidRecycler.setLayoutParams(params);
+    }
 
-        //Menu Hooks
-        drawerLayout = findViewById(R.id.mjadm_drawer_layout);
-        navigationView = findViewById(R.id.mjadm_navigation_view);
-        menuIcon = findViewById(R.id.mjadm_menu);
-        addIcon = findViewById(R.id.mjadm_add);
-
-        navigationDrawer();
-
-        searchInput = findViewById(R.id.mjadm_search_editText);
+    private void search() {
         searchInput.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -98,10 +109,15 @@ public class MasgidAdminActivity extends AppCompatActivity implements Navigation
 
             }
         });
+    }
 
-        masgidAdapter = new MasgidAdapter(this, entries);
-        masjidRecycler.setAdapter(masgidAdapter);
-
+    private void sync() {
+        syncIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadEntries("");
+            }
+        });
     }
 
     private void loadEntries(String search) {
@@ -112,7 +128,7 @@ public class MasgidAdminActivity extends AppCompatActivity implements Navigation
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     Masjid masjid = ds.getValue(Masjid.class);
-                    masjid.setId(dataSnapshot.getKey());
+                    masjid.setId(ds.getKey());
                     if (search.isEmpty() || masjid.getName().toUpperCase().contains(search.toUpperCase())) {
                         entries.add(masjid);
                     }
@@ -184,14 +200,6 @@ public class MasgidAdminActivity extends AppCompatActivity implements Navigation
         Intent intent = new Intent(getApplicationContext(), MasjidForm1Activity.class);
         intent.putExtra("masjid", masjid);
         intent.putExtra("action", "ADD");
-        startActivity(intent);
-    }
-
-    public void editMasjid(View view) {
-        Masjid masjid = new Masjid();
-        Intent intent = new Intent(getApplicationContext(), MasjidForm1Activity.class);
-        intent.putExtra("masjid", masjid);
-        intent.putExtra("action", "EDIT");
         startActivity(intent);
     }
 

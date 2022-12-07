@@ -225,6 +225,7 @@
 
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/mj_annc_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/lightWhite"
@@ -255,12 +256,13 @@
 
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/mj_annc_fajr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp">
 
             <TextView
-                android:id="@+id/mj_fajr2_lb"
+                android:id="@+id/mj_annc_fajr_lb"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -271,7 +273,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/mj_fajr2_date"
+                android:id="@+id/mj_annc_fajr_date"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -283,7 +285,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/mj_fajr2_vl"
+                android:id="@+id/mj_annc_fajr_vl"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -297,12 +299,13 @@
 
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/mj_annc_assr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp">
 
             <TextView
-                android:id="@+id/mj_assr2_lb"
+                android:id="@+id/mj_annc_assr_lb"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -313,7 +316,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/mj_assr2_date"
+                android:id="@+id/mj_annc_assr_date"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -325,7 +328,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/mj_assr2_vl"
+                android:id="@+id/mj_annc_assr_vl"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -339,12 +342,13 @@
 
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/mj_annc_isha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp">
 
             <TextView
-                android:id="@+id/mj_isha2_lb"
+                android:id="@+id/mj_annc_isha_lb"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -355,7 +359,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/mj_isha2_date"
+                android:id="@+id/mj_annc_isha_date"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -367,7 +371,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/mj_isha2_vl"
+                android:id="@+id/mj_annc_isha_vl"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -381,6 +385,7 @@
 
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/mj_annc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp">
@@ -397,7 +402,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/mj_anncTime_vl"
+                android:id="@+id/mj_annc_vl"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"

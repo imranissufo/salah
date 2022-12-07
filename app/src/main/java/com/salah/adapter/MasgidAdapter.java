@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.salah.R;
+import com.salah.activity.MasjidAnnc1Activity;
 import com.salah.activity.MasjidForm1Activity;
 import com.salah.model.Masjid;
 
@@ -62,6 +63,15 @@ public class MasgidAdapter extends RecyclerView.Adapter<MasgidAdapter.MasgidView
             }
         });
 
+        holder.editAnnouncement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, MasjidAnnc1Activity.class);
+                intent.putExtra("masjid", model);
+                intent.putExtra("action", "EDIT");
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -96,7 +106,7 @@ public class MasgidAdapter extends RecyclerView.Adapter<MasgidAdapter.MasgidView
             isha = itemView.findViewById(R.id.mj_isha_vl);
             location = itemView.findViewById(R.id.mj_location_vl);
             annc = itemView.findViewById(R.id.mj_annc_lb);
-            anncTime = itemView.findViewById(R.id.mj_anncTime_vl);
+            anncTime = itemView.findViewById(R.id.mj_annc_vl);
             editMasjid = itemView.findViewById(R.id.mj_edit);
             editAnnouncement = itemView.findViewById(R.id.mj_annc_edit);
         }
