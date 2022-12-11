@@ -65,7 +65,7 @@ public class MasjidFireAdapter extends FirebaseRecyclerAdapter<Masjid, MasjidFir
             isha = itemView.findViewById(R.id.mj_isha_vl);
             location = itemView.findViewById(R.id.mj_location_vl);
             annc = itemView.findViewById(R.id.mj_annc_lb);
-            anncTime = itemView.findViewById(R.id.mj_anncTime_vl);
+            anncTime = itemView.findViewById(R.id.mj_annc_vl);
         }
     }
 

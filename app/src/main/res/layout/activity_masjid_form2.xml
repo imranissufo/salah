@@ -60,7 +60,7 @@
                 android:layout_height="100dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/advent_pro"
-                android:text="@string/step_2_6"
+                android:text="2/7"
                 android:layout_alignParentEnd="true"
                 android:textColor="@color/black"
                 android:textAlignment="center"

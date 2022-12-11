@@ -372,6 +372,7 @@
 
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/mj_annc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp">
@@ -380,15 +381,27 @@
                 android:id="@+id/mj_annc_lb"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="3"
+                android:layout_weight="1"
                 android:layout_centerVertical="true"
                 android:fontFamily="@font/advent_pro_medium"
-                android:text="Anuncio"
+                android:text="Assr"
                 android:textColor="@color/colorAccent"
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/mj_anncTime_vl"
+                android:id="@+id/mj_annc_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/advent_pro_medium"
+                android:text="Fim de Semana e Feriados"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/mj_annc_vl"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"

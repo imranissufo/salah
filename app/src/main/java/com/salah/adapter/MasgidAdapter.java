@@ -52,7 +52,12 @@ public class MasgidAdapter extends RecyclerView.Adapter<MasgidAdapter.MasgidView
         holder.location.setText(model.getLocation());
         holder.annc.setText(model.getAnnc());
         holder.anncTime.setText(model.getAnncTime());
-
+        holder.anncFajrDate.setText(model.getAnncFajrDate());
+        holder.anncFajrTime.setText(model.getAnncFajrTime());
+        holder.anncAssrDate.setText(model.getAnncAssrDate());
+        holder.anncAssrTime.setText(model.getAnncAssrTime());
+        holder.anncIshaDate.setText(model.getAnncIshaDate());
+        holder.anncIshaTime.setText(model.getAnncIshaTime());
         holder.editMasjid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,6 +97,7 @@ public class MasgidAdapter extends RecyclerView.Adapter<MasgidAdapter.MasgidView
         TextView location;
         TextView annc;
         TextView anncTime;
+        TextView anncFajrDate, anncFajrTime, anncAssrDate, anncAssrTime, anncIshaDate, anncIshaTime;
         ImageView editMasjid;
         ImageView editAnnouncement;
 
@@ -107,6 +113,14 @@ public class MasgidAdapter extends RecyclerView.Adapter<MasgidAdapter.MasgidView
             location = itemView.findViewById(R.id.mj_location_vl);
             annc = itemView.findViewById(R.id.mj_annc_lb);
             anncTime = itemView.findViewById(R.id.mj_annc_vl);
+
+            anncFajrDate= itemView.findViewById(R.id.mj_annc_fajr_date);
+            anncFajrTime= itemView.findViewById(R.id.mj_annc_fajr_vl);
+            anncAssrDate= itemView.findViewById(R.id.mj_annc_assr_date);
+            anncAssrTime= itemView.findViewById(R.id.mj_annc_assr_vl);
+            anncIshaDate= itemView.findViewById(R.id.mj_annc_isha_date);
+            anncIshaTime= itemView.findViewById(R.id.mj_annc_isha_vl);
+
             editMasjid = itemView.findViewById(R.id.mj_edit);
             editAnnouncement = itemView.findViewById(R.id.mj_annc_edit);
         }

@@ -65,7 +65,7 @@
                 android:fontFamily="@font/advent_pro"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="3/6"
+                android:text="3/7"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="30sp"

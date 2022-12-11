@@ -13,6 +13,11 @@ public class TimeUtils {
         }
     }
 
+    public static String getFormatedDate(int year, int month, int day) {
+        return addZero(day)+"/"+addZero(month)+"/"+year;
+    }
+
+
     public static String getFormatedTime(int hour, int minute) {
         return addZero(hour)+":"+addZero(minute);
     }

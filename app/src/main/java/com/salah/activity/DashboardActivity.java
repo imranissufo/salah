@@ -97,7 +97,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         masjidRecycler.setItemAnimator(null);
 
         ViewGroup.LayoutParams params = masjidRecycler.getLayoutParams();
-        params.height = height;
+        params.height = height+100;
         masjidRecycler.setLayoutParams(params);
 
         //Menu Hooks
@@ -152,6 +152,11 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     Masjid masjid = ds.getValue(Masjid.class);
+//                    try {
+//                        masjid.setEmpty();
+//                    } catch (IllegalAccessException e) {
+//                        e.printStackTrace();
+//                    }
                     if (search.isEmpty() || masjid.getName().toUpperCase().contains(search.toUpperCase())) {
                         entries.add(masjid);
                     }

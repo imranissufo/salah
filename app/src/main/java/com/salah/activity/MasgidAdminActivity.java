@@ -64,19 +64,7 @@ public class MasgidAdminActivity extends AppCompatActivity implements Navigation
         syncIcon = findViewById(R.id.mjadm_sync);
         searchInput = findViewById(R.id.mjadm_search_editText);
 
-        masgidAdapter = new MasgidAdapter(this, entries);
-        masjidRecycler.setAdapter(masgidAdapter);
-
-        loadEntries("");
         recycler();
-        navigationDrawer();
-        sync();
-        search();
-
-
-    }
-
-    private void recycler() {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         height = displayMetrics.heightPixels;
@@ -86,9 +74,22 @@ public class MasgidAdminActivity extends AppCompatActivity implements Navigation
         masjidRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         masjidRecycler.setItemAnimator(null);
 
-        ViewGroup.LayoutParams params = masjidRecycler.getLayoutParams();
-        params.height = height;
-        masjidRecycler.setLayoutParams(params);
+        //ViewGroup.LayoutParams params = masjidRecycler.getLayoutParams();
+        //params.height = height+100;
+        //masjidRecycler.setLayoutParams(params);
+
+        masgidAdapter = new MasgidAdapter(this, entries);
+        masjidRecycler.setAdapter(masgidAdapter);
+
+        loadEntries("");
+        navigationDrawer();
+        sync();
+        search();
+
+
+    }
+
+    private void recycler() {
     }
 
     private void search() {

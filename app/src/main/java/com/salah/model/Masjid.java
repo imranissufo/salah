@@ -4,6 +4,8 @@ import com.google.firebase.database.Exclude;
 import com.google.firebase.database.IgnoreExtraProperties;
 
 import java.io.Serializable;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,6 +25,13 @@ public class Masjid implements Serializable {
     private String annc;
     private String anncTime;
 
+    private String anncFajrDate ="";
+    private String anncFajrTime="";
+    private String anncAssrDate="";
+    private String anncAssrTime="";
+    private String anncIshaDate="";
+    private String anncIshaTime="";
+
     public Masjid() {
     }
 
@@ -41,6 +50,22 @@ public class Masjid implements Serializable {
     }
 
     @Exclude
+    public void setEmpty() throws IllegalAccessException {
+        Field[] fields = Masjid.class.getDeclaredFields();
+        System.out.printf("%d fields:%n", fields.length);
+        for (Field field : fields) {
+            if(field.get(this)==null){
+               field.set(this, "");
+            }
+            System.out.printf("%s %s %s%n",
+                    Modifier.toString(field.getModifiers()),
+                    field.getType().getSimpleName(),
+                    field.getName()
+            );
+        }
+    }
+
+    @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
         result.put("id", id);
@@ -55,6 +80,12 @@ public class Masjid implements Serializable {
         result.put("location", location);
         result.put("annc", annc);
         result.put("anncTime", anncTime);
+        result.put("anncFajrDate", anncFajrDate);
+        result.put("anncFajrTime", anncFajrTime);
+        result.put("anncAssrDate", anncAssrDate);
+        result.put("anncAssrTime", anncAssrTime);
+        result.put("anncIshaDate", anncIshaDate);
+        result.put("anncIshaTime", anncIshaTime);
 
         return result;
     }
@@ -154,4 +185,53 @@ public class Masjid implements Serializable {
     public void setIsha(String isha) {
         this.isha = isha;
     }
+
+    public String getAnncFajrDate() {
+        return anncFajrDate;
+    }
+
+    public void setAnncFajrDate(String anncFajrDate) {
+        this.anncFajrDate = anncFajrDate;
+    }
+
+    public String getAnncFajrTime() {
+        return anncFajrTime;
+    }
+
+    public void setAnncFajrTime(String anncFajrTime) {
+        this.anncFajrTime = anncFajrTime;
+    }
+
+    public String getAnncAssrDate() {
+        return anncAssrDate;
+    }
+
+    public void setAnncAssrDate(String anncAssrDate) {
+        this.anncAssrDate = anncAssrDate;
+    }
+
+    public String getAnncAssrTime() {
+        return anncAssrTime;
+    }
+
+    public void setAnncAssrTime(String anncAssrTime) {
+        this.anncAssrTime = anncAssrTime;
+    }
+
+    public String getAnncIshaDate() {
+        return anncIshaDate;
+    }
+
+    public void setAnncIshaDate(String anncIshaDate) {
+        this.anncIshaDate = anncIshaDate;
+    }
+
+    public String getAnncIshaTime() {
+        return anncIshaTime;
+    }
+
+    public void setAnncIshaTime(String anncIshaTime) {
+        this.anncIshaTime = anncIshaTime;
+    }
+
 }

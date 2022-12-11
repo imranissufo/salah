@@ -47,6 +47,12 @@ public class MasjidAdapter extends RecyclerView.Adapter<MasjidAdapter.MasjidView
         holder.location.setText(model.getLocation());
         holder.annc.setText(model.getAnnc());
         holder.anncTime.setText(model.getAnncTime());
+        holder.anncFajrDate.setText(model.getAnncFajrDate());
+        holder.anncFajrTime.setText(model.getAnncFajrTime());
+        holder.anncAssrDate.setText(model.getAnncAssrDate());
+        holder.anncAssrTime.setText(model.getAnncAssrTime());
+        holder.anncIshaDate.setText(model.getAnncIshaDate());
+        holder.anncIshaTime.setText(model.getAnncIshaTime());
 
     }
 
@@ -68,6 +74,7 @@ public class MasjidAdapter extends RecyclerView.Adapter<MasjidAdapter.MasjidView
         TextView location;
         TextView annc;
         TextView anncTime;
+        TextView anncFajrDate, anncFajrTime, anncAssrDate, anncAssrTime, anncIshaDate, anncIshaTime;
 
         public MasjidViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -80,7 +87,15 @@ public class MasjidAdapter extends RecyclerView.Adapter<MasjidAdapter.MasjidView
             isha = itemView.findViewById(R.id.mj_isha_vl);
             location = itemView.findViewById(R.id.mj_location_vl);
             annc = itemView.findViewById(R.id.mj_annc_lb);
-            anncTime = itemView.findViewById(R.id.mj_anncTime_vl);
+            anncTime = itemView.findViewById(R.id.mj_annc_vl);
+
+            anncFajrDate= itemView.findViewById(R.id.mj_fajr2_date);
+            anncFajrTime= itemView.findViewById(R.id.mj_fajr2_vl);
+            anncAssrDate= itemView.findViewById(R.id.mj_assr2_date);
+            anncAssrTime= itemView.findViewById(R.id.mj_assr2_vl);
+            anncIshaDate= itemView.findViewById(R.id.mj_isha2_date);
+            anncIshaTime= itemView.findViewById(R.id.mj_isha2_vl);
+
         }
     }
 }
