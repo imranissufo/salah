@@ -96,8 +96,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/advent_pro"
-                        android:inputType="textNoSuggestions"
-                        android:hint="@string/search" />
+                        android:hint="@string/search"
+                        android:inputType="textNoSuggestions" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -136,11 +136,33 @@
 
                     </RelativeLayout>
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/db_timings_recycler"
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp" />
+                        android:layout_height="match_parent">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/db_timings_recycler"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp" />
+
+                        <RelativeLayout
+                            android:id="@+id/timings_progress_bar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/white_circle"
+                            android:elevation="8dp"
+                            android:padding="20dp"
+                            android:visibility="gone">
+
+                            <ProgressBar
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerInParent="true" />
+
+                        </RelativeLayout>
+                    </RelativeLayout>
 
                 </LinearLayout>
 
@@ -175,13 +197,35 @@
 
                     </RelativeLayout>
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/db_masjid_recycler"
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:orientation="vertical" />
+                        android:layout_height="match_parent">
 
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/db_masjid_recycler"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="vertical" />
+
+                        <RelativeLayout
+                            android:id="@+id/masjid_progress_bar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/white_circle"
+                            android:elevation="8dp"
+                            android:padding="20dp"
+                            android:visibility="gone">
+
+                            <ProgressBar
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerInParent="true" />
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
                 </LinearLayout>
 
             </LinearLayout>

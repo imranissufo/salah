@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -53,6 +54,8 @@ import java.util.Calendar;
 
 public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    RelativeLayout masjidProgressBar, timingsProgressBar;
+
     RecyclerView timingsRecycler, masjidRecycler;
     LinearLayout timmingLayout;
     TimingsAdapter timingsAdapter;
@@ -81,6 +84,10 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
         timmingLayout = findViewById(R.id.db_timming_layout);
+        masjidProgressBar = findViewById(R.id.masjid_progress_bar);
+        masjidProgressBar.setVisibility(View.VISIBLE);
+        timingsProgressBar = findViewById(R.id.timings_progress_bar);
+        timingsProgressBar.setVisibility(View.VISIBLE);
 
         loadEntries("");
 
@@ -139,6 +146,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     }
 
     private void loadEntries(String search) {
+        masjidProgressBar.setVisibility(View.VISIBLE);
         if (search.isEmpty()) {
             timmingLayout.setVisibility(View.VISIBLE);
         } else {
@@ -150,6 +158,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                masjidProgressBar.setVisibility(View.GONE);
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     Masjid masjid = ds.getValue(Masjid.class);
 //                    try {
@@ -168,6 +177,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 Log.w("LogFragment", "loadLog:onCancelled", databaseError.toException());
+                masjidProgressBar.setVisibility(View.GONE);
             }
         };
         masjidReference.addValueEventListener(valueEventListener);
@@ -262,6 +272,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
 
         timingsAdapter = new TimingsAdapter(options);
         timingsRecycler.setAdapter(timingsAdapter);
+        timingsProgressBar.setVisibility(View.GONE);
     }
 
     @Override
@@ -272,11 +283,6 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             }
             break;
 
-            case R.id.nav_all_categories: {
-                Intent intent = new Intent(getApplicationContext(), MasgidActivity.class);
-                startActivity(intent);
-            }
-            break;
             case R.id.nav_login: {
                 Intent intent = new Intent(getApplicationContext(), Login.class);
                 startActivity(intent);
