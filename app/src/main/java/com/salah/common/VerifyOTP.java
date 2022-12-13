@@ -23,7 +23,7 @@ import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.salah.R;
-import com.salah.activity.RetailerDashboard;
+import com.salah.activity.MasgidAdminActivity;
 import com.salah.model.User;
 
 import java.util.concurrent.TimeUnit;
@@ -135,7 +135,7 @@ public class VerifyOTP extends AppCompatActivity {
         User user = new User(_fullName, _username, _email, _phoneNo, _password, _date, _gender);
         reference.child(_phoneNo).setValue(user);
         //We will also create a Session here in next videos to keep the user logged In
-        startActivity(new Intent(getApplicationContext(), RetailerDashboard.class));
+        startActivity(new Intent(getApplicationContext(), MasgidAdminActivity.class));
         finish();
     }
 

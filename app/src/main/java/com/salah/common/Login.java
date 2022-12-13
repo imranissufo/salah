@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
-import android.net.Network;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -29,7 +28,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.hbb20.CountryCodePicker;
 import com.salah.R;
 import com.salah.activity.MasgidAdminActivity;
-import com.salah.activity.RetailerDashboard;
 import com.salah.util.SharedPreferencesManager;
 
 import java.util.HashMap;
@@ -167,7 +165,7 @@ public class Login extends AppCompatActivity {
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        startActivity(new Intent(getApplicationContext(), RetailerDashboard.class));
+                        startActivity(new Intent(getApplicationContext(), MasgidAdminActivity.class));
                         finish();
                     }
                 });

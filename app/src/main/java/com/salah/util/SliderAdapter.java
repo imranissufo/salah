@@ -22,7 +22,7 @@ public class SliderAdapter extends PagerAdapter {
             R.drawable.dua,
             R.drawable.ruku,
             R.drawable.sujud,
-            R.drawable.hands
+            R.drawable.arabic
     };
     int titles[] = {
             R.string.os_s1_title,

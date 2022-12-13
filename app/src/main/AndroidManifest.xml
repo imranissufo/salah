@@ -89,28 +89,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".activity.MasjidActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".activity.MasgidActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".activity.DashboardActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".activity.RetailerDashboard"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -187,21 +166,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".user.Categories"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".common.OnBoarding"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".user.UserDashboard"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

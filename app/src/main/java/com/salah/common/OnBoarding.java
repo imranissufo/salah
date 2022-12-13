@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.salah.R;
-import com.salah.user.UserDashboard;
+import com.salah.activity.DashboardActivity;
 import com.salah.util.SliderAdapter;
 
 public class OnBoarding extends AppCompatActivity {
@@ -82,7 +82,7 @@ public class OnBoarding extends AppCompatActivity {
             public void onClick(View v) {
                 switch (currentPosition) {
                     case 3: {
-                        startActivity(new Intent(getApplicationContext(), UserDashboard.class));
+                        startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
                         finish();
                         break;
                     }
@@ -107,7 +107,7 @@ public class OnBoarding extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), UserDashboard.class));
+                startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
                 finish();
             }
         };

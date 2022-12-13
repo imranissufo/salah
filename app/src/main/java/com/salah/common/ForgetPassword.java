@@ -19,8 +19,6 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.hbb20.CountryCodePicker;
 import com.salah.R;
-import com.salah.activity.RetailerDashboard;
-import com.salah.model.User;
 import com.salah.util.ConnectivityUtility;
 
 public class ForgetPassword extends AppCompatActivity {

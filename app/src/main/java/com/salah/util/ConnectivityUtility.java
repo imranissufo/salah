@@ -7,12 +7,10 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.provider.Settings;
-import android.view.View;
 
 import androidx.appcompat.app.AlertDialog;
 
-import com.salah.activity.RetailerDashboard;
-import com.salah.common.Login;
+import com.salah.activity.MasgidAdminActivity;
 
 public class ConnectivityUtility {
     public static boolean isConnected(Activity activity) {
@@ -39,7 +37,7 @@ public class ConnectivityUtility {
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        activity.startActivity(new Intent(activity.getApplicationContext(), RetailerDashboard.class));
+                        activity.startActivity(new Intent(activity.getApplicationContext(), MasgidAdminActivity.class));
                         activity.finish();
                     }
                 });
