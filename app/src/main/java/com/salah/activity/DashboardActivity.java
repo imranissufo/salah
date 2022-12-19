@@ -43,11 +43,13 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.salah.R;
 import com.salah.adapter.MasjidAdapter;
+import com.salah.adapter.TimingAdapter;
 import com.salah.adapter.TimingsAdapter;
 import com.salah.common.Login;
 import com.salah.common.RetailerStartUpScreen;
 import com.salah.model.Masjid;
 import com.salah.model.Timings;
+import com.salah.util.TimeUtils;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -58,7 +60,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
 
     RecyclerView timingsRecycler, masjidRecycler;
     LinearLayout timmingLayout;
-    TimingsAdapter timingsAdapter;
+    TimingAdapter timingAdapter;
     MasjidAdapter masgidAdapter;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -71,9 +73,11 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     TextInputEditText searchInput;
     String searchTxt;
 
+    private ArrayList<Timings> timings = new ArrayList<>();
     private ArrayList<Masjid> entries = new ArrayList<>();
     private DatabaseReference databaseReference;
     private DatabaseReference masjidReference;
+    private DatabaseReference timingsReference;
 
 
     @Override
@@ -90,6 +94,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         timingsProgressBar.setVisibility(View.VISIBLE);
 
         loadEntries("");
+        loadTimings();
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -98,6 +103,9 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
 
         timingsRecycler = findViewById(R.id.db_timings_recycler);
         masjidRecycler = findViewById(R.id.db_masjid_recycler);
+
+        timingsRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        timingsRecycler.setItemAnimator(null);
 
         masjidRecycler.setHasFixedSize(true);
         masjidRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
@@ -116,10 +124,6 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
 
         navigationDrawer();
         retailerScreens();
-
-        timingsRecycler();
-
-        //geolocation();
 
         searchInput = findViewById(R.id.db_search_editText);
         searchInput.addTextChangedListener(new TextWatcher() {
@@ -142,6 +146,9 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
 
         masgidAdapter = new MasjidAdapter(entries);
         masjidRecycler.setAdapter(masgidAdapter);
+
+        timingAdapter = new TimingAdapter(this, timings);
+        timingsRecycler.setAdapter(timingAdapter);
 
     }
 
@@ -183,47 +190,15 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         masjidReference.addValueEventListener(valueEventListener);
     }
 
-    private void navigationDrawer() {
-        //Naviagtion Drawer
-        navigationView.bringToFront();
-        navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.nav_home);
-        menuIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (drawerLayout.isDrawerVisible(GravityCompat.START)) {
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                } else {
-                    drawerLayout.openDrawer(GravityCompat.START);
-                }
-            }
-        });
-    }
+    private void loadTimings() {
+        timingsProgressBar.setVisibility(View.VISIBLE);
 
-    private void timingsRecycler() {
-
-        //timingsRecycler.setHasFixedSize(true);
-        timingsRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        timingsRecycler.setItemAnimator(null);
-
-//        Query query = FirebaseDatabase.getInstance()
-//                .getReference()
-//                .child("timings")
-//                .limitToLast(60);
-
-        Calendar calendar;
-        calendar = Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DAY_OF_MONTH);
         int month = calendar.get(Calendar.MONTH);
         month++;
-        String d = String.valueOf(day);
-        String m = String.valueOf(month);
-        if (day < 10) {
-            d = "0" + d;
-        }
-        if (month < 10) {
-            m = "0" + m;
-        }
+        String d = TimeUtils.addZero(day);
+        String m = TimeUtils.addZero(month);
         String code = m + d;
         int limit = day;
         switch (month) {
@@ -260,19 +235,49 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
 
 
         //fetch data from current day until the last day of the month
-        Query query = FirebaseDatabase.getInstance()
-                .getReference()
+        Query query = databaseReference
                 .child("timings").orderByChild("month")
                 .equalTo(m).limitToLast(limit);
 
-        FirebaseRecyclerOptions<Timings> options =
-                new FirebaseRecyclerOptions.Builder<Timings>()
-                        .setQuery(query, Timings.class)
-                        .build();
+        timings = new ArrayList<Timings>();
+        ValueEventListener valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                timingsProgressBar.setVisibility(View.GONE);
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    Timings t = ds.getValue(Timings.class);
+                    if(t.getMonth().equals(m)){
+                        timings.add(t);
+                    }
+                }
+                timingAdapter.setTimings(timings);
+                timingAdapter.notifyDataSetChanged();
+            }
 
-        timingsAdapter = new TimingsAdapter(options);
-        timingsRecycler.setAdapter(timingsAdapter);
-        timingsProgressBar.setVisibility(View.GONE);
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w("LogFragment", "loadLog:onCancelled", databaseError.toException());
+                timingsProgressBar.setVisibility(View.GONE);
+            }
+        };
+        query.addValueEventListener(valueEventListener);
+    }
+
+    private void navigationDrawer() {
+        //Naviagtion Drawer
+        navigationView.bringToFront();
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.nav_home);
+        menuIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (drawerLayout.isDrawerVisible(GravityCompat.START)) {
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                } else {
+                    drawerLayout.openDrawer(GravityCompat.START);
+                }
+            }
+        });
     }
 
     @Override
@@ -314,64 +319,17 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     @Override
     protected void onStart() {
         super.onStart();
-        timingsAdapter.startListening();
-
         //Remove crash on press back
         timingsRecycler.getRecycledViewPool().clear();
         masjidRecycler.getRecycledViewPool().clear();
 
-        timingsAdapter.notifyDataSetChanged();
+        timingAdapter.notifyDataSetChanged();
         masgidAdapter.notifyDataSetChanged();
-
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        timingsAdapter.stopListening();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.menu_search, menu);
-        MenuItem item = menu.findItem(R.id.menu_search);
-        SearchView searchView = (SearchView) item.getActionView();
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                txtSearch(query);
-                return false;
-            }
-
-            @Override
-
-            public boolean onQueryTextChange(String newText) {
-                txtSearch(newText);
-                return false;
-            }
-        });
-        return super.onCreateOptionsMenu(menu);
-
-    }
-
-    private void txtSearch(String str) {
-        //fetch data from current day until the last day of the month
-        Query query = FirebaseDatabase.getInstance()
-                .getReference()
-                .child("timings").orderByChild("code")
-                .startAt(str).endAt(str + "~");
-
-        FirebaseRecyclerOptions<Timings> options =
-                new FirebaseRecyclerOptions.Builder<Timings>()
-                        .setQuery(query, Timings.class)
-                        .build();
-
-        timingsAdapter = new TimingsAdapter(options);
-        timingsAdapter.startListening();
-        timingsRecycler.setAdapter(timingsAdapter);
     }
 
     private void geolocation() {
