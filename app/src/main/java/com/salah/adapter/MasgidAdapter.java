@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.salah.R;
 import com.salah.activity.MasjidAnnc1Activity;
+import com.salah.activity.MasjidDeleteActivity;
 import com.salah.activity.MasjidForm1Activity;
 import com.salah.model.Masjid;
 
@@ -77,6 +78,17 @@ public class MasgidAdapter extends RecyclerView.Adapter<MasgidAdapter.MasgidView
                 context.startActivity(intent);
             }
         });
+
+        holder.deleteMasjid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, MasjidDeleteActivity.class);
+                intent.putExtra("masjid", model);
+                intent.putExtra("action", "DELETE");
+                context.startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -100,6 +112,7 @@ public class MasgidAdapter extends RecyclerView.Adapter<MasgidAdapter.MasgidView
         TextView anncFajrDate, anncFajrTime, anncAssrDate, anncAssrTime, anncIshaDate, anncIshaTime;
         ImageView editMasjid;
         ImageView editAnnouncement;
+        ImageView deleteMasjid;
 
         public MasgidViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -123,6 +136,7 @@ public class MasgidAdapter extends RecyclerView.Adapter<MasgidAdapter.MasgidView
 
             editMasjid = itemView.findViewById(R.id.mj_edit);
             editAnnouncement = itemView.findViewById(R.id.mj_annc_edit);
+            deleteMasjid = itemView.findViewById(R.id.mj_delete);
         }
     }
 }
