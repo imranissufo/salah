@@ -70,6 +70,12 @@ public class Login extends AppCompatActivity {
             HashMap<String, String> rememberMe = manager.getRememberMe();
             phoneNumber.getEditText().setText(rememberMe.get(SharedPreferencesManager.RM_PHONE));
             password.getEditText().setText(rememberMe.get(SharedPreferencesManager.RM_PASS));
+            try {
+                int countryCode = Integer.parseInt(rememberMe.get(SharedPreferencesManager.RM_COUNTRY));
+                countryCodePicker.setCountryForPhoneCode(countryCode);
+            }catch (Exception e){
+
+            }
         }
 
     }
@@ -92,6 +98,7 @@ public class Login extends AppCompatActivity {
 
         progressBar.setVisibility(View.VISIBLE);
 
+        String _countryCode = countryCodePicker.getSelectedCountryCode();
         String _phoneNumber = phoneNumber.getEditText().getText().toString().trim();
         String _password = password.getEditText().getText().toString().trim();
 
@@ -103,7 +110,7 @@ public class Login extends AppCompatActivity {
 
         if(rememberMe.isChecked()){
             SharedPreferencesManager manager = new SharedPreferencesManager(Login.this);
-            manager.setRememberMe(_phoneNumber,_password);
+            manager.setRememberMe(_countryCode, _phoneNumber,_password);
         }
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();

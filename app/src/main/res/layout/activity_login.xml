@@ -43,6 +43,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/black_border"
                 android:padding="7dp"
+                app:ccp_rememberLastSelection="true"
                 app:ccp_autoDetectCountry="true"
                 app:ccp_showFlag="true"
                 app:ccp_showFullName="true"
