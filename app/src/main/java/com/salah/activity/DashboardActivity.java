@@ -123,7 +123,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         addIcon = findViewById(R.id.db_add);
 
         navigationDrawer();
-        retailerScreens();
+        startUpScreen();
 
         searchInput = findViewById(R.id.db_search_editText);
         searchInput.addTextChangedListener(new TextWatcher() {
@@ -307,11 +307,11 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     }
 
     //Call the retailer Startup screen on it's OnClick
-    public void retailerScreens() {
+    public void startUpScreen() {
         addIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), RetailerStartUpScreen.class));
+                startActivity(new Intent(getApplicationContext(), StartUpScreenActivity.class));
             }
         });
     }

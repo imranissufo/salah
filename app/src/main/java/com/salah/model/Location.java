@@ -2,7 +2,12 @@ package com.salah.model;
 
 import android.graphics.drawable.GradientDrawable;
 
-public class Location {
+import com.google.firebase.database.IgnoreExtraProperties;
+
+import java.io.Serializable;
+
+@IgnoreExtraProperties
+public class Location implements Serializable {
     private int image;
     private String title;
     private String desc;

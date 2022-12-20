@@ -1,6 +1,11 @@
 package com.salah.model;
 
-public class Timings {
+import com.google.firebase.database.IgnoreExtraProperties;
+
+import java.io.Serializable;
+
+@IgnoreExtraProperties
+public class Timings implements Serializable {
     private String code;
     private String month;
     private String day;

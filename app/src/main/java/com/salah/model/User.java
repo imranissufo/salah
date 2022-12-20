@@ -1,8 +1,16 @@
 package com.salah.model;
 
-public class User {
+import com.google.firebase.database.Exclude;
+import com.google.firebase.database.IgnoreExtraProperties;
 
-    String fullName, username, email, phoneNo, password, date, gender;
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
+
+@IgnoreExtraProperties
+public class User implements Serializable {
+
+    String id, fullName, username, email, phoneNo, password, date, gender;
 
     public User(String fullName, String username, String email, String phoneNo, String password, String date, String gender) {
         this.fullName = fullName;
@@ -14,7 +22,41 @@ public class User {
         this.gender = gender;
     }
 
+    public User(String id, String fullName, String username, String email, String phoneNo, String password, String date, String gender) {
+        this.id = id;
+        this.fullName = fullName;
+        this.username = username;
+        this.email = email;
+        this.phoneNo = phoneNo;
+        this.password = password;
+        this.date = date;
+        this.gender = gender;
+    }
+
     public User() {
+    }
+
+    @Exclude
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("id", id);
+        result.put("fullName", fullName);
+        result.put("username", username);
+        result.put("email", email);
+        result.put("phoneNo", phoneNo);
+        result.put("password", password);
+        result.put("date", date);
+        result.put("gender", gender);
+
+        return result;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getFullName() {

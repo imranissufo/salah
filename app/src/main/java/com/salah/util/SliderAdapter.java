@@ -25,16 +25,16 @@ public class SliderAdapter extends PagerAdapter {
             R.drawable.arabic
     };
     int titles[] = {
-            R.string.os_s1_title,
-            R.string.os_s2_title,
-            R.string.os_s3_title,
-            R.string.os_s4_title
+            R.string.otp_code_text,
+            R.string.otp_code_text,
+            R.string.otp_code_text,
+            R.string.otp_code_text
     };
     int descs[] = {
-            R.string.os_s1_desc,
-            R.string.os_s2_desc,
-            R.string.os_s3_desc,
-            R.string.os_s4_desc
+            R.string.otp_description_text,
+            R.string.otp_description_text,
+            R.string.otp_description_text,
+            R.string.otp_description_text
     };
 
     public SliderAdapter(Context context) {
