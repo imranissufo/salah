@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.textfield.TextInputEditText;
@@ -33,6 +34,8 @@ import com.salah.model.Masjid;
 import java.util.ArrayList;
 
 public class MasgidAdminActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    RelativeLayout masjidProgressBar;
 
     RecyclerView masjidRecycler;
     MasgidAdapter masgidAdapter;
@@ -57,6 +60,9 @@ public class MasgidAdminActivity extends AppCompatActivity implements Navigation
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
         //hooks
+        masjidProgressBar = findViewById(R.id.masjid_admin_progress_bar);
+        masjidProgressBar.setVisibility(View.VISIBLE);
+
         masjidRecycler = findViewById(R.id.mjadm_masjid_recycler);
         drawerLayout = findViewById(R.id.mjadm_drawer_layout);
         navigationView = findViewById(R.id.mjadm_navigation_view);
@@ -122,11 +128,13 @@ public class MasgidAdminActivity extends AppCompatActivity implements Navigation
     }
 
     private void loadEntries(String search) {
+        masjidProgressBar.setVisibility(View.VISIBLE);
         entries = new ArrayList<Masjid>();
         masjidReference = databaseReference.child("masjid");
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                masjidProgressBar.setVisibility(View.GONE);
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     Masjid masjid = ds.getValue(Masjid.class);
                     masjid.setId(ds.getKey());
@@ -141,6 +149,7 @@ public class MasgidAdminActivity extends AppCompatActivity implements Navigation
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 Log.w("LogFragment", "loadLog:onCancelled", databaseError.toException());
+                masjidProgressBar.setVisibility(View.GONE);
             }
         };
         masjidReference.addValueEventListener(valueEventListener);

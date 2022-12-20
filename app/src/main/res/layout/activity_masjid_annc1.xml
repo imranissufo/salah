@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/advent_pro"
-                android:text="MASGID\nANUNCIO"
+                android:text="MASGID\nANÚNCIO"
                 android:textAllCaps="true"
                 android:textColor="@color/black"
                 android:layout_centerVertical="true"

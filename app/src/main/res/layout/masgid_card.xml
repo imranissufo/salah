@@ -249,7 +249,7 @@
                 android:layout_weight="3"
                 android:layout_centerVertical="true"
                 android:fontFamily="@font/advent_pro_medium"
-                android:text="Anuncio"
+                android:text="Anúncio"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
 

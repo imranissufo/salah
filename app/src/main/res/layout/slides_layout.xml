@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="casual"
         android:gravity="center"
-        android:text="@string/os_s1_title"
+        android:text="s1_title"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:text="@string/os_s1_desc"
+        android:text="s1_desc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sl_title" />

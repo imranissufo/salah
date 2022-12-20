@@ -15,17 +15,25 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:src="@drawable/ic_circle" />
+            android:layout_height="270dp"
+            android:src="@drawable/arabic" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/almarai_light"
+            android:layout_gravity="center"
+            android:text="@string/salah_ar"
+            android:textColor="@color/black"
+            android:textSize="30pt" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="70dp"
             android:fontFamily="@font/advent_pro"
-            android:text="Grow Your Business"
+            android:text="SALAH"
             android:textStyle="bold"
             android:textAlignment="center"
             android:textAllCaps="true"
@@ -38,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/advent_pro"
-            android:text="We will help you grow your business"
+            android:text="Faça login ou crie uma nova conta"
             android:textAlignment="center"
             android:textColor="@color/black" />
 
@@ -73,7 +81,7 @@
                 android:layout_weight="1"
                 android:background="@color/colorPrimary"
                 android:onClick="callSignUpScreen"
-                android:text="@string/sign_up"
+                android:text="Inscrever-se"
                 android:textColor="@color/black"
                 tools:ignore="ButtonStyle"
                 android:transitionName="transition_signup"/>
@@ -81,14 +89,6 @@
 
         </LinearLayout>
 
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="#00000000"
-            android:text="@string/how_we_work"
-            android:textColor="@color/black" />
     </LinearLayout>
 
 </ScrollView>
