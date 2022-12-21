@@ -10,9 +10,6 @@ import android.view.View;
 import android.view.WindowManager;
 
 import com.salah.R;
-import com.salah.common.Login;
-import com.salah.common.RetailerStartUpScreen;
-import com.salah.common.SignUp;
 
 public class StartUpScreenActivity extends AppCompatActivity {
 
@@ -24,7 +21,7 @@ public class StartUpScreenActivity extends AppCompatActivity {
     }
 
     public void login(View view) {
-        Intent intent = new Intent(getApplicationContext(), Login.class);
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
 
         Pair[] pairs = new Pair[1];
         pairs[0] = new Pair<View, String>(findViewById(R.id.login_btn), "transition_login");
@@ -57,7 +54,8 @@ public class StartUpScreenActivity extends AppCompatActivity {
 
     public void home(View view) {
         Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+        finish();
     }
 }

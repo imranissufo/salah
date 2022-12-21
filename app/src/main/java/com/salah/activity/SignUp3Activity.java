@@ -62,7 +62,7 @@ public class SignUp3Activity extends AppCompatActivity {
 
         //Add Transition
         Pair[] pairs = new Pair[1];
-        pairs[0] = new Pair<View, String>(scrollView, "transition_OTP_screen");
+        pairs[0] = new Pair<View, String>(scrollView, "SignUpActivity");
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignUp3Activity.this, pairs);
             startActivity(intent, options.toBundle());

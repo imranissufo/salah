@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:padding="30dp"
-    android:transitionName="transition_signup"
+    android:transitionName="SignUpActivity"
     tools:context=".activity.SignUp4Activity">
 
     <LinearLayout
@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/back"
-            android:onClick="onBackBtnClick"
+            android:onClick="back"
             android:padding="5dp"
             android:src="@drawable/ic_arrow_back"
             android:transitionName="transition_back_arrow_btn" />

@@ -1,6 +1,5 @@
 package com.salah.activity;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,17 +10,9 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.salah.R;
-import com.salah.common.SignUpStep2;
 import com.salah.model.Masjid;
 import com.salah.util.TimeUtils;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class MasjidForm6Activity extends AppCompatActivity {
     static final int MIN = 12;

@@ -12,7 +12,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +19,6 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,7 +30,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DataSnapshot;
@@ -44,9 +41,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.salah.R;
 import com.salah.adapter.MasjidAdapter;
 import com.salah.adapter.TimingAdapter;
-import com.salah.adapter.TimingsAdapter;
-import com.salah.common.Login;
-import com.salah.common.RetailerStartUpScreen;
 import com.salah.model.Masjid;
 import com.salah.model.Timings;
 import com.salah.util.TimeUtils;
@@ -289,7 +283,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             break;
 
             case R.id.nav_login: {
-                Intent intent = new Intent(getApplicationContext(), Login.class);
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
             }
             break;
@@ -312,6 +306,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), StartUpScreenActivity.class));
+                finish();
             }
         });
     }

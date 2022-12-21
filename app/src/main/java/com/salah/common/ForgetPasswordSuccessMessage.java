@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.WindowManager;
 
 import com.salah.R;
+import com.salah.activity.LoginActivity;
 
 public class ForgetPasswordSuccessMessage extends AppCompatActivity {
 
@@ -19,7 +20,7 @@ public class ForgetPasswordSuccessMessage extends AppCompatActivity {
     }
 
     public void backToLogin(View view) {
-        Intent intent = new Intent(getApplicationContext(), Login.class);
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(intent);
         finish();
     }

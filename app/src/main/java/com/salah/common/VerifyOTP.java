@@ -24,6 +24,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.salah.R;
 import com.salah.activity.MasgidAdminActivity;
+import com.salah.activity.StartUpScreenActivity;
 import com.salah.model.User;
 
 import java.util.concurrent.TimeUnit;
@@ -154,7 +155,7 @@ public class VerifyOTP extends AppCompatActivity {
     }
 
     public void goToHomeFromOTP(View view) {
-        Intent intent = new Intent(getApplicationContext(), RetailerStartUpScreen.class);
+        Intent intent = new Intent(getApplicationContext(), StartUpScreenActivity.class);
         startActivity(intent);
         finish();
     }

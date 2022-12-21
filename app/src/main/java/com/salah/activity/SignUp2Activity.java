@@ -17,9 +17,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.salah.R;
-import com.salah.common.Login;
-import com.salah.common.SignUpStep2;
-import com.salah.common.SignUpStep3;
 import com.salah.model.User;
 
 import java.util.Calendar;
@@ -78,7 +75,7 @@ public class SignUp2Activity extends AppCompatActivity {
         if (!validateGender() | !validateAge()) {
             return;
         }
-        Intent intent = new Intent(getApplicationContext(), SignUpStep3.class);
+        Intent intent = new Intent(getApplicationContext(), SignUp3Activity.class);
 
         String _date = datePicker.getYear()+"."+datePicker.getMonth()+"."+datePicker.getDayOfMonth();
         selectedGender = findViewById(radioGroup.getCheckedRadioButtonId());

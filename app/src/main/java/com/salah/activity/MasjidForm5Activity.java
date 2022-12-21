@@ -11,7 +11,6 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.salah.R;
-import com.salah.common.SignUpStep2;
 import com.salah.model.Masjid;
 import com.salah.util.TimeUtils;
 

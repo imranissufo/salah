@@ -15,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.salah.R;
-import com.salah.common.Login;
 import com.salah.model.User;
 
 public class SignUp1Activity extends AppCompatActivity {
@@ -157,7 +156,7 @@ public class SignUp1Activity extends AppCompatActivity {
     }
 
     public void login(View view) {
-        startActivity(new Intent(getApplicationContext(), Login.class));
+        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
         finish();
     }
 

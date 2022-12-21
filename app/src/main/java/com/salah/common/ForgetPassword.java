@@ -19,6 +19,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.hbb20.CountryCodePicker;
 import com.salah.R;
+import com.salah.activity.LoginActivity;
 import com.salah.util.ConnectivityUtility;
 
 public class ForgetPassword extends AppCompatActivity {
@@ -129,7 +130,7 @@ public class ForgetPassword extends AppCompatActivity {
     }
 
     public void callBackScreenFromForgetPassword(View view) {
-        Intent intent = new Intent(getApplicationContext(), Login.class);
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(intent);
         finish();
     }

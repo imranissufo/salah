@@ -13,6 +13,7 @@ public class SharedPreferencesManager {
     private static final String IS_REMEMBER_ME = "_isRememberMe";
     public static final String RM_PASS = "rm_password";
     public static final String RM_PHONE = "rm_phoneNo";
+    public static final String RM_EMAIL = "rm_email";
     public static final String RM_COUNTRY = "rm_countryCode";
 
     SharedPreferences sharedPreferences;
@@ -47,10 +48,30 @@ public class SharedPreferencesManager {
         editor.commit();
     }
 
+    public void createSession(User user) {
+        editor.putBoolean(IS_LOGGED_IN, true);
+        editor.putString(FULL_NAME, user.getFullName());
+        editor.putString(USERNAME, user.getUsername());
+        editor.putString(EMAIL, user.getEmail());
+        editor.putString(PASS, user.getPassword());
+        editor.putString(DATE, user.getDate());
+        editor.putString(GENDER, user.getGender());
+        editor.putString(PHONE, user.getPhoneNo());
+
+        editor.commit();
+    }
+
     public void setRememberMe(String countryCode, String phoneNo, String password) {
         editor.putBoolean(IS_REMEMBER_ME, true);
         editor.putString(RM_COUNTRY, countryCode);
         editor.putString(RM_PHONE, phoneNo);
+        editor.putString(RM_PASS, password);
+        editor.commit();
+    }
+
+    public void setRememberMe(String email, String password) {
+        editor.putBoolean(IS_REMEMBER_ME, true);
+        editor.putString(RM_EMAIL, email);
         editor.putString(RM_PASS, password);
         editor.commit();
     }
@@ -60,6 +81,7 @@ public class SharedPreferencesManager {
         rememberMe.put(RM_PASS, sharedPreferences.getString(RM_PASS, null));
         rememberMe.put(RM_PHONE, sharedPreferences.getString(RM_PHONE, null));
         rememberMe.put(RM_COUNTRY, sharedPreferences.getString(RM_COUNTRY, null));
+        rememberMe.put(RM_EMAIL, sharedPreferences.getString(RM_EMAIL, null));
 
         return rememberMe;
     }
