@@ -37,8 +37,8 @@ public class ForgotPassword2Activity extends AppCompatActivity {
         emailDesc.setText(user.getEmail());
     }
 
-    public void selectPhone(View view) {
-        Intent intent = new Intent(getApplicationContext(), VerifyOTP.class);
+    public void onPhoneClick(View view) {
+        Intent intent = new Intent(getApplicationContext(), ForgotPassword3Activity.class);
 
         intent.putExtra("user", user);
         intent.putExtra("action", _action);
@@ -47,8 +47,8 @@ public class ForgotPassword2Activity extends AppCompatActivity {
         finish();
     }
 
-    public void selectEmail(View view) {
-        Intent intent = new Intent(getApplicationContext(), VerifyOTP.class);
+    public void onEmailClick(View view) {
+        Intent intent = new Intent(getApplicationContext(), ForgotPassword3Activity.class);
         intent.putExtra("user", user);
         intent.putExtra("action", _action);
         intent.putExtra("selection", "email");
