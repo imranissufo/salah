@@ -14,7 +14,6 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.hbb20.CountryCodePicker;
 import com.salah.R;
-import com.salah.common.VerifyOTP;
 import com.salah.model.User;
 
 public class SignUp3Activity extends AppCompatActivity {

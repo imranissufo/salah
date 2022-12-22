@@ -23,6 +23,7 @@
                 android:layout_height="wrap_content"
                 android:onClick="back"
                 android:padding="5dp"
+                android:contentDescription="@string/back"
                 android:src="@drawable/ic_arrow_back" />
 
             <ImageView
@@ -33,6 +34,7 @@
                 android:layout_centerVertical="true"
                 android:onClick="cancel"
                 android:padding="5dp"
+                android:contentDescription="@string/cancel"
                 android:src="@drawable/ic_close" />
 
         </RelativeLayout>
@@ -92,6 +94,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_alignParentLeft="true"
+                    android:contentDescription="@string/masjid"
                     android:src="@drawable/ic_mosque" />
 
                 <TextView
@@ -120,6 +123,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_alignParentLeft="true"
+                    android:contentDescription="@string/salah"
                     android:src="@drawable/ic_sujud_24" />
 
                 <TextView
