@@ -18,7 +18,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.salah.R;
-import com.salah.common.MakeSelection;
 import com.salah.model.User;
 import com.salah.util.ConnectivityUtility;
 import com.salah.util.ValidationUtils;
@@ -97,4 +96,11 @@ public class ForgotPassword1Activity extends AppCompatActivity {
     public void back(View view) {
         ForgotPassword1Activity.super.onBackPressed();
     }
+
+    public void cancel(View view) {
+        Intent intent = new Intent(getApplicationContext(), StartUpScreenActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
 }

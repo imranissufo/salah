@@ -33,7 +33,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.salah.R;
-import com.salah.common.ForgetPassword;
 import com.salah.model.User;
 import com.salah.util.SharedPreferencesManager;
 
@@ -77,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void forgotPassword(View view) {
-        Intent intent = new Intent(getApplicationContext(), ForgetPassword.class);
+        Intent intent = new Intent(getApplicationContext(), ForgotPassword1Activity.class);
         startActivity(intent);
     }
 
@@ -175,7 +174,7 @@ public class LoginActivity extends AppCompatActivity {
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
                             Toast.makeText(LoginActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
-                            updateUI(null, null);
+                            //updateUI(null, null);
                         }
                     }
                 });
@@ -211,18 +210,14 @@ public class LoginActivity extends AppCompatActivity {
                     for (DataSnapshot ds : snapshot.getChildren()) {
                         User user = ds.getValue(User.class);
 
-                        if(user.getEmail().equals(_email)){
-                            if (user.getPassword().equals(_password)) {
-                                Toast.makeText(LoginActivity.this, _email + " logged in as " + user.getFullName(), Toast.LENGTH_LONG).show();
+                        if (user.getEmail().equals(_email)) {
+                            Toast.makeText(LoginActivity.this, _email + " logged in as " + user.getFullName(), Toast.LENGTH_LONG).show();
 
-                                SharedPreferencesManager manager = new SharedPreferencesManager(LoginActivity.this);
-                                manager.createSession(user);
+                            SharedPreferencesManager manager = new SharedPreferencesManager(LoginActivity.this);
+                            manager.createSession(user);
 
-                                reload();
-                                break;
-                            } else {
-                                Toast.makeText(LoginActivity.this, _password + " does not match", Toast.LENGTH_LONG).show();
-                            }
+                            reload();
+                            break;
                         }
                     }
                 } else {
