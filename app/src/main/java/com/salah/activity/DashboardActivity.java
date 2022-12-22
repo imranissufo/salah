@@ -101,7 +101,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         timingsRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         timingsRecycler.setItemAnimator(null);
 
-        masjidRecycler.setHasFixedSize(true);
+        //masjidRecycler.setHasFixedSize(true);
         masjidRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         masjidRecycler.setItemAnimator(null);
 
