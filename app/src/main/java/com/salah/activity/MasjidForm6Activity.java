@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.salah.R;
 import com.salah.model.Masjid;
 import com.salah.util.TimeUtils;
+import com.salah.util.ValidationUtils;
 
 public class MasjidForm6Activity extends AppCompatActivity {
     static final int MIN = 12;
@@ -53,7 +54,7 @@ public class MasjidForm6Activity extends AppCompatActivity {
 
     public void next(View view) {
 
-        if (!validateHour()) {
+        if (!ValidationUtils.validateHour(MasjidForm6Activity.this, MIN, MAX,timePicker)) {
             return;
         }
 
@@ -69,16 +70,6 @@ public class MasjidForm6Activity extends AppCompatActivity {
 
 
         startActivity(intent);
-    }
-
-    private boolean validateHour() {
-        int hour = timePicker.getHour();
-
-        if(hour>= MIN && hour<=MAX){
-            return true;
-        }
-        Toast.makeText(MasjidForm6Activity.this, "Salah hour "+hour+" is not between "+MIN+"and "+MAX+"!", Toast.LENGTH_LONG).show();
-        return false;
     }
 
     public void back(View view) {

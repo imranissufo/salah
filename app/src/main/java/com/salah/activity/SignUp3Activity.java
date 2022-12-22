@@ -22,7 +22,6 @@ public class SignUp3Activity extends AppCompatActivity {
     CountryCodePicker countryCodePicker;
     ScrollView scrollView;
     User user;
-    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +30,6 @@ public class SignUp3Activity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up3);
 
         user = (User) getIntent().getSerializableExtra("user");
-
-        // [START initialize_auth]
-        // Initialize Firebase Auth
-        mAuth = FirebaseAuth.getInstance();
-        // [END initialize_auth]
 
         //Hooks
         countryCodePicker = findViewById(R.id.country_code_picker);

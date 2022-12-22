@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputLayout;
 import com.salah.R;
 import com.salah.model.Masjid;
+import com.salah.util.ValidationUtils;
 
 public class MasjidForm1Activity extends AppCompatActivity {
 
@@ -48,33 +49,9 @@ public class MasjidForm1Activity extends AppCompatActivity {
         }
     }
 
-    private boolean validateName() {
-        String val = name.getEditText().getText().toString().trim();
-        if (val.isEmpty()) {
-            name.setError("Field can not be empty");
-            return false;
-        } else {
-            name.setError(null);
-            name.setErrorEnabled(false);
-            return true;
-        }
-    }
-
-    private boolean validateLocation() {
-        String val = location.getEditText().getText().toString().trim();
-        if (val.isEmpty()) {
-            location.setError("Field can not be empty");
-            return false;
-        } else {
-            location.setError(null);
-            location.setErrorEnabled(false);
-            return true;
-        }
-    }
-
     public void next(View view) {
 
-        if (!validateName() | !validateLocation()) {
+        if (!ValidationUtils.validateField(name) | !ValidationUtils.validateField(location)) {
             return;
         }
 
