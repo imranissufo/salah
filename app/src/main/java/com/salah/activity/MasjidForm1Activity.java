@@ -13,7 +13,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputLayout;
 import com.salah.R;
 import com.salah.model.Masjid;
+import com.salah.service.MasjidService;
 import com.salah.util.ValidationUtils;
+
+import java.util.List;
 
 public class MasjidForm1Activity extends AppCompatActivity {
 
@@ -24,12 +27,17 @@ public class MasjidForm1Activity extends AppCompatActivity {
     TextInputLayout name, location;
     Masjid masjid;
     String action;
+    MasjidService masjidService;
+    List<Masjid> masjids;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_masjid_form1);
+
+        masjidService = MasjidService.getInstance();
+        masjids = masjidService.findAll("");
 
         action = getIntent().getStringExtra("action");
         masjid = (Masjid) getIntent().getSerializableExtra("masjid");
@@ -43,7 +51,7 @@ public class MasjidForm1Activity extends AppCompatActivity {
         name = findViewById(R.id.mjc_name);
         location = findViewById(R.id.mjc_location);
 
-        if(action.equals("EDIT") || (masjid.getName()!=null && !masjid.getName().isEmpty())){
+        if (action.equals("EDIT") || (masjid.getName() != null && !masjid.getName().isEmpty())) {
             name.getEditText().setText(masjid.getName());
             location.getEditText().setText(masjid.getLocation());
         }
@@ -53,6 +61,12 @@ public class MasjidForm1Activity extends AppCompatActivity {
 
         if (!ValidationUtils.validateField(name) | !ValidationUtils.validateField(location)) {
             return;
+        }
+
+        if (!action.equals("EDIT")) {
+            if(!ValidationUtils.validateFieldContains(name, masjids)){
+                return;
+            }
         }
 
         Intent intent = new Intent(getApplicationContext(), MasjidForm2Activity.class);

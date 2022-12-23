@@ -15,7 +15,6 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -29,16 +28,17 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.salah.R;
 import com.salah.adapter.MasgidAdapter;
-import com.salah.model.Masjid;
+import com.salah.adapter.UserAdapter;
+import com.salah.model.User;
 
 import java.util.ArrayList;
 
-public class MasgidAdminActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class UserAdminActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    RelativeLayout masjidProgressBar;
+    RelativeLayout userProgressBar;
 
-    RecyclerView masjidRecycler;
-    MasgidAdapter masgidAdapter;
+    RecyclerView userRecycler;
+    UserAdapter userAdapter;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ImageView menuIcon, syncIcon;
@@ -47,55 +47,50 @@ public class MasgidAdminActivity extends AppCompatActivity implements Navigation
     TextInputEditText searchInput;
     String searchTxt;
 
-    private ArrayList<Masjid> entries = new ArrayList<>();
+    private ArrayList<User> entries = new ArrayList<>();
     private DatabaseReference databaseReference;
-    private DatabaseReference masjidReference;
+    private DatabaseReference userReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_masgid_admin);
+        setContentView(R.layout.activity_user_admin);
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
         //hooks
-        masjidProgressBar = findViewById(R.id.masjid_admin_progress_bar);
-        masjidProgressBar.setVisibility(View.VISIBLE);
+        userProgressBar = findViewById(R.id.usadm_progress_bar);
+        userProgressBar.setVisibility(View.VISIBLE);
 
-        masjidRecycler = findViewById(R.id.mjadm_masjid_recycler);
-        drawerLayout = findViewById(R.id.mjadm_drawer_layout);
-        navigationView = findViewById(R.id.mjadm_navigation_view);
-        menuIcon = findViewById(R.id.mjadm_menu);
-        syncIcon = findViewById(R.id.mjadm_sync);
-        searchInput = findViewById(R.id.mjadm_search_editText);
+        userRecycler = findViewById(R.id.usadm_recycler);
+        drawerLayout = findViewById(R.id.usadm_drawer_layout);
+        navigationView = findViewById(R.id.usadm_navigation_view);
+        menuIcon = findViewById(R.id.usadm_menu);
+        syncIcon = findViewById(R.id.usadm_sync);
+        searchInput = findViewById(R.id.usadm_search_editText);
 
-        recycler();
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         height = displayMetrics.heightPixels;
         width = displayMetrics.widthPixels;
 
-        masjidRecycler.setHasFixedSize(true);
-        masjidRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        masjidRecycler.setItemAnimator(null);
+        userRecycler.setHasFixedSize(true);
+        userRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        userRecycler.setItemAnimator(null);
 
-        //ViewGroup.LayoutParams params = masjidRecycler.getLayoutParams();
+        //ViewGroup.LayoutParams params = userRecycler.getLayoutParams();
         //params.height = height+100;
-        //masjidRecycler.setLayoutParams(params);
+        //userRecycler.setLayoutParams(params);
 
-        masgidAdapter = new MasgidAdapter(this, entries);
-        masjidRecycler.setAdapter(masgidAdapter);
+        userAdapter = new UserAdapter(this, entries);
+        userRecycler.setAdapter(userAdapter);
 
         loadEntries("");
         navigationDrawer();
         sync();
         search();
 
-
-    }
-
-    private void recycler() {
     }
 
     private void search() {
@@ -128,31 +123,31 @@ public class MasgidAdminActivity extends AppCompatActivity implements Navigation
     }
 
     private void loadEntries(String search) {
-        masjidProgressBar.setVisibility(View.VISIBLE);
-        entries = new ArrayList<Masjid>();
-        masjidReference = databaseReference.child("masjid");
+        userProgressBar.setVisibility(View.VISIBLE);
+        entries = new ArrayList<User>();
+        userReference = databaseReference.child("user");
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                masjidProgressBar.setVisibility(View.GONE);
+                userProgressBar.setVisibility(View.GONE);
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    Masjid masjid = ds.getValue(Masjid.class);
-                    masjid.setId(ds.getKey());
-                    if (search.isEmpty() || masjid.getName().toUpperCase().contains(search.toUpperCase())) {
-                        entries.add(masjid);
+                    User user = ds.getValue(User.class);
+                    user.setId(ds.getKey());
+                    if (search.isEmpty() || user.getFullName().toUpperCase().contains(search.toUpperCase())) {
+                        entries.add(user);
                     }
                 }
-                masgidAdapter.setMasjids(entries);
-                masgidAdapter.notifyDataSetChanged();
+                userAdapter.setUsers(entries);
+                userAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 Log.w("LogFragment", "loadLog:onCancelled", databaseError.toException());
-                masjidProgressBar.setVisibility(View.GONE);
+                userProgressBar.setVisibility(View.GONE);
             }
         };
-        masjidReference.addValueEventListener(valueEventListener);
+        userReference.addValueEventListener(valueEventListener);
     }
 
     private void navigationDrawer() {
@@ -183,16 +178,17 @@ public class MasgidAdminActivity extends AppCompatActivity implements Navigation
             break;
 
             case R.id.nav_masjid: {
-                drawerLayout.closeDrawer(GravityCompat.START);
-            }
-            break;
-
-            case R.id.nav_user: {
-                Intent intent = new Intent(getApplicationContext(), UserAdminActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MasgidAdminActivity.class);
                 startActivity(intent);
                 finish();
             }
             break;
+
+            case R.id.nav_user: {
+                drawerLayout.closeDrawer(GravityCompat.START);
+            }
+            break;
+
             case R.id.nav_logout: {
                 Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
                 startActivity(intent);
@@ -212,10 +208,10 @@ public class MasgidAdminActivity extends AppCompatActivity implements Navigation
         }
     }
 
-    public void addMasjid(View view) {
-        Masjid masjid = new Masjid();
-        Intent intent = new Intent(getApplicationContext(), MasjidForm1Activity.class);
-        intent.putExtra("masjid", masjid);
+    public void addUser(View view) {
+        User user = new User();
+        Intent intent = new Intent(getApplicationContext(), MasgidAdminActivity.class);
+        intent.putExtra("user", user);
         intent.putExtra("action", "ADD");
         startActivity(intent);
     }

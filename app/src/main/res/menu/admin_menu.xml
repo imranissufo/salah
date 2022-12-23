@@ -9,6 +9,10 @@
             android:id="@+id/nav_masjid"
             android:icon="@drawable/ic_mosque"
             android:title="@string/all_categories" />
+        <item
+            android:id="@+id/nav_user"
+            android:icon="@drawable/ic_person"
+            android:title="Utilizadores" />
     </group>
     <item android:title="Profile">
         <menu>

@@ -5,8 +5,9 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
-import com.salah.activity.MasjidForm2Activity;
+import com.salah.model.Masjid;
 
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class ValidationUtils {
@@ -40,11 +41,11 @@ public class ValidationUtils {
         if (val.isEmpty()) {
             textInputLayout.setError("Campo obrigatório!");
             return false;
-        }else if(val.length()<min){
-            textInputLayout.setError("Tamanho mínimo é "+min+" caracteres!");
+        } else if (val.length() < min) {
+            textInputLayout.setError("Tamanho mínimo é " + min + " caracteres!");
             return false;
-        }else if(val.length()>max){
-            textInputLayout.setError("Tamanho máximo é "+max+" caracteres!");
+        } else if (val.length() > max) {
+            textInputLayout.setError("Tamanho máximo é " + max + " caracteres!");
             return false;
         } else {
             textInputLayout.setError(null);
@@ -73,10 +74,10 @@ public class ValidationUtils {
     public static boolean validateHour(Context context, int min, int max, TimePicker timePicker) {
         int hour = timePicker.getHour();
 
-        if(hour>= min && hour<=max){
+        if (hour >= min && hour <= max) {
             return true;
         }
-        Toast.makeText(context, "A hora deve estar entre "+min+" e "+max+"!", Toast.LENGTH_LONG).show();
+        Toast.makeText(context, "A hora deve estar entre " + min + " e " + max + "!", Toast.LENGTH_LONG).show();
         return false;
     }
 
@@ -85,7 +86,7 @@ public class ValidationUtils {
         if (val.isEmpty()) {
             textInputLayout.setError("Campo obrigatório!");
             return false;
-        }  else if (!isValidPassword(val)) {
+        } else if (!isValidPassword(val)) {
             textInputLayout.setError("Senha invalida!");
             return false;
         } else {
@@ -120,5 +121,32 @@ public class ValidationUtils {
                 .matches();
     }
 
+    public static boolean contains(String name, List<Masjid> masjids) {
+        if (name != null && !name.isEmpty() && masjids != null && !masjids.isEmpty()) {
+            for (Masjid m : masjids) {
+                if (m.getName().equalsIgnoreCase(name)) {
+                    return true;
+                }
+            }
+        } else {
+            return false;
+        }
+        return false;
+    }
+
+    public static boolean validateFieldContains(TextInputLayout textInputLayout, List<Masjid> masjids) {
+        String val = textInputLayout.getEditText().getText().toString().trim();
+        if (val.isEmpty()) {
+            textInputLayout.setError("Campo obrigatório!");
+            return false;
+        } else if(contains(val, masjids)){
+            textInputLayout.setError("Nome existente!");
+            return false;
+        }else {
+            textInputLayout.setError(null);
+            textInputLayout.setErrorEnabled(false);
+            return true;
+        }
+    }
 }
 
