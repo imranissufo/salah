@@ -29,6 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.salah.R;
 import com.salah.adapter.MasgidAdapter;
 import com.salah.adapter.UserAdapter;
+import com.salah.adapter.UserCardAdapter;
 import com.salah.model.User;
 
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public class UserAdminActivity extends AppCompatActivity implements NavigationVi
     RelativeLayout userProgressBar;
 
     RecyclerView userRecycler;
-    UserAdapter userAdapter;
+    UserCardAdapter userAdapter;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ImageView menuIcon, syncIcon;
@@ -83,7 +84,7 @@ public class UserAdminActivity extends AppCompatActivity implements NavigationVi
         //params.height = height+100;
         //userRecycler.setLayoutParams(params);
 
-        userAdapter = new UserAdapter(this, entries);
+        userAdapter = new UserCardAdapter(this, entries);
         userRecycler.setAdapter(userAdapter);
 
         loadEntries("");

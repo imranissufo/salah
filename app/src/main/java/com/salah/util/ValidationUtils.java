@@ -86,9 +86,12 @@ public class ValidationUtils {
         if (val.isEmpty()) {
             textInputLayout.setError("Campo obrigatório!");
             return false;
+            /*
         } else if (!isValidPassword(val)) {
             textInputLayout.setError("Senha invalida!");
             return false;
+
+             */
         } else {
             textInputLayout.setError(null);
             textInputLayout.setErrorEnabled(false);
