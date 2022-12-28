@@ -39,7 +39,7 @@ public class UserAdminActivity extends AppCompatActivity implements NavigationVi
     RelativeLayout userProgressBar;
 
     RecyclerView userRecycler;
-    UserCardAdapter userAdapter;
+    UserAdapter userAdapter;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ImageView menuIcon, syncIcon;
@@ -84,7 +84,7 @@ public class UserAdminActivity extends AppCompatActivity implements NavigationVi
         //params.height = height+100;
         //userRecycler.setLayoutParams(params);
 
-        userAdapter = new UserCardAdapter(this, entries);
+        userAdapter = new UserAdapter(this, entries);
         userRecycler.setAdapter(userAdapter);
 
         loadEntries("");
