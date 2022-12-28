@@ -6,9 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.salah.R;
 import com.salah.model.User;
 import com.salah.util.ValidationUtils;
@@ -45,29 +48,38 @@ public class UserFormActivity extends AppCompatActivity {
 
     public void next(View view) {
 
-        if (!ValidationUtils.validateField(name) | !ValidationUtils.validateField(location)) {
+        if (!ValidationUtils.validateField(fullName) | !ValidationUtils.validateField(username) | !ValidationUtils.validateEmail(email)) {
             return;
         }
 
-        if (!action.equals("EDIT")) {
-            if(!ValidationUtils.validateFieldContains(name, masjids)){
-                return;
-            }
-        }
+        String _fullName = fullName.getEditText().getText().toString().trim();
+        String _userName = username.getEditText().getText().toString().trim();
+        String _email = email.getEditText().getText().toString().trim();
+        String _phoneNo = phoneNumber.getEditText().getText().toString().trim();
+        String _date = date.getEditText().getText().toString();
+        String _gender = gender.getEditText().getText().toString();
 
-        Intent intent = new Intent(getApplicationContext(), MasjidForm2Activity.class);
+        user.setFullName(_fullName);
+        user.setUsername(_userName);
+        user.setEmail(_email);
+        user.setGender(_gender);
+        user.setDate(_date);
+        user.setPhoneNo(_phoneNo);
 
-        String _name = name.getEditText().getText().toString().trim();
-        String _location = location.getEditText().getText().toString().trim();
+        FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
+        DatabaseReference reference = rootNode.getReference("user");
+        //reference.child(user.getPhoneNo()).setValue(user);
 
-        masjid.setName(_name);
-        masjid.setLocation(_location);
-        //Pass all fields to the next activity
-        intent.putExtra("masjid", masjid);
-        intent.putExtra("action", action);
+        reference.child(user.getPhoneNo()).updateChildren(user.toMap()).addOnSuccessListener(unused -> {
+            Toast.makeText(UserFormActivity.this, "Registo salvo com sucesso!", Toast.LENGTH_LONG).show();
+            init();
+        }).addOnFailureListener(e -> Toast.makeText(UserFormActivity.this, "Erro ao salvar o registo!", Toast.LENGTH_LONG).show());
+    }
 
+    public void init() {
+        Intent intent = new Intent(getApplicationContext(), UserAdminActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
-
     }
 
     public void back(View view) {
