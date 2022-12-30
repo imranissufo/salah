@@ -11,11 +11,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
 import com.salah.R;
 import com.salah.activity.MasjidAnnc1Activity;
 import com.salah.activity.MasjidDeleteActivity;
 import com.salah.activity.MasjidForm1Activity;
+import com.salah.activity.UserFormActivity;
 import com.salah.model.Masjid;
 import com.salah.model.User;
 
@@ -46,18 +48,15 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         User model = users.get(position);
 
-        holder.fullName.getEditText().setText(model.getFullName());
-        holder.username.getEditText().setText(model.getUsername());
-        holder.email.getEditText().setText(model.getEmail());
-        holder.phoneNo.getEditText().setText(model.getPhoneNo());
-        holder.date.getEditText().setText(model.getDate());
-        holder.gender.getEditText().setText(model.getGender());
+        holder.fullName.setText(model.getFullName());
+        holder.email.setText(model.getEmail());
+        holder.phoneNo.setText(model.getPhoneNo());
 
         holder.editUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, MasjidForm1Activity.class);
-                intent.putExtra("masjid", model);
+                Intent intent = new Intent(context, UserFormActivity.class);
+                intent.putExtra("user", model);
                 intent.putExtra("action", "EDIT");
                 context.startActivity(intent);
             }
@@ -67,7 +66,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, MasjidDeleteActivity.class);
-                intent.putExtra("masjid", model);
+                intent.putExtra("user", model);
                 intent.putExtra("action", "DELETE");
                 context.startActivity(intent);
             }
@@ -86,19 +85,19 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
     public static class UserViewHolder extends RecyclerView.ViewHolder{
 
-        TextInputLayout fullName, username, email, phoneNo, password, date, gender;
-        ImageView editUser;
-        ImageView deleteUser;
+        //TextInputLayout fullName, username, email, phoneNo, password, date, gender;
+        //ImageView editUser;
+        //ImageView deleteUser;
+        TextView fullName, email, phoneNo;
+        MaterialButton editUser;
+        MaterialButton deleteUser;
 
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
 
             fullName = itemView.findViewById(R.id.user_fullname);
-            username = itemView.findViewById(R.id.user_username);
             email = itemView.findViewById(R.id.user_email);
             phoneNo = itemView.findViewById(R.id.user_phone);
-            date = itemView.findViewById(R.id.user_date);
-            gender = itemView.findViewById(R.id.user_gender);
 
             editUser = itemView.findViewById(R.id.user_edit);
             deleteUser = itemView.findViewById(R.id.user_delete);

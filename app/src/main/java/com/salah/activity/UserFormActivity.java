@@ -1,11 +1,14 @@
 package com.salah.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
@@ -13,8 +16,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.salah.R;
+import com.salah.fragment.DatePickerFragment;
 import com.salah.model.User;
 import com.salah.util.ValidationUtils;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class UserFormActivity extends AppCompatActivity {
 
@@ -41,10 +48,17 @@ public class UserFormActivity extends AppCompatActivity {
         email.getEditText().setText(user.getEmail());
         phoneNumber.getEditText().setText(user.getPhoneNo());
         date.getEditText().setText(user.getDate());
-        gender.getEditText().setText(user.getGender());
+        ((AutoCompleteTextView) gender.getEditText()).setText(user.getGender());
 
+        List items = Arrays.asList("Masculino", "Femenino");
+        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.dropdown_item, items);
+        ((AutoCompleteTextView) gender.getEditText()).setAdapter(adapter);
     }
 
+    public void onDateClick(View view) {
+        DialogFragment newFragment = new DatePickerFragment(date);
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
 
     public void next(View view) {
 
