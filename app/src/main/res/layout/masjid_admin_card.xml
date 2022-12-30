@@ -15,15 +15,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Media -->
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            app:srcCompat="@drawable/ic_account_circle"
-            android:scaleType="fitCenter"
-            android:contentDescription="Utilizador"
-            />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,27 +23,18 @@
 
             <!-- Title, secondary and supporting text -->
             <TextView
-                android:id="@+id/user_fullname"
+                android:id="@+id/mj_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="FullName"
                 android:textAppearance="?attr/textAppearanceHeadline6"
                 />
             <TextView
-                android:id="@+id/user_email"
+                android:id="@+id/mj_location_vl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Email"
-                android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="?android:attr/textColorSecondary"
-                />
-            <TextView
-                android:id="@+id/user_phone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Mobile"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="?android:attr/textColorSecondary"
                 />
@@ -68,24 +50,30 @@
             android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/user_delete"
+                android:id="@+id/mj_delete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:text="Bloquear"
+                android:layout_weight="1"
+                android:text="Remover"
                 style="?attr/borderlessButtonStyle"
                 />
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/mj_annc_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
                 android:layout_weight="1"
+                android:text="Anuncio"
+                style="?attr/borderlessButtonStyle"
                 />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/user_edit"
+                android:id="@+id/mj_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Actualizar"
                 style="?attr/borderlessButtonStyle"
                 />

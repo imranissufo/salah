@@ -17,6 +17,8 @@ import com.salah.R;
 import com.salah.activity.MasjidAnnc1Activity;
 import com.salah.activity.MasjidDeleteActivity;
 import com.salah.activity.MasjidForm1Activity;
+import com.salah.activity.UserBlockActivity;
+import com.salah.activity.UserDeleteActivity;
 import com.salah.activity.UserFormActivity;
 import com.salah.model.Masjid;
 import com.salah.model.User;
@@ -65,9 +67,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         holder.deleteUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, MasjidDeleteActivity.class);
+                Intent intent = new Intent(context, UserBlockActivity.class);
                 intent.putExtra("user", model);
-                intent.putExtra("action", "DELETE");
+                intent.putExtra("action", "BLOCK");
                 context.startActivity(intent);
             }
         });

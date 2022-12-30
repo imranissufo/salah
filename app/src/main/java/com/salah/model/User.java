@@ -10,7 +10,15 @@ import java.util.Map;
 @IgnoreExtraProperties
 public class User implements Serializable {
 
-    String id, fullName, username, email, phoneNo, password, date, gender;
+    String id;
+    String fullName;
+    String username;
+    String email;
+    String phoneNo;
+    String password;
+    String date;
+    String gender;
+    String status;
 
     public User(String fullName, String username, String email, String phoneNo, String password, String date, String gender) {
         this.fullName = fullName;
@@ -20,6 +28,7 @@ public class User implements Serializable {
         this.password = password;
         this.date = date;
         this.gender = gender;
+        this.status = "ACTIVE";
     }
 
     public User(String id, String fullName, String username, String email, String phoneNo, String password, String date, String gender) {
@@ -31,6 +40,7 @@ public class User implements Serializable {
         this.password = password;
         this.date = date;
         this.gender = gender;
+        this.status = "ACTIVE";
     }
 
     public User() {
@@ -47,8 +57,17 @@ public class User implements Serializable {
         result.put("password", password);
         result.put("date", date);
         result.put("gender", gender);
+        result.put("status", status);
 
         return result;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getId() {

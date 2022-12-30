@@ -29,6 +29,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.salah.R;
 import com.salah.adapter.MasgidAdapter;
+import com.salah.adapter.MasjidAdminAdapter;
 import com.salah.model.Masjid;
 
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public class MasgidAdminActivity extends AppCompatActivity implements Navigation
     RelativeLayout masjidProgressBar;
 
     RecyclerView masjidRecycler;
-    MasgidAdapter masgidAdapter;
+    MasjidAdminAdapter masgidAdapter;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ImageView menuIcon, syncIcon;
@@ -84,7 +85,7 @@ public class MasgidAdminActivity extends AppCompatActivity implements Navigation
         //params.height = height+100;
         //masjidRecycler.setLayoutParams(params);
 
-        masgidAdapter = new MasgidAdapter(this, entries);
+        masgidAdapter = new MasjidAdminAdapter(this, entries);
         masjidRecycler.setAdapter(masgidAdapter);
 
         loadEntries("");
