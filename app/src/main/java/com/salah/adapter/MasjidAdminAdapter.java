@@ -2,16 +2,20 @@ package com.salah.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.transition.AutoTransition;
+import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.card.MaterialCardView;
 import com.salah.R;
 import com.salah.activity.MasjidAnnc1Activity;
 import com.salah.activity.MasjidDeleteActivity;
@@ -76,6 +80,38 @@ public class MasjidAdminAdapter extends RecyclerView.Adapter<MasjidAdminAdapter.
                 context.startActivity(intent);
             }
         });
+        holder.arrowDown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(holder.masjidDetails.getVisibility()== View.GONE){
+                    TransitionManager.beginDelayedTransition(holder.cardView, new AutoTransition());
+                    holder.arrowDown.setVisibility(View.GONE);
+                    holder.arrowUp.setVisibility(View.VISIBLE);
+                    holder.masjidDetails.setVisibility(View.VISIBLE);
+                }else{
+                    TransitionManager.beginDelayedTransition(holder.cardView, new AutoTransition());
+                    holder.arrowUp.setVisibility(View.GONE);
+                    holder.arrowDown.setVisibility(View.VISIBLE);
+                    holder.masjidDetails.setVisibility(View.GONE);
+                }
+            }
+        });
+        holder.arrowUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(holder.masjidDetails.getVisibility()== View.GONE){
+                    TransitionManager.beginDelayedTransition(holder.cardView, new AutoTransition());
+                    holder.arrowDown.setVisibility(View.GONE);
+                    holder.arrowUp.setVisibility(View.VISIBLE);
+                    holder.masjidDetails.setVisibility(View.VISIBLE);
+                }else{
+                    TransitionManager.beginDelayedTransition(holder.cardView, new AutoTransition());
+                    holder.arrowUp.setVisibility(View.GONE);
+                    holder.arrowDown.setVisibility(View.VISIBLE);
+                    holder.masjidDetails.setVisibility(View.GONE);
+                }
+            }
+        });
 
     }
 
@@ -85,6 +121,7 @@ public class MasjidAdminAdapter extends RecyclerView.Adapter<MasjidAdminAdapter.
     }
 
     public static class MasgidViewHolder extends RecyclerView.ViewHolder{
+
 
         TextView code;
         TextView name;
@@ -102,11 +139,21 @@ public class MasjidAdminAdapter extends RecyclerView.Adapter<MasjidAdminAdapter.
         MaterialButton editAnnouncement;
         MaterialButton deleteMasjid;
 
+        MaterialCardView cardView;
+        LinearLayout masjidDetails;
+        ImageView arrowDown,arrowUp;
+
+
         public MasgidViewHolder(@NonNull View itemView) {
             super(itemView);
 
             name = itemView.findViewById(R.id.mj_name);
             location = itemView.findViewById(R.id.mj_location_vl);
+
+            masjidDetails = itemView.findViewById(R.id.mj_details);
+            cardView = itemView.findViewById(R.id.card);
+            arrowDown = itemView.findViewById(R.id.mj_arrow_down);
+            arrowUp = itemView.findViewById(R.id.mj_arrow_up);
 
             editMasjid = itemView.findViewById(R.id.mj_edit);
             editAnnouncement = itemView.findViewById(R.id.mj_annc_edit);
