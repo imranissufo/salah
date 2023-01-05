@@ -73,6 +73,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:text="Bloquear"
+                android:textSize="11sp"
                 style="?attr/borderlessButtonStyle"
                 />
 
@@ -87,6 +88,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Actualizar"
+                android:textSize="11sp"
                 style="?attr/borderlessButtonStyle"
                 />
         </LinearLayout>

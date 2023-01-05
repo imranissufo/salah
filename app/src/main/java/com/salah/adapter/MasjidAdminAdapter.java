@@ -22,6 +22,8 @@ import com.salah.activity.MasjidDeleteActivity;
 import com.salah.activity.MasjidForm1Activity;
 import com.salah.model.Masjid;
 
+import org.apache.commons.text.WordUtils;
+
 import java.util.ArrayList;
 
 public class MasjidAdminAdapter extends RecyclerView.Adapter<MasjidAdminAdapter.MasgidViewHolder> {
@@ -49,8 +51,23 @@ public class MasjidAdminAdapter extends RecyclerView.Adapter<MasjidAdminAdapter.
     public void onBindViewHolder(@NonNull MasgidViewHolder holder, int position) {
         Masjid model = masjids.get(position);
 
-        holder.name.setText(model.getName());
+        holder.name.setText(WordUtils.capitalizeFully(model.getName(),' ','.'));
         holder.location.setText(model.getLocation());
+
+        holder.fajr.setText(model.getFajr());
+        holder.zuhr.setText(model.getZuhr());
+        holder.jumma.setText(model.getJumma());
+        holder.assr.setText(model.getAssr());
+        holder.isha.setText(model.getIsha());
+        holder.annc.setText(model.getAnnc());
+        holder.anncTime.setText(model.getAnncTime());
+        holder.anncFajrDate.setText(model.getAnncFajrDate());
+        holder.anncFajrTime.setText(model.getAnncFajrTime());
+        holder.anncAssrDate.setText(model.getAnncAssrDate());
+        holder.anncAssrTime.setText(model.getAnncAssrTime());
+        holder.anncIshaDate.setText(model.getAnncIshaDate());
+        holder.anncIshaTime.setText(model.getAnncIshaTime());
+
         holder.editMasjid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,6 +166,21 @@ public class MasjidAdminAdapter extends RecyclerView.Adapter<MasjidAdminAdapter.
 
             name = itemView.findViewById(R.id.mj_name);
             location = itemView.findViewById(R.id.mj_location_vl);
+
+            fajr = itemView.findViewById(R.id.mj_fajr_vl);
+            zuhr = itemView.findViewById(R.id.mj_zuhr_vl);
+            jumma = itemView.findViewById(R.id.mj_jumma_vl);
+            assr = itemView.findViewById(R.id.mj_assr_vl);
+            isha = itemView.findViewById(R.id.mj_isha_vl);
+            annc = itemView.findViewById(R.id.mj_annc_lb);
+            anncTime = itemView.findViewById(R.id.mj_annc_vl);
+
+            anncFajrDate= itemView.findViewById(R.id.mj_annc_fajr_date);
+            anncFajrTime= itemView.findViewById(R.id.mj_annc_fajr_vl);
+            anncAssrDate= itemView.findViewById(R.id.mj_annc_assr_date);
+            anncAssrTime= itemView.findViewById(R.id.mj_annc_assr_vl);
+            anncIshaDate= itemView.findViewById(R.id.mj_annc_isha_date);
+            anncIshaTime= itemView.findViewById(R.id.mj_annc_isha_vl);
 
             masjidDetails = itemView.findViewById(R.id.mj_details);
             cardView = itemView.findViewById(R.id.card);

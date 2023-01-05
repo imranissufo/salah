@@ -25,10 +25,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:textAppearance="?attr/textAppearanceHeadline6"
                 android:text="Masjid"
                 android:textColor="@color/colorAccent"
-                android:textSize="24sp" />
+                android:textSize="22sp" />
 
         </LinearLayout>
         <LinearLayout
@@ -44,10 +44,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:textAppearance="?attr/textAppearanceBody1"
                 android:text="@string/localizacao"
                 android:textColor="@color/colorPrimary"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/mj_location_vl"
@@ -56,11 +56,10 @@
                 android:layout_weight="1"
                 android:textAlignment="textEnd"
                 android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:textAppearance="?attr/textAppearanceBody1"
                 android:text="04:30"
                 android:textColor="@color/colorPrimary"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
         </LinearLayout>
         <LinearLayout
@@ -74,10 +73,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:textAppearance="?attr/textAppearanceBody1"
                 android:text="Fajr"
                 android:textColor="@color/colorAccent"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/mj_fajr_vl"
@@ -90,7 +89,7 @@
                 android:fontFamily="@font/ds_digib"
                 android:text="04:30"
                 android:textColor="@color/colorAccent"
-                android:textSize="29sp" />
+                android:textSize="26sp" />
 
         </LinearLayout>
         <LinearLayout
@@ -104,10 +103,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:textAppearance="?attr/textAppearanceBody1"
                 android:text="Zuhr"
                 android:textColor="@color/colorAccent"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/mj_zuhr_vl"
@@ -117,10 +116,11 @@
                 android:layout_centerVertical="true"
                 android:layout_weight="1"
                 android:fontFamily="@font/ds_digib"
+                android:textAppearance="?attr/textAppearanceBody1"
                 android:text="12:45"
                 android:textAlignment="textEnd"
                 android:textColor="@color/colorAccent"
-                android:textSize="29sp" />
+                android:textSize="26sp" />
 
         </LinearLayout>
         <LinearLayout
@@ -132,12 +132,12 @@
                 android:id="@+id/mj_jumma_lb"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="3"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:layout_weight="3"
+                android:textAppearance="?attr/textAppearanceBody1"
                 android:text="Jumma"
                 android:textColor="@color/colorAccent"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/mj_jumma_vl"
@@ -149,8 +149,9 @@
                 android:fontFamily="@font/ds_digib"
                 android:text="12:45"
                 android:textAlignment="textEnd"
+                android:textAppearance="?attr/textAppearanceBody1"
                 android:textColor="@color/colorAccent"
-                android:textSize="29sp" />
+                android:textSize="26sp" />
 
         </LinearLayout>
         <LinearLayout
@@ -164,10 +165,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:textAppearance="?attr/textAppearanceBody1"
                 android:text="Assr"
                 android:textColor="@color/colorAccent"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/mj_assr_vl"
@@ -179,8 +180,9 @@
                 android:fontFamily="@font/ds_digib"
                 android:text="17:00"
                 android:textAlignment="textEnd"
+                android:textAppearance="?attr/textAppearanceBody1"
                 android:textColor="@color/colorAccent"
-                android:textSize="29sp" />
+                android:textSize="26sp" />
 
         </LinearLayout>
         <LinearLayout
@@ -194,10 +196,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:textAppearance="?attr/textAppearanceBody1"
                 android:text="Isha"
                 android:textColor="@color/colorAccent"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/mj_isha_vl"
@@ -209,8 +211,9 @@
                 android:fontFamily="@font/ds_digib"
                 android:text="20:00"
                 android:textAlignment="textEnd"
+                android:textAppearance="?attr/textAppearanceBody1"
                 android:textColor="@color/colorAccent"
-                android:textSize="29sp" />
+                android:textSize="26sp" />
 
         </LinearLayout>
         <LinearLayout
@@ -226,10 +229,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:textAppearance="?attr/textAppearanceHeadline6"
                 android:text="Anúncio"
                 android:textColor="@color/black"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/mj_anncement_vl"
@@ -256,22 +259,22 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:textAppearance="?attr/textAppearanceBody1"
                 android:text="Fajr"
                 android:textColor="@color/colorAccent"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/mj_fajr2_date"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:layout_weight="2"
                 android:text="10/12/2022"
                 android:textAlignment="center"
+                android:textAppearance="?attr/textAppearanceBody1"
                 android:textColor="@color/colorAccent"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/mj_fajr2_vl"
@@ -284,7 +287,7 @@
                 android:text="20:00"
                 android:textAlignment="textEnd"
                 android:textColor="@color/colorAccent"
-                android:textSize="29sp" />
+                android:textSize="26sp" />
 
         </LinearLayout>
         <LinearLayout
@@ -298,22 +301,22 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:textAppearance="?attr/textAppearanceBody1"
                 android:text="Assr"
                 android:textColor="@color/colorAccent"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/mj_assr2_date"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:layout_weight="2"
                 android:text="10/12/2022"
                 android:textAlignment="center"
+                android:textAppearance="?attr/textAppearanceBody1"
                 android:textColor="@color/colorAccent"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/mj_assr2_vl"
@@ -326,7 +329,7 @@
                 android:text="20:00"
                 android:textAlignment="textEnd"
                 android:textColor="@color/colorAccent"
-                android:textSize="29sp" />
+                android:textSize="26sp" />
 
         </LinearLayout>
         <LinearLayout
@@ -340,22 +343,22 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:textAppearance="?attr/textAppearanceBody1"
                 android:text="Isha"
                 android:textColor="@color/colorAccent"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/mj_isha2_date"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:layout_weight="2"
                 android:text="10/12/2022"
                 android:textAlignment="center"
+                android:textAppearance="?attr/textAppearanceBody1"
                 android:textColor="@color/colorAccent"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/mj_isha2_vl"
@@ -367,8 +370,8 @@
                 android:fontFamily="@font/ds_digib"
                 android:text="20:00"
                 android:textAlignment="textEnd"
-                android:textColor="@color/colorAccent"
-                android:textSize="29sp" />
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:textSize="26sp" />
 
         </LinearLayout>
         <LinearLayout
@@ -383,35 +386,35 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
+                android:capitalize="words"
+                android:textAppearance="?attr/textAppearanceBody1"
                 android:text="Assr"
                 android:textColor="@color/colorAccent"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/mj_annc_date"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:layout_centerVertical="true"
-                android:fontFamily="@font/advent_pro_medium"
                 android:text="Fim de Semana e Feriados"
                 android:textAlignment="center"
+                android:textAppearance="?attr/textAppearanceBody1"
                 android:textColor="@color/colorAccent"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/mj_annc_vl"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
                 android:layout_weight="1"
                 android:fontFamily="@font/ds_digib"
                 android:text="20:00"
                 android:textAlignment="textEnd"
+                android:textAppearance="?attr/textAppearanceBody1"
                 android:textColor="@color/colorAccent"
-                android:textSize="29sp" />
+                android:textSize="26sp" />
 
         </LinearLayout>
     </LinearLayout>

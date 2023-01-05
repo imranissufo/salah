@@ -12,6 +12,8 @@ import com.salah.R;
 import com.salah.model.Location;
 import com.salah.model.Masjid;
 
+import org.apache.commons.text.WordUtils;
+
 import java.util.ArrayList;
 
 public class MasjidAdapter extends RecyclerView.Adapter<MasjidAdapter.MasjidViewHolder> {
@@ -38,14 +40,14 @@ public class MasjidAdapter extends RecyclerView.Adapter<MasjidAdapter.MasjidView
     public void onBindViewHolder(@NonNull MasjidViewHolder holder, int position) {
         Masjid model = masjids.get(position);
 
-        holder.name.setText(model.getName());
+        holder.name.setText(WordUtils.capitalizeFully(model.getName(),' ','.'));
         holder.fajr.setText(model.getFajr());
         holder.zuhr.setText(model.getZuhr());
         holder.jumma.setText(model.getJumma());
         holder.assr.setText(model.getAssr());
         holder.isha.setText(model.getIsha());
         holder.location.setText(model.getLocation());
-        holder.annc.setText(model.getAnnc());
+        holder.annc.setText(WordUtils.capitalizeFully(model.getAnnc()));
         holder.anncTime.setText(model.getAnncTime());
         holder.anncFajrDate.setText(model.getAnncFajrDate());
         holder.anncFajrTime.setText(model.getAnncFajrTime());

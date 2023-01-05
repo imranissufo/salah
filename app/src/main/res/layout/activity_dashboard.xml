@@ -52,8 +52,8 @@
 
             <ImageView
                 android:id="@+id/db_add"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:contentDescription="Admin"
@@ -96,7 +96,7 @@
                         android:id="@+id/db_search_editText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/advent_pro"
+                        android:textAppearance="?attr/textAppearanceBody1"
                         android:hint="@string/search"
                         android:inputType="textNoSuggestions" />
 
@@ -128,11 +128,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/advent_pro_bold"
+                            android:textAppearance="?attr/textAppearanceHeadline6"
                             android:text="@string/timings"
                             android:textAllCaps="true"
                             android:textColor="@color/colorAccent"
-                            android:textSize="24sp"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
 
                     </RelativeLayout>
@@ -180,11 +180,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/advent_pro_bold"
+                            android:textAppearance="?attr/textAppearanceHeadline6"
                             android:text="@string/masaajid"
                             android:textAllCaps="true"
                             android:textColor="@color/colorAccent"
-                            android:textSize="24sp"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -192,7 +192,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
-                            android:fontFamily="@font/advent_pro_bold"
+                            android:textAppearance="?attr/textAppearanceBody2"
                             android:text="@string/view_all" />
 
 
