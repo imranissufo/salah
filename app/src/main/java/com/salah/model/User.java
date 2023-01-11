@@ -11,6 +11,7 @@ import java.util.Map;
 public class User implements Serializable {
 
     String id;
+    String uid;
     String fullName;
     String username;
     String email;
@@ -50,6 +51,7 @@ public class User implements Serializable {
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
         result.put("id", id);
+        result.put("uid", uid);
         result.put("fullName", fullName);
         result.put("username", username);
         result.put("email", email);
@@ -60,6 +62,14 @@ public class User implements Serializable {
         result.put("status", status);
 
         return result;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public String getStatus() {

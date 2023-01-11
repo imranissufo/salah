@@ -87,9 +87,9 @@ public class SignUp4Activity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-
-                            updateUI(user);
+                            FirebaseUser firebaseUser = mAuth.getCurrentUser();
+                            user.setUid(firebaseUser.getUid());
+                            updateUI(firebaseUser);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
@@ -105,7 +105,7 @@ public class SignUp4Activity extends AppCompatActivity {
         DatabaseReference reference = rootNode.getReference("user");
         //reference.child(user.getPhoneNo()).setValue(user);
 
-        reference.child(user.getPhoneNo()).updateChildren(user.toMap()).addOnSuccessListener(unused -> {
+        reference.child(user.getUid()).updateChildren(user.toMap()).addOnSuccessListener(unused -> {
             Toast.makeText(SignUp4Activity.this, "Registo salvo com sucesso!", Toast.LENGTH_LONG).show();
             init();
         }).addOnFailureListener(e -> Toast.makeText(SignUp4Activity.this, "Erro ao salvar o registo!", Toast.LENGTH_LONG).show());
@@ -127,7 +127,7 @@ public class SignUp4Activity extends AppCompatActivity {
     }
 
     private void updateUI(FirebaseUser user) {
-        Intent intent = new Intent(getApplicationContext(), MasgidAdminActivity.class);
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
