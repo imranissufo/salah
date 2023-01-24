@@ -98,8 +98,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/advent_pro"
                     android:inputType="text"
+                    android:textSize="18sp"
                     android:textColor="@color/black"
                     android:textCursorDrawable="@null" />
 
@@ -123,12 +123,480 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/advent_pro"
                     android:inputType="text"
+                    android:textSize="18sp"
                     android:textColor="@color/black"
                     android:textCursorDrawable="@null" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_rect_shape"
+                android:padding="10dp"
+                android:layout_marginTop="5dp">
+
+
+                <ImageView
+                    android:id="@+id/mjf1_fajr_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
+                    android:contentDescription="@string/salah"
+                    android:src="@drawable/ic_sujud_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/mjf1_fajr_ic"
+                    android:text="Fajr"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/mjf1_fajr_time"
+                    android:layout_marginRight="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/mjf1_fajr_time_ic"
+                    android:text="12:45"
+                    android:textSize="25sp"
+                    android:fontFamily="@font/ds_digib"
+                    android:textColor="@color/black"/>
+
+                <ImageView
+                    android:id="@+id/mjf1_fajr_time_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_time" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_rect_shape"
+                android:padding="10dp"
+                android:layout_marginTop="5dp">
+
+
+                <ImageView
+                    android:id="@+id/mjf1_zuhr_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
+                    android:contentDescription="@string/salah"
+                    android:src="@drawable/ic_sujud_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/mjf1_zuhr_ic"
+                    android:text="Zuhr"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/mjf1_zuhr_time"
+                    android:layout_marginRight="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/mjf1_zuhr_time_ic"
+                    android:text="12:45"
+                    android:textSize="25sp"
+                    android:fontFamily="@font/ds_digib"
+                    android:textColor="@color/black"/>
+
+                <ImageView
+                    android:id="@+id/mjf1_zuhr_time_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_time" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_rect_shape"
+                android:padding="10dp"
+                android:layout_marginTop="5dp">
+
+
+                <ImageView
+                    android:id="@+id/mjf1_assr_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
+                    android:contentDescription="@string/salah"
+                    android:src="@drawable/ic_sujud_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/mjf1_assr_ic"
+                    android:text="Assr"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/mjf1_assr_time"
+                    android:layout_marginRight="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/mjf1_assr_time_ic"
+                    android:text="12:45"
+                    android:textSize="25sp"
+                    android:fontFamily="@font/ds_digib"
+                    android:textColor="@color/black"/>
+
+                <ImageView
+                    android:id="@+id/mjf1_assr_time_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_time" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_rect_shape"
+                android:padding="10dp"
+                android:layout_marginTop="5dp">
+
+
+                <ImageView
+                    android:id="@+id/mjf1_isha_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
+                    android:contentDescription="@string/salah"
+                    android:src="@drawable/ic_sujud_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/mjf1_isha_ic"
+                    android:text="Isha"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/mjf1_isha_time"
+                    android:layout_marginRight="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/mjf1_isha_time_ic"
+                    android:text="12:45"
+                    android:textSize="25sp"
+                    android:fontFamily="@font/ds_digib"
+                    android:textColor="@color/black"/>
+
+                <ImageView
+                    android:id="@+id/mjf1_isha_time_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_time" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_rect_shape"
+                android:padding="10dp"
+                android:layout_marginTop="5dp">
+
+
+                <ImageView
+                    android:id="@+id/mjf1_jumma_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
+                    android:contentDescription="@string/salah"
+                    android:src="@drawable/ic_sujud_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/mjf1_jumma_ic"
+                    android:text="Jumma"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/mjf1_jumma_time"
+                    android:layout_marginRight="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/mjf1_jumma_time_ic"
+                    android:text="12:45"
+                    android:textSize="25sp"
+                    android:fontFamily="@font/ds_digib"
+                    android:textColor="@color/black"/>
+
+                <ImageView
+                    android:id="@+id/mjf1_jumma_time_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_time" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/mja_title_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/advent_pro"
+                    android:text="ANÚNCIO"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:transitionName="transition_title_text" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@android:color/darker_gray"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_rect_shape"
+                android:padding="10dp"
+                android:layout_marginTop="5dp">
+
+
+                <ImageView
+                    android:id="@+id/mja1_fajr_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
+                    android:contentDescription="@string/salah"
+                    android:src="@drawable/ic_sujud_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/mja1_fajr_ic"
+                    android:text="Fajr"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/mja1_fajr_date"
+                    android:layout_marginRight="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/mja1_fajr_date_ic"
+                    android:text="01/01/2022"
+                    android:textSize="25sp"
+                    android:fontFamily="@font/ds_digib"
+                    android:textColor="@color/black"/>
+
+                <ImageView
+                    android:id="@+id/mja1_fajr_date_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_toStartOf="@+id/mja1_fajr_time"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_calendar" />
+
+                <TextView
+                    android:id="@+id/mja1_fajr_time"
+                    android:layout_marginRight="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/mja1_fajr_time_ic"
+                    android:text="12:45"
+                    android:textSize="25sp"
+                    android:fontFamily="@font/ds_digib"
+                    android:textColor="@color/black"/>
+
+                <ImageView
+                    android:id="@+id/mja1_fajr_time_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_time" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_rect_shape"
+                android:padding="10dp"
+                android:layout_marginTop="5dp">
+
+
+                <ImageView
+                    android:id="@+id/mja1_assr_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/ic_sujud_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/mja1_assr_ic"
+                    android:text="Assr"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/mja1_assr_date"
+                    android:layout_marginRight="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/mja1_assr_date_ic"
+                    android:text="01/01/2022"
+                    android:textSize="25sp"
+                    android:fontFamily="@font/ds_digib"
+                    android:textColor="@color/black"/>
+
+                <ImageView
+                    android:id="@+id/mja1_assr_date_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_toStartOf="@+id/mja1_assr_time"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_calendar" />
+
+                <TextView
+                    android:id="@+id/mja1_assr_time"
+                    android:layout_marginRight="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/mja1_assr_time_ic"
+                    android:text="12:45"
+                    android:textSize="25sp"
+                    android:fontFamily="@font/ds_digib"
+                    android:textColor="@color/black"/>
+
+                <ImageView
+                    android:id="@+id/mja1_assr_time_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_time" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_rect_shape"
+                android:padding="10dp"
+                android:layout_marginTop="5dp">
+
+
+                <ImageView
+                    android:id="@+id/mja1_isha_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/ic_sujud_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/mja1_isha_ic"
+                    android:text="Isha"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/mja1_isha_date"
+                    android:layout_marginRight="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/mja1_isha_date_ic"
+                    android:text="01/01/2022"
+                    android:textSize="25sp"
+                    android:fontFamily="@font/ds_digib"
+                    android:textColor="@color/black"/>
+
+                <ImageView
+                    android:id="@+id/mja1_isha_date_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_toStartOf="@+id/mja1_isha_time"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_calendar" />
+
+                <TextView
+                    android:id="@+id/mja1_isha_time"
+                    android:layout_marginRight="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/mja1_isha_time_ic"
+                    android:text="12:45"
+                    android:textSize="25sp"
+                    android:fontFamily="@font/ds_digib"
+                    android:textColor="@color/black"/>
+
+                <ImageView
+                    android:id="@+id/mja1_isha_time_ic"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_time" />
+
+            </RelativeLayout>
 
         </LinearLayout>
 
